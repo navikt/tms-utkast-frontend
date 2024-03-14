@@ -1,0 +1,23 @@
+---
+---
+
+<!doctype html>
+<html lang="nb">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Utkast</title>
+    <link rel="preload" href="https://cdn.nav.no/aksel/@navikt/ds-css/5.7.3/index.min.css" as="style" />
+    <link rel="stylesheet" href="https://cdn.nav.no/aksel/@navikt/ds-css/5.7.3/index.min.css" />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style>
+  body {
+    background-color: var(--a-bg-subtle);
+  }
+</style>

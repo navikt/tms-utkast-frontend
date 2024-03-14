@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+import useSWR from "swr";
+import { utkastApiUrl } from "../urls";
+import { fetcher } from "../utils/api.client";
+import Utkast from "../components/utkast/Utkast"
+import ErrorDescription from "../components/ErrorDescription/ErrorDescription";
+import { getLanguage } from "../language/language";
+
+const {
+  error: isError,
+  isLoading,
+  data: utkastApiData,
+} = useSWR({ path: utkastApiUrl }, fetcher);
+const utkastlist = utkastApiData?.data;
+const language = getLanguage(Astro.url);
+---
+
+<Layout title="Utkast">
+  <main class="main">
+    <div class="app">
+      {
+        isError ? (
+          <ErrorDescription language={language}/>
+        ) : (
+          <Utkast
+            utkast={utkastlist}
+            loading={isLoading}
+            isPartialContent={utkastApiData?.statusCode == 207}
+            language={language}
+          />
+        )
+      }
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .app {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: var(--a-bg-subtle);
+  }
+  .main {
+    max-width: none !important;
+  }
+</style>
