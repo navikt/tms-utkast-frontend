@@ -1,18 +1,15 @@
-const isDevelopment = process.env.NAIS_CLUSTER_NAME === "dev-gcp";
-export const isLocal = process.env.NODE_ENV === "development";
+const isProduction = window.location.href.includes("www.nav.no");
+const isDevelopment = window.location.href.includes("www.intern.dev.nav.no");
 
 export const getEnvironment = () => {
   if (isDevelopment) {
-    return "dev";
+    return "development";
   }
-
-  if (isLocal) {
-    return "dev";
+  if (isProduction) {
+    return "production";
   }
-
-  return "prod";
+  return "local";
 };
-
 
 type EnvUrl = { development: string; production: string; local: string };
 

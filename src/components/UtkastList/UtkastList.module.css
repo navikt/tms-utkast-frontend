@@ -65,6 +65,11 @@
   align-items: center;
 }
 
+.tekstinnhold {
+  max-width: 912px;
+  margin: 0 auto;
+}
+
 .container:hover {
   box-shadow: var(--a-shadow-small);
 }
@@ -77,9 +82,4 @@
 .container:hover .chevron {
   transition: 0.2s;
   transform: translate(3px, 0);
-}
-
-.tekstinnhold {
-  max-width: 912px;
-  margin: 0 auto;
 }

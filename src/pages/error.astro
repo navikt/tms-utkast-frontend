@@ -1,13 +1,15 @@
-import styles from "./ErrorDescription.module.css";
-import { baseUrl } from "../../urls.client";
-import KattIBoks from "../../img/KattIBoks";
+---
+import Layout from "@layouts/Layout.astro"
+import styles from "./_error.module.css";
+import { baseUrl } from "@src/urls";
+import KattIBoks from "@img/KattIBoks";
 import { BodyLong, Heading } from "@navikt/ds-react";
-import { text } from "../../language/text";
+import { text } from "@language/text";
+---
 
-const ErrorDescription = () => {
-
-  return (
-    <div className={styles.errorDiv} data-testid="errordiv">
+<Layout title="Utkast">
+  <main class="main">
+    <div class={styles.errorDiv} data-testid="errordiv">
       <Heading size={"xlarge"}>{text.errorHeading["nb"]}</Heading>
       <KattIBoks alt={text.errorKitten["nb"]} />
       <BodyLong>
@@ -17,7 +19,5 @@ const ErrorDescription = () => {
         {text.errorHelp["nb"]} <a href={baseUrl}>{text.minSide["nb"]}</a>
       </BodyLong>
     </div>
-  );
-};
-
-export default ErrorDescription;
+  </main>
+</Layout>

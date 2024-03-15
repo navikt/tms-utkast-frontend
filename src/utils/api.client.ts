@@ -1,5 +1,5 @@
 interface Props {
-  path: string;
+  url: string;
   options?: object;
 }
 
@@ -7,8 +7,8 @@ export const include = {
   credentials: "include",
 };
 
-export const fetcher = async ({ path, options }: Props) => {
-  const response = await fetch(path, {
+export const fetcher = async ({ url, options }: Props) => {
+  const response = await fetch(url, {
     method: "GET",
     ...options,
   });
@@ -17,5 +17,7 @@ export const fetcher = async ({ path, options }: Props) => {
     throw new Error("Fetch request failed");
   }
 
-  return await response.json();
+  return response.json().then((jsonData) => {
+    return { statusCode: response.status, data: jsonData };
+  });;
 };
