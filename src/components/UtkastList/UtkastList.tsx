@@ -1,21 +1,19 @@
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
 import dayjs from "dayjs";
-import { useContext } from "react";
-import { PencilIcon } from '@navikt/aksel-icons';
-import { text } from "../../../language/text";
-import { logAmplitudeEvent } from "../../../utils/amplitude";
-import { sortByOpprettet } from "../../../utils/sorting";
-import EmptyUtkastList from "../empty-utkast-list/EmptyUtkastList";
-import { type UtkastElement } from "../Utkast";
+import Pencil from "@img/Pencil";
+import { text } from "../../language/text";
+import { logAmplitudeEvent } from "../../utils/amplitude";
+import { sortByOpprettet } from "../../utils/sorting";
+import EmptyUtkastList from "../EmptyUtkastList/EmptyUtkastList";
+import type { UtkastElement } from "../Utkast";
 import styles from "./UtkastList.module.css";
-import { type Language } from "../../../language/language";
-import { useLanguage } from "../../../hooks/useLanguage";
 
 export interface UtkastListProps {
   utkast: UtkastElement[] | undefined;
-  language: Language;
 }
+
+export type Language = "nb" | "en" | "nn";
 
 interface UtkastListElementProps {
   utkast: UtkastElement;
@@ -23,15 +21,14 @@ interface UtkastListElementProps {
   language: Language;
 }
 
-const UtkastList = ({ utkast, language }: UtkastListProps) => {
-  useLanguage(language)
+const UtkastList = ({ utkast }: UtkastListProps) => {
   const listIsEmpty = utkast != undefined && utkast.length == 0;
 
   return listIsEmpty ? (
-    <EmptyUtkastList language={language}/>
+    <EmptyUtkastList />
   ) : (
     <ul className={`${styles.utkastList} ${styles.tekstinnhold}`} data-testid="utkastlist">
-      {utkast?.sort(sortByOpprettet).map((u) => <UtkastListElement language={language} utkast={u} key={u.utkastId} />)}
+      {utkast?.sort(sortByOpprettet).map((u) => <UtkastListElement language={"nb"} utkast={u} key={u.utkastId} />)}
     </ul>
   );
 };
@@ -45,14 +42,14 @@ export const UtkastListElement = ({ utkast, language }: UtkastListElementProps) 
         <div className={styles.top}>
           <div className={styles.wrapper}>
             <div className={styles.ikon}>
-              <PencilIcon aria-hidden={true} />
+              <Pencil aria-hidden={true} />
             </div>
             <BodyShort size="medium" className={styles.utkastNavn}>
-              {text.hovedoverskrift[language]}
+              {text.hovedoverskrift["nb"]}
             </BodyShort>
           </div>
           <div className={`${styles.wrapper} ${styles.endretTekst}`}>
-            <BodyLong size="small">{text.opprettet[language] + dateFormatter(utkast.opprettet)}</BodyLong>
+            <BodyLong size="small">{text.opprettet["nb"] + dateFormatter(utkast.opprettet)}</BodyLong>
             <ChevronRightIcon className={styles.chevron} fontSize="1.25rem" aria-hidden={true} aria-label="Chevron" />
           </div>
         </div>
