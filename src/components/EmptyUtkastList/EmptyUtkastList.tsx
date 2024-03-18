@@ -5,7 +5,7 @@ import { text } from "../../language/text";
 
 const EmptyUtkastList = () => {
   return (
-    <div className={`${styles.ingenUtkast} ${styles.tekstinnhold}`}>
+    <div className={styles.ingenUtkast}>
       <div className={styles.ingenUtkastTekst}>
         <Heading size="small" level="2">
           {text.ingenUtkastTittel["nb"]}

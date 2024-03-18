@@ -6,6 +6,7 @@
   padding: 16px 0;
   margin: 0;
   max-width: 632px;
+  width: 100%;
 }
 
 .container {
@@ -63,11 +64,6 @@
 .wrapper {
   display: flex;
   align-items: center;
-}
-
-.tekstinnhold {
-  max-width: 912px;
-  margin: 0 auto;
 }
 
 .container:hover {

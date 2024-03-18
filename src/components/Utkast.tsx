@@ -40,7 +40,7 @@ const Utkast = () => {
   return (
     <div className={styles.container}>
       <div className={styles.utkastWrapper}>
-        <div className={`${styles.utkast} ${styles.tekstinnhold}`}>
+        <div className={styles.utkast}>
           <Heading size={"large"}> {text.hovedoverskrift["nb"]} </Heading>
           <BodyLong className={styles.ingress} size={"large"}>
             {text.description["nb"]}

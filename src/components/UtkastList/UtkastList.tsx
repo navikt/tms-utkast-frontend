@@ -27,7 +27,7 @@ const UtkastList = ({ utkast }: UtkastListProps) => {
   return listIsEmpty ? (
     <EmptyUtkastList />
   ) : (
-    <ul className={`${styles.utkastList} ${styles.tekstinnhold}`} data-testid="utkastlist">
+    <ul className={styles.utkastList} data-testid="utkastlist">
       {utkast?.sort(sortByOpprettet).map((u) => <UtkastListElement language={"nb"} utkast={u} key={u.utkastId} />)}
     </ul>
   );

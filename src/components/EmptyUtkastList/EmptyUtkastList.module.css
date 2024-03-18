@@ -25,11 +25,6 @@
   font-size: 20px;
 }
 
-.tekstinnhold {
-  max-width: 912px;
-  margin: 0 auto;
-}
-
 .lenke {
   color: var(--a-surface-action) !important;
   text-decoration: underline;
