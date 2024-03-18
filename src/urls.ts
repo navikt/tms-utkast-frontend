@@ -3,14 +3,14 @@ export const isLocal = process.env.NODE_ENV === "development";
 
 export const getEnvironment = () => {
   if (isDevelopment) {
-    return "dev";
+    return "development";
   }
 
   if (isLocal) {
-    return "dev";
+    return "development";
   }
 
-  return "prod";
+  return "production";
 };
 
 
