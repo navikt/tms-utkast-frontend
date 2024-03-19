@@ -21,7 +21,7 @@ spec:
     min: 2
     max: 4
   ingresses:
-    - "https://www.nav.no/tms-utkast-frontend"
+    - "https://www.intern.nav.no/tms-utkast-frontend"
   resources:
     limits:
       memory: 768Mi
