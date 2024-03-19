@@ -2,12 +2,12 @@ import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
 import dayjs from "dayjs";
 import Pencil from "@img/Pencil";
-import { text } from "../../language/text";
+import { text } from "@language/text";
+import type { Language } from "@language/language";
 import { logAmplitudeEvent } from "../../utils/amplitude";
 import { sortByOpprettet } from "../../utils/sorting";
 import EmptyUtkastList from "../EmptyUtkastList/EmptyUtkastList";
 import type { UtkastElement } from "../Utkast";
-import type { Language } from "../../language/text";
 import styles from "./UtkastList.module.css";
 
 export interface UtkastListProps {

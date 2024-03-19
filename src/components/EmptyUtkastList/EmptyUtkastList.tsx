@@ -1,7 +1,8 @@
 import { BodyLong, Heading } from "@navikt/ds-react";
 import TomtKatt from "../../img/TomtKatt";
 import styles from "./EmptyUtkastList.module.css";
-import { text, type Language } from "@language/text";
+import { text } from "@language/text";
+import type { Language } from "@language/language";
 
 interface Props {
   language: Language

@@ -1,6 +1,3 @@
-export type Language = "nb" | "en" | "nn";
-
-
 export const text = {
   hovedoverskrift: {
     nb: "Utkast",
