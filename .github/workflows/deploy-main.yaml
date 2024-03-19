@@ -1,5 +1,8 @@
-name: "Deploy dev"
-on: workflow_dispatch
+name: "Deploy main"
+on:
+  push:
+    branches:
+      - "main"
 
 jobs:
   build:
@@ -47,15 +50,15 @@ jobs:
     outputs:
       image: ${{ steps.docker-build-push.outputs.image }}
 
-  deploy-dev:
+  deploy:
     runs-on: "ubuntu-latest"
     needs: "build"
     strategy:
       matrix:
-        cluster: [ dev-gcp ]
+        cluster: [ dev-gcp, prod-gcp ]
     steps:
       - uses: "actions/checkout@v3"
-      - name: "Deploy to dev"
+      - name: "Deploy"
         uses: "nais/deploy/actions/deploy@v1"
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
