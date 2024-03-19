@@ -1,12 +1,13 @@
 ---
 import Utkast from "@components/Utkast";
-import Layout from "../layouts/Layout.astro";
 import type { Language } from "@language/text";
+import Layout from "@layouts/Layout.astro";
+
 ---
 
 <Layout title="Utkast">
   <main class="main">
-    <Utkast client:only="react" language={"nb" as Language}/>
+    <Utkast client:only="react" language={"nn" as Language}/>
   </main>
 </Layout>
 

@@ -1,7 +1,7 @@
 import { Alert, BodyLong, Heading, Loader } from "@navikt/ds-react";
 import styles from "./Utkast.module.css";
 import UtkastList from "@components/UtkastList/UtkastList";
-import { text } from "@language/text";
+import { text, type Language } from "@language/text";
 import useSWR from "swr";
 import { utkastApiUrl } from "src/urls.client";
 import { fetcher } from "src/utils/api.client";
@@ -26,7 +26,11 @@ export interface MetricValues {
   skjemanavn: string;
 }
 
-const Utkast = () => {
+interface Props {
+  language: Language
+}
+
+const Utkast = ({ language }: Props) => {
 
   const { data: utkastApiData, error, isLoading } = useSWR({url: utkastApiUrl}, fetcher);
 
@@ -41,18 +45,18 @@ const Utkast = () => {
     <div className={styles.container}>
       <div className={styles.utkastWrapper}>
         <div className={styles.utkast}>
-          <Heading size={"large"}> {text.hovedoverskrift["nb"]} </Heading>
+          <Heading size={"large"}> {text.hovedoverskrift[language]} </Heading>
           <BodyLong className={styles.ingress} size={"large"}>
-            {text.description["nb"]}
+            {text.description[language]}
           </BodyLong>
-          {!isLoading && isPartialContent ? <Alert variant={"warning"}>{text.partialContent["nb"]}</Alert> : null}
+          {!isLoading && isPartialContent ? <Alert variant={"warning"}>{text.partialContent[language]}</Alert> : null}
         </div>
         {isLoading ? (
           <div className={styles.loadingDiv}>
             <Loader id="loader" size="3xlarge" title="venter..." />
           </div>
         ) : (
-          <UtkastList utkast={utkastlist} />
+          <UtkastList utkast={utkastlist} language={language}/>
         )}
       </div>
     </div>
