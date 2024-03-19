@@ -1,0 +1,23 @@
+---
+import Layout from "@layouts/Layout.astro"
+import styles from "./_error.module.css";
+import { baseUrl } from "@src/urls";
+import KattIBoks from "@img/KattIBoks";
+import { BodyLong, Heading } from "@navikt/ds-react";
+import { text } from "@language/text";
+---
+
+<Layout title="Utkast">
+  <main class="main">
+    <div class={styles.errorDiv} data-testid="errordiv">
+      <Heading size={"xlarge"}>{text.errorHeading["nn"]}</Heading>
+      <KattIBoks alt={text.errorKitten["nn"]} />
+      <BodyLong>
+        <strong>{text.errorText["nn"]}</strong>
+      </BodyLong>
+      <BodyLong>
+        {text.errorHelp["nn"]} <a href={baseUrl}>{text.minSide["nn"]}</a>
+      </BodyLong>
+    </div>
+  </main>
+</Layout>

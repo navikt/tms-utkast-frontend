@@ -21,4 +21,11 @@ export default defineConfig({
       },
     },
   ],
+  i18n: {
+    defaultLocale: "nb",
+    locales: ["nb", "nn", "en"],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  }
 });

@@ -1,22 +1,27 @@
 import { BodyLong, Heading } from "@navikt/ds-react";
 import TomtKatt from "../../img/TomtKatt";
 import styles from "./EmptyUtkastList.module.css";
-import { text } from "../../language/text";
+import { text } from "@language/text";
+import type { Language } from "@language/language";
 
-const EmptyUtkastList = () => {
+interface Props {
+  language: Language
+}
+
+const EmptyUtkastList = ({language}: Props) => {
   return (
     <div className={styles.ingenUtkast}>
       <div className={styles.ingenUtkastTekst}>
         <Heading size="small" level="2">
-          {text.ingenUtkastTittel["nb"]}
+          {text.ingenUtkastTittel[language]}
         </Heading>
-        <BodyLong size="medium">{text.ingenUtkastIngress["nb"]}</BodyLong>
+        <BodyLong size="medium">{text.ingenUtkastIngress[language]}</BodyLong>
         <a href={"https://www.nav.no/tjenester"} className={styles.lenke}>
           {" "}
-          {text.ingenUtkastLenketekst["nb"]}
+          {text.ingenUtkastLenketekst[language]}
         </a>
       </div>
-      <TomtKatt alt={text.emptyKitten["nb"]} />
+      <TomtKatt alt={text.emptyKitten[language]} />
     </div>
   );
 };
