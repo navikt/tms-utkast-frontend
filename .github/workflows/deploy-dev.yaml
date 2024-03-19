@@ -1,0 +1,15 @@
+name: Deploy to dev
+on: workflow_dispatch
+
+permissions:
+  contents: 'read'
+  id-token: 'write'
+  packages: 'write'
+
+jobs:
+  deploy:
+    uses: navikt/tms-deploy/.github/workflows/mikrofrontend-deploy.yaml@main
+    with:
+      cluster: '["dev-gcp"]'
+      node-version: 18
+    secrets: inherit
