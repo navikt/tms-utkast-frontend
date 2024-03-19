@@ -1,7 +1,7 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: utkast-microfrontend-astro
+  name: tms-utkast-frontend
   namespace: min-side
   labels:
     team: min-side
@@ -9,22 +9,21 @@ spec:
   image: {{ image }}
   port: 7800
   liveness:
-    path: /tms-utkast-microfrontend-astro/internal/isAlive
+    path: /tms-utkast-frontend/internal/isAlive
     initialDelay: 10
   readiness:
-    path: /tms-utkast-microfrontend-astro/internal/isReady
+    path: /tms-utkast-frontend/internal/isReady
     initialDelay: 10
   prometheus:
     enabled: true
-    path: /tms-utkast-microfrontend-astro/internal/metrics
+    path: /tms-utkast-frontend/internal/metrics
   replicas:
     min: 2
     max: 4
   ingresses:
-    - "https://www.nav.no/tms-utkast-microfrontend-astro"
+    - "https://www.nav.no/tms-utkast-frontend"
   resources:
     limits:
-      cpu: "1"
       memory: 768Mi
     requests:
       cpu: "20m"
