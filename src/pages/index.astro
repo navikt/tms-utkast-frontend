@@ -5,26 +5,5 @@ import type { Language } from "@language/language";
 ---
 
 <Layout title="Utkast">
-  <main class="main">
     <Utkast client:only="react" language={"nb" as Language}/>
-  </main>
 </Layout>
-
-<style>
-  .app {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 100%;
-    width: 100%;
-    background-color: var(--a-bg-subtle);
-    padding: 0;
-    min-height: 600px;
-    max-width: 912px;
-    margin: 0 auto;
-  }
-  .main {
-    max-width: none !important;
-  }
-</style>
