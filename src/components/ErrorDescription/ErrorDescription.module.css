@@ -1,7 +1,17 @@
 .errorDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+
   text-align: center;
   margin-top: 50px;
   color: var(--a-text-default);
+
+  background-color: blue;
 }
 
 .errorDiv h1 {

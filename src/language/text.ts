@@ -45,9 +45,9 @@ export const text = {
     nn: "Vi fann dessverre ikkje det du leita etter",
   },
   errorHelp: {
-    nb: "Prøv igjen senere eller gå til",
-    en: "Try again later or go to",
-    nn: "Prøv igjen seinare eller gå til",
+    nb: "Prøv igjen senere eller gå til ",
+    en: "Try again later or go to ",
+    nn: "Prøv igjen seinare eller gå til ",
   },
   errorKitten: {
     nb: "En svart katt som har forsøkt å hoppe inn i en boks med hodet først men satt seg fast slik at bare føttene og halen stikker opp",

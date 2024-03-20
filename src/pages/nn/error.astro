@@ -8,16 +8,38 @@ import { text } from "@language/text";
 ---
 
 <Layout title="Utkast">
-  <main class="main">
-    <div class={styles.errorDiv} data-testid="errordiv">
-      <Heading size={"xlarge"}>{text.errorHeading["nn"]}</Heading>
-      <KattIBoks alt={text.errorKitten["nn"]} />
-      <BodyLong>
-        <strong>{text.errorText["nn"]}</strong>
-      </BodyLong>
-      <BodyLong>
-        {text.errorHelp["nn"]} <a href={baseUrl}>{text.minSide["nn"]}</a>
-      </BodyLong>
-    </div>
-  </main>
+  <div class="container">
+    <Heading size={"xlarge"}>{text.errorHeading["nn"]}</Heading>
+    <KattIBoks alt={text.errorKitten["nn"]} />
+    <BodyLong>
+      <strong>{text.errorText["nn"]}</strong>
+    </BodyLong>
+    <BodyLong>
+      {text.errorHelp["nn"]} <a href={baseUrl}>{text.minSide["nn"]}</a>
+    </BodyLong>
+  </div>
 </Layout>
+
+<style>
+  .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+
+  text-align: center;
+  margin-top: 50px;
+  color: var(--a-text-default);
+  }
+
+  .container h1 {
+  margin-bottom: 30px;
+  }
+
+  .container a {
+  color: var(--a-text-default);
+  }
+</style>

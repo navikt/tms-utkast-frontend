@@ -1,6 +1,5 @@
 ---
 import Layout from "@layouts/Layout.astro"
-import styles from "./_error.module.css";
 import { baseUrl } from "@src/urls";
 import KattIBoks from "@img/KattIBoks";
 import { BodyLong, Heading } from "@navikt/ds-react";
@@ -8,8 +7,7 @@ import { text } from "@language/text";
 ---
 
 <Layout title="Utkast">
-  <main class="main">
-    <div class={styles.errorDiv} data-testid="errordiv">
+    <div class="container">
       <Heading size={"xlarge"}>{text.errorHeading["nb"]}</Heading>
       <KattIBoks alt={text.errorKitten["nb"]} />
       <BodyLong>
@@ -19,5 +17,28 @@ import { text } from "@language/text";
         {text.errorHelp["nb"]} <a href={baseUrl}>{text.minSide["nb"]}</a>
       </BodyLong>
     </div>
-  </main>
 </Layout>
+
+<style>
+  .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+
+  text-align: center;
+  margin-top: 50px;
+  color: var(--a-text-default);
+  }
+
+  .container h1 {
+  margin-bottom: 30px;
+  }
+
+  .container a {
+  color: var(--a-text-default);
+  }
+</style>
