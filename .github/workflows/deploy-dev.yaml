@@ -54,7 +54,6 @@ jobs:
       matrix:
         cluster: [ dev-gcp ]
     steps:
-      - uses: "actions/checkout@v3"
       - name: "Deploy to dev"
         uses: "nais/deploy/actions/deploy@v2"
         env:
