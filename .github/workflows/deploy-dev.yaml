@@ -49,7 +49,9 @@ jobs:
 
   deploy-dev:
     permissions:
+      contents: "read"
       id-token: "write"
+      packages: "write"
     runs-on: "ubuntu-latest"
     needs: "build"
     strategy:
