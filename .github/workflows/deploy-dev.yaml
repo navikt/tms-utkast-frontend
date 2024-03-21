@@ -48,6 +48,8 @@ jobs:
       image: ${{ steps.docker-build-push.outputs.image }}
 
   deploy-dev:
+    permissions:
+      id-token: "write"
     runs-on: "ubuntu-latest"
     needs: "build"
     strategy:
