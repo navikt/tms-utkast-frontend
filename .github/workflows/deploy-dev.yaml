@@ -55,13 +55,11 @@ jobs:
 
     runs-on: "ubuntu-latest"
     needs: "build"
-    strategy:
-      matrix:
-        cluster: [ dev-gcp ]
     steps:
+      - uses: "actions/checkout@v3"
       - name: "Deploy to dev"
         uses: "nais/deploy/actions/deploy@v2"
         env:
-          CLUSTER: ${{ matrix.cluster }}
-          RESOURCE: nais/${{ matrix.cluster }}/nais.yaml
+          CLUSTER: dev-gcp
+          RESOURCE: nais/dev-gcp/nais.yaml
           VAR: image=${{ needs.build.outputs.image }},version=${{ github.sha }}
