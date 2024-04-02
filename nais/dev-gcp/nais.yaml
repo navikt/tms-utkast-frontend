@@ -13,7 +13,6 @@ spec:
       level: Level3
   tokenx:
     enabled: true
-spec:
   image: {{ image }}
   port: 3000
   liveness:
