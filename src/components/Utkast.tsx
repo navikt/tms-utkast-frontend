@@ -1,12 +1,12 @@
-import { Alert, BodyLong, Heading, Loader } from "@navikt/ds-react";
-import styles from "./Utkast.module.css";
 import UtkastList from "@components/UtkastList/UtkastList";
-import { text } from "@language/text";
 import type { Language } from "@language/language";
-import useSWR from "swr";
+import { text } from "@language/text";
+import { Alert, Loader } from "@navikt/ds-react";
+import { useLanguage } from "@src/hooks/useLanguage";
 import { utkastApiUrl } from "src/urls.client";
 import { fetcher } from "src/utils/api.client";
-import { useLanguage } from "@src/hooks/useLanguage";
+import useSWR from "swr";
+import styles from "./Utkast.module.css";
 
 export interface UtkastProps {
   loading: boolean;

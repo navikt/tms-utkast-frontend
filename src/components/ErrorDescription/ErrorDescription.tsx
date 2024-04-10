@@ -1,9 +1,9 @@
-import styles from "./ErrorDescription.module.css";
-import { baseUrl } from "../../urls.client";
-import KattIBoks from "../../img/KattIBoks";
-import { BodyLong, Heading } from "@navikt/ds-react";
-import { text } from "@language/text";
 import type { Language } from "@language/language";
+import { text } from "@language/text";
+import { BodyLong, Heading } from "@navikt/ds-react";
+import KattIBoks from "../../img/KattIBoks";
+import { baseUrl } from "../../urls.client";
+import styles from "./ErrorDescription.module.css";
 
 interface Props {
   language: Language

@@ -1,8 +1,8 @@
 ---
+import { getLanguage } from "@language/language";
 import { fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
 import { getEnvironment } from "../utils/environment";
-import { getLanguage } from "@language/language";
-import styles from "./Layout.module.css"
+import styles from "./Layout.module.css";
 
 export interface Props {
   title: string;
