@@ -4,10 +4,15 @@ import { baseUrl } from "@src/urls";
 import KattIBoks from "@img/KattIBoks";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import { text } from "@language/text";
+import styles from "../_error.module.css";
+import { getLanguage } from "../../language/language";
+import LanguageRedirecter from "@language-redirecter/LanguageRedirecter"
+
+const language = getLanguage(Astro.url)
 ---
 
-<Layout title="Utkast">
-  <div class="container">
+<Layout title="Utkast" breadcrumbs={[]}>
+  <div class={styles.container}>
     <Heading size={"xlarge"}>{text.errorHeading["en"]}</Heading>
     <KattIBoks alt={text.errorKitten["en"]} />
     <BodyLong>
@@ -18,27 +23,4 @@ import { text } from "@language/text";
     </BodyLong>
   </div>
 </Layout>
-
-<style>
-  .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  margin: 0 auto;
-
-  text-align: center;
-  margin-top: 50px;
-  color: var(--a-text-default);
-  }
-
-  .container h1 {
-  margin-bottom: 30px;
-  }
-
-  .container a {
-  color: var(--a-text-default);
-  }
-</style>
+<LanguageRedirecter client:only="react" language={language}/>

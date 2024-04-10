@@ -10,6 +10,7 @@
       "@img/*": ["src/img/*"],
       "@layouts/*": ["src/layouts/*"],
       "@src/*": ["src/*"],
+      "@language-redirecter/*": ["src/components/language-redirecter/*"]
     }
   },
 }

@@ -6,6 +6,7 @@ import type { Language } from "@language/language";
 import useSWR from "swr";
 import { utkastApiUrl } from "src/urls.client";
 import { fetcher } from "src/utils/api.client";
+import { useLanguage } from "@src/hooks/useLanguage";
 
 export interface UtkastProps {
   loading: boolean;
@@ -35,6 +36,8 @@ const Utkast = ({ language }: Props) => {
 
   const { data: utkastApiData, error, isLoading } = useSWR({url: utkastApiUrl}, fetcher);
 
+  useLanguage(language);
+
   const utkastlist = utkastApiData?.data;
   const isPartialContent = utkastApiData?.statusCode == 207;
 
@@ -43,24 +46,18 @@ const Utkast = ({ language }: Props) => {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.utkastWrapper}>
-        <div className={styles.utkast}>
-          <Heading size={"large"}> {text.hovedoverskrift[language]} </Heading>
-          <BodyLong className={styles.ingress} size={"large"}>
-            {text.description[language]}
-          </BodyLong>
-          {!isLoading && isPartialContent ? <Alert variant={"warning"}>{text.partialContent[language]}</Alert> : null}
-        </div>
-        {isLoading ? (
-          <div className={styles.loadingDiv}>
-            <Loader id="loader" size="3xlarge" title="venter..." />
-          </div>
-        ) : (
-          <UtkastList utkast={utkastlist} language={language}/>
-        )}
+    <>
+      <div className={styles.utkast}>
+        {!isLoading && isPartialContent ? <Alert variant={"warning"}>{text.partialContent[language]}</Alert> : null}
       </div>
-    </div>
+      {isLoading ? (
+        <div className={styles.loadingDiv}>
+          <Loader id="loader" size="3xlarge" title="venter..." />
+        </div>
+      ) : (
+        <UtkastList utkast={utkastlist} language={language}/>
+      )}
+    </>
   );
 };
 

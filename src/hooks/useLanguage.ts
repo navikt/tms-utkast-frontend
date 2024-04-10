@@ -5,10 +5,15 @@ import type { Language } from "@language/language";
 export const useLanguage = (language: Language) => {
   const [_leadingSlash, _basePath, _oldLocale, ...rest] = window.location.pathname.split("/");
   const slug = rest.join("/");
-
+  
   onLanguageSelect((language) => {
     window.sessionStorage.setItem("language", language.locale);
-    window.location.pathname = `/minside/${language.locale}/${slug}`;
+    
+    if(language.locale === "nb") {
+      window.location.pathname = `/tms-utkast-frontend/${slug}`;
+    } else {
+      window.location.pathname = `/tms-utkast-frontend/${language.locale}/${slug}`;
+    }   
   });
 
   useEffect(() => {
