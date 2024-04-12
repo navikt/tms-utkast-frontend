@@ -19,25 +19,27 @@ console.info("Henter dekoratøren fra: " + getEnvironment());
 
 const Decorator = await fetchDecoratorReact({
   env: getEnvironment(),
-  context: "privatperson",
-  breadcrumbs: breadcrumbs,
-  availableLanguages : [
-    {
-      locale: "nb",
-      url: "https://www.nav.no/minside/nb",
-      handleInApp: true,
-    },
-    {
-      locale: "en",
-      url: "https://www.nav.no/minside/en",
-      handleInApp: true,
-    },
-    {
-      locale: "nn",
-      url: "https://www.nav.no/minside/nn",
-      handleInApp: true,
-    }
-  ]
+  params: {
+    context: "privatperson",
+    breadcrumbs: breadcrumbs,
+    availableLanguages : [
+      {
+        locale: "nb",
+        url: "https://www.nav.no/minside/nb",
+        handleInApp: true,
+      },
+      {
+        locale: "en",
+        url: "https://www.nav.no/minside/en",
+        handleInApp: true,
+      },
+      {
+        locale: "nn",
+        url: "https://www.nav.no/minside/nn",
+        handleInApp: true,
+      }
+    ]
+  },
 });
 ---
 
