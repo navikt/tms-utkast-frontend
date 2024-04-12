@@ -24,6 +24,11 @@ spec:
   replicas:
     min: 2
     max: 4
+  accessPolicy:
+    outbound:
+      rules:
+        - application: nav-dekoratoren
+          namespace: personbruker
   ingresses:
     - "https://www.intern.nav.no/tms-utkast-frontend"
   resources:

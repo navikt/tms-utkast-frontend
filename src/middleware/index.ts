@@ -11,15 +11,10 @@ export const onRequest = defineMiddleware(async (context, next) => {
   if (isLocal) {
     return next();
   }
-
-  console.info("Vi kom hit...")
-
+  
   if (isInternal(context)) {
     return next();
   }
-
-  console.info("Vi kom også hit...")
-
 
   if (!bearerToken) {
     console.info("Could not find any bearer token on the request. Redirecting to login.");
