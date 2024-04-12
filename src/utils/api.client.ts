@@ -3,14 +3,10 @@ interface Props {
   options?: object;
 }
 
-export const include = {
-  credentials: "include",
-};
-
-export const fetcher = async ({ url, options }: Props) => {
+export const fetcher = async ({ url }: Props) => {
   const response = await fetch(url, {
     method: "GET",
-    ...options,
+    credentials: "include"
   });
 
   if (!response.ok) {
