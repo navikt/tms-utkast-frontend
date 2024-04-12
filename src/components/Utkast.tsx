@@ -3,7 +3,7 @@ import type { Language } from "@language/language";
 import { text } from "@language/text";
 import { Alert, Loader } from "@navikt/ds-react";
 import { useLanguage } from "@src/hooks/useLanguage";
-import { utkastApiUrl } from "src/urls.client";
+import { baseUrl, utkastApiUrl } from "src/urls.client";
 import { fetcher } from "src/utils/api.client";
 import useSWR from "swr";
 import styles from "./Utkast.module.css";
@@ -42,7 +42,7 @@ const Utkast = ({ language }: Props) => {
   const isPartialContent = utkastApiData?.statusCode == 207;
 
   if (error) {
-    window.window.location.href = "/error"
+    window.window.location.href = `${baseUrl}/error`
   }
 
   return (
