@@ -16,16 +16,16 @@ spec:
   image: {{ image }}
   port: 3000
   liveness:
-    path: /tms-utkast-frontend/api/internal/isAlive
+    path: /utkast/api/internal/isAlive
     initialDelay: 10
   readiness:
-    path: /tms-utkast-frontend/api/internal/isReady
+    path: /utkast/api/internal/isReady
     initialDelay: 10
   replicas:
     min: 2
     max: 4
   ingresses:
-    - "https://www.intern.dev.nav.no/tms-utkast-frontend"
+    - "https://www.intern.dev.nav.no/utkast"
   resources:
     limits:
       memory: 768Mi

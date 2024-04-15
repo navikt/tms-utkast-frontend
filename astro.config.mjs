@@ -6,7 +6,7 @@ import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/tms-utkast-frontend",
+  base: "/utkast",
   integrations: [
     react(),
     {

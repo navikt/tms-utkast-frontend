@@ -11,7 +11,7 @@ Frontend for tilgang til liste med utkast
 2. Bygg tms-utkast-frontend ved å kjøre npm run build
 3. Start hono mockserver med npm run mock
 4. Med mockserver kjørende i egen terminal, start appen lokalt ved å kjøre npm run dev i et nytt terminalvindu
-4. Appen nås på http://localhost:4321/tms-utkast-frontend
+4. Appen nås på http://localhost:4321/utkast
 
 # Henvendelser
 
