@@ -21,8 +21,8 @@ const MIN_SIDE_PROXY_URL = {
 
 const BASE_URL: EnvUrl = {
   local: "http://localhost:3000",
-  development: "https://www.intern.dev.nav.no/utkast/",
-  production: "https://www.nav.no/utkast/",
+  development: "https://www.intern.dev.nav.no/min-side/utkast/",
+  production: "https://www.nav.no/min-side/utkast/",
 };
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
 export const utkastApiUrl = `${minSideProxyUrl}/utkast/v2/utkast`;
