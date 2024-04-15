@@ -30,7 +30,7 @@ spec:
         - application: nav-dekoratoren
           namespace: personbruker
   ingresses:
-    - "https://www.nav.no/utkast"
+    - "https://www.nav.no/min-side/utkast"
   resources:
     limits:
       memory: 768Mi
