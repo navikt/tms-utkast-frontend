@@ -23,14 +23,6 @@ export const useLanguage = (language: Language) => {
         locale: "nb",
         handleInApp: true,
       },
-      {
-        locale: "en",
-        handleInApp: true,
-      },
-      {
-        locale: "nn",
-        handleInApp: true,
-      },
     ]);
   }, []);
 };
