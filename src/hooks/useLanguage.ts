@@ -3,7 +3,7 @@ import { onLanguageSelect, setAvailableLanguages, setParams } from "@navikt/nav-
 import { useEffect } from "react";
 
 export const useLanguage = (language: Language) => {
-  const [_leadingSlash, _basePath, _oldLocale, ...rest] = window.location.pathname.split("/");
+  const [_leadingSlash, _basePath, _path, _oldLocale, ...rest] = window.location.pathname.split("/");
   const slug = rest.join("/");
   
   onLanguageSelect((language) => {
@@ -21,6 +21,14 @@ export const useLanguage = (language: Language) => {
     setAvailableLanguages([
       {
         locale: "nb",
+        handleInApp: true,
+      },
+      {
+        locale: "nn",
+        handleInApp: true,
+      },
+      {
+        locale: "en",
         handleInApp: true,
       },
     ]);
