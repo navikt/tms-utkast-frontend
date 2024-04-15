@@ -6,7 +6,7 @@ import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/utkast",
+  base: "/min-side/utkast",
   build: {
     assetsPrefix: "https://cdn.nav.no/min-side/tms-utkast-frontend",
   },
