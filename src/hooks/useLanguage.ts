@@ -10,9 +10,9 @@ export const useLanguage = (language: Language) => {
     window.sessionStorage.setItem("language", language.locale);
     
     if(language.locale === "nb") {
-      window.location.pathname = `/min-side/utkast/${slug}`;
+      window.location.pathname = `/minside/utkast/${slug}`;
     } else {
-      window.location.pathname = `/min-side/utkast/${language.locale}/${slug}`;
+      window.location.pathname = `/minside/utkast/${language.locale}/${slug}`;
     }   
   });
 

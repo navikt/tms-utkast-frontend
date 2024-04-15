@@ -16,10 +16,10 @@ spec:
   image: {{ image }}
   port: 3000
   liveness:
-    path: /min-side/utkast/api/internal/isAlive
+    path: /minside/utkast/api/internal/isAlive
     initialDelay: 10
   readiness:
-    path: /min-side/utkast/api/internal/isReady
+    path: /minside/utkast/api/internal/isReady
     initialDelay: 10
   replicas:
     min: 2
@@ -30,7 +30,7 @@ spec:
         - application: nav-dekoratoren
           namespace: personbruker
   ingresses:
-    - "https://www.intern.dev.nav.no/min-side/utkast"
+    - "https://www.intern.dev.nav.no/minside/utkast"
   resources:
     limits:
       memory: 768Mi
