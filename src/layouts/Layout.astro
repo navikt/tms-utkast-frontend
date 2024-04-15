@@ -15,8 +15,6 @@ export interface Props {
 const language = getLanguage(Astro.url);
 const { breadcrumbs } = Astro.props;
 
-console.info("Dekoratøren startet innlasting");
-
 const Decorator = await fetchDecoratorReact({
   env: getEnvironment(),
   params: {
@@ -41,7 +39,6 @@ const Decorator = await fetchDecoratorReact({
     ]
   },
 });
-console.info("Dekoratøren lastet inn");
 ---
 
 <!doctype html>
