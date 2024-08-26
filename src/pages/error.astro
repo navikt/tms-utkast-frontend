@@ -5,10 +5,9 @@ import { text } from "@language/text";
 import Layout from "@layouts/Layout.astro";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import { baseUrl } from "@src/urls";
-import { getLanguage } from "../language/language";
 import styles from "./_error.module.css";
 
-const language = getLanguage(Astro.url)
+const language = Astro.currentLocale;
 ---
 
 <Layout title="Utkast" breadcrumbs={[]}>
