@@ -5,20 +5,21 @@ import { text } from "@language/text";
 import Layout from "@layouts/Layout.astro";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import { baseUrl } from "@src/urls";
+import type { Language } from "../language/language";
 import styles from "./_error.module.css";
 
-const language = Astro.currentLocale;
+const language = Astro.currentLocale as Language;
 ---
 
 <Layout title="Utkast" breadcrumbs={[]}>
     <div class={styles.container}>
-      <Heading size={"xlarge"}>{text.errorHeading["nb"]}</Heading>
-      <KattIBoks alt={text.errorKitten["nb"]} />
+      <Heading size={"xlarge"}>{text.errorHeading[language]}</Heading>
+      <KattIBoks alt={text.errorKitten[language]} />
       <BodyLong>
-        <strong>{text.errorText["nb"]}</strong>
+        <strong>{text.errorText[language]}</strong>
       </BodyLong>
       <BodyLong>
-        {text.errorHelp["nb"]} <a href={baseUrl}>{text.minSide["nb"]}</a>
+        {text.errorHelp[language]} <a href={baseUrl}>{text.minSide[language]}</a>
       </BodyLong>
     </div>
 </Layout>
