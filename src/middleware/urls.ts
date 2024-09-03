@@ -1,7 +1,7 @@
 import { getEnvironment } from "@src/urls";
 
 const REDIRECT_URI = {
-  development: "https://www.intern.dev.nav.no/minside/utkast",
+  development: "https://www.ansatt.dev.nav.no/minside/utkast",
   production: "https://www.nav.no/minside/utkast",
 };
 

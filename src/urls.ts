@@ -18,13 +18,13 @@ type EnvUrl = { development: string; production: string; local: string };
 
 const MIN_SIDE_PROXY_URL = {
   local: "http://localhost:3000",
-  development: "https://www.intern.dev.nav.no/tms-min-side-proxy",
+  development: "https://www.ansatt.dev.nav.no/tms-min-side-proxy",
   production: "https://www.nav.no/tms-min-side-proxy",
 };
 
 const BASE_URL: EnvUrl = {
   local: "https://www.dev.nav.no/minside/",
-  development: "https://www.intern.dev.nav.no/minside/",
+  development: "https://www.ansatt.dev.nav.no/minside/",
   production: "https://www.nav.no/minside/",
 };
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
