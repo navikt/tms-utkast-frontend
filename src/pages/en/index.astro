@@ -1,0 +1,30 @@
+---
+import { text } from "../../language/text";
+import Layout from "../../layouts/Layout.astro";
+import {BodyLong, Heading, Loader} from "@navikt/ds-react";
+import Utkast from "../../components/utkast/Utkast.astro";
+import type { Language } from "../../language/language";
+import styles from "./_index.module.css";
+
+const language = Astro.currentLocale as Language;
+---
+
+<Layout title="Utkast" breadcrumbs={[]}>
+  <div class={styles.headingWrapper}>
+    <div>
+      <Heading size={"large"}>
+        {text.hovedoverskrift[language]}
+      </Heading>
+      <BodyLong className={styles.ingress} size={"large"}>
+        {text.description[language]}
+      </BodyLong>
+    </div>
+  </div>
+  <div class={styles.utkastWrapper}>
+    <Utkast server:defer>
+      <div class={styles.loadingDiv} slot="fallback">
+        <Loader id="loader" size="3xlarge" title="venter..." />
+      </div>
+    </Utkast>>
+  </div>  
+</Layout>

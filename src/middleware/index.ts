@@ -2,7 +2,7 @@ import { validateIdportenToken } from "./auth/validate";
 import { defineMiddleware } from "astro/middleware";
 import { loginUrl } from "./urls";
 import { isInternal } from "./utils";
-import { isLocal } from "@src/urls";
+import { isLocal } from "@src/utils/server/urls.ts";
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const bearerToken: string | null | undefined = context.request.headers.get("authorization");
@@ -28,6 +28,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
     console.error(error);
     return context.redirect(`${loginUrl}${params}`);
   }
+
+  context.locals.token = bearerToken;
 
   return next();
 });

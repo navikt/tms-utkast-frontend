@@ -7,7 +7,7 @@ export const getEnvironment = () => {
   }
 
   if (isLocal) {
-    return "development";
+    return "local";
   }
 
   return "production";
@@ -16,17 +16,17 @@ export const getEnvironment = () => {
 
 type EnvUrl = { development: string; production: string; local: string };
 
-const MIN_SIDE_PROXY_URL = {
-  local: "http://localhost:3000",
-  development: "https://www.ansatt.dev.nav.no/tms-min-side-proxy",
-  production: "https://www.nav.no/tms-min-side-proxy",
+const UTKAST_URL = {
+  local: "http://localhost:3000/utkast/v2/utkast",
+  development: "http://tms-utkast/v2/utkast",
+  production: "http://tms-utkast/v2/utkast",
 };
 
 const BASE_URL: EnvUrl = {
-  local: "https://www.dev.nav.no/minside/",
+  local: "http://localhost:4321/minside",
   development: "https://www.ansatt.dev.nav.no/minside/",
   production: "https://www.nav.no/minside/",
 };
-export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
-export const utkastApiUrl = `${minSideProxyUrl}/utkast/v2/utkast`;
+
+export const utkastApiUrl = UTKAST_URL[getEnvironment()];
 export const baseUrl = BASE_URL[getEnvironment()];

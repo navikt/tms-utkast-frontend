@@ -1,7 +1,8 @@
 ---
 import { fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
-import { getEnvironment } from "../utils/environment";
+import { getEnvironment } from "../utils/server/environment";
 import styles from "./Layout.module.css";
+import {baseUrl} from "../utils/server/urls";
 
 export interface Props {
   title: string;
@@ -22,18 +23,18 @@ const Decorator = await fetchDecoratorReact({
     availableLanguages : [
       {
         locale: "nb",
-        url: "https://www.nav.no/minside/nb",
-        handleInApp: true,
+        url: `${baseUrl}/utkast/nb`,
+        handleInApp: false,
       },
       {
         locale: "en",
-        url: "https://www.nav.no/minside/en",
-        handleInApp: true,
+        url: `${baseUrl}/utkast/en`,
+        handleInApp: false,
       },
       {
         locale: "nn",
-        url: "https://www.nav.no/minside/nn",
-        handleInApp: true,
+        url: `${baseUrl}/utkast/nn`,
+        handleInApp: false,
       }
     ]
   },
@@ -48,8 +49,8 @@ const Decorator = await fetchDecoratorReact({
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Utkast</title>
-    <link rel="preload" href="https://cdn.nav.no/aksel/@navikt/ds-css/5.7.3/index.min.css" as="style" />
-    <link rel="stylesheet" href="https://cdn.nav.no/aksel/@navikt/ds-css/5.7.3/index.min.css" />
+    <link rel="preload" href="https://cdn.nav.no/aksel/@navikt/ds-css/6.16.2/index.min.css" as="style" />
+    <link rel="stylesheet" href="https://cdn.nav.no/aksel/@navikt/ds-css/6.16.2/index.min.css" />
     <Decorator.Styles />
   </head>
   <body class="main">

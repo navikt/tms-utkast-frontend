@@ -1,9 +1,9 @@
 ---
-import Utkast from "../../components/Utkast";
-import type { Language } from "../../language/language";
 import { text } from "../../language/text";
 import Layout from "../../layouts/Layout.astro";
-import { BodyLong, Heading } from "@navikt/ds-react";
+import {BodyLong, Heading, Loader} from "@navikt/ds-react";
+import Utkast from "../../components/utkast/Utkast.astro";
+import type { Language } from "../../language/language";
 import styles from "./_index.module.css";
 
 const language = Astro.currentLocale as Language;
@@ -21,6 +21,10 @@ const language = Astro.currentLocale as Language;
     </div>
   </div>
   <div class={styles.utkastWrapper}>
-    <Utkast client:only="react" language={language}/>
+    <Utkast server:defer>
+      <div class={styles.loadingDiv} slot="fallback">
+        <Loader id="loader" size="3xlarge" title="venter..." />
+      </div>
+    </Utkast>
   </div>  
 </Layout>

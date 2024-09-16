@@ -1,10 +1,9 @@
 ---
 import KattIBoks from "../../img/KattIBoks";
-import LanguageRedirecter from "../../components/language-redirecter/LanguageRedirecter";
 import { text } from "../../language/text";
 import Layout from "../../layouts/Layout.astro";
 import { BodyLong, Heading } from "@navikt/ds-react";
-import { baseUrl } from "../../urls";
+import { baseUrl } from "../../utils/server/urls";
 import type { Language } from "../../language/language";
 import styles from "./_error.module.css";
 
@@ -23,4 +22,3 @@ const language = Astro.currentLocale as Language;
     </BodyLong>
   </div>
 </Layout>
-<LanguageRedirecter client:only="react" language={language}/>

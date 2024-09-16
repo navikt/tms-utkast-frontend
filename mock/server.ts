@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { HTTPException } from 'hono/http-exception';
 import { serve } from "@hono/node-server";
 import { cors } from "hono/cors";
 
@@ -8,6 +9,10 @@ api.use("/*", cors({
   origin: "http://localhost:4321",
   credentials: true,
 }));
+
+api.get('/utkast/v2/utkast/error', (c) => {
+  throw new HTTPException(502, { message: 'Custom error message' });
+});
 
 api.get('/utkast/v2/utkast', (c) => {
   return c.json([
