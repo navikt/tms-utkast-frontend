@@ -5,11 +5,6 @@
   max-width: 632px !important;
 }
 
-.loadingDiv {
-  margin-top: 30px;
-  text-align: center;
-}
-
 .utkastList {
   display: flex;
   flex-direction: column;
