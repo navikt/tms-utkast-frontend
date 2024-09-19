@@ -32,8 +32,3 @@
 .ingress {
   color: var(--a-text-default);
 }
-
-.loadingDiv {
-  margin-top: 30px;
-  text-align: center;
-}
