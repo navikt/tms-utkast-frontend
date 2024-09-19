@@ -16,7 +16,7 @@ export const getEnvironment = () => {
 
 type EnvUrl = { development: string; production: string; local: string };
 
-const UTKAST_URL = {
+const UTKAST_API_URL = {
   local: "http://localhost:3000/utkast/v2/utkast",
   development: "http://tms-utkast/v2/utkast",
   production: "http://tms-utkast/v2/utkast",
@@ -28,5 +28,5 @@ const BASE_URL: EnvUrl = {
   production: "https://www.nav.no/minside/",
 };
 
-export const utkastApiUrl = UTKAST_URL[getEnvironment()];
+export const utkastApiUrl = UTKAST_API_URL[getEnvironment()];
 export const baseUrl = BASE_URL[getEnvironment()];
