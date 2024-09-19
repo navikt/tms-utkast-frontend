@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # intellij
 .idea
+
+# vscode
+.vscode

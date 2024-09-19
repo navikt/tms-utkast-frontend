@@ -4,10 +4,10 @@ import dayjs from "dayjs";
 import Pencil from "@img/Pencil";
 import { text } from "@language/text";
 import type { Language } from "@language/language";
-import { logAmplitudeEvent } from "../../utils/amplitude";
-import { sortByOpprettet } from "../../utils/sorting";
-import EmptyUtkastList from "../EmptyUtkastList/EmptyUtkastList";
-import type { UtkastElement } from "../Utkast";
+import { logAmplitudeEvent } from "../../utils/client/amplitude.tsx";
+import { sortByOpprettet } from "../../utils/server/sorting.tsx";
+import EmptyUtkastList from "@components/empty-utkast-list/EmptyUtkastList";
+import type { UtkastElement } from "../utkast/Utkast.tsx";
 import styles from "./UtkastList.module.css";
 
 export interface UtkastListProps {

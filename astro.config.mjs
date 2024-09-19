@@ -31,11 +31,14 @@ export default defineConfig({
     defaultLocale: "nb",
     locales: ["nb", "nn", "en"],
     routing: {
-      prefixDefaultLocale: true
+      prefixDefaultLocale: false
     }
   },
   output: "server",
   adapter: node({
     mode: "standalone",
   }),
+  experimental: {
+    serverIslands: true
+  },
 });

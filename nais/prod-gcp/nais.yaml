@@ -27,6 +27,7 @@ spec:
   accessPolicy:
     outbound:
       rules:
+        - application: tms-utkast
         - application: nav-dekoratoren
           namespace: personbruker
   ingresses:

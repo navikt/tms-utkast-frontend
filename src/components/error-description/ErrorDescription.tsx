@@ -2,7 +2,7 @@ import type { Language } from "@language/language";
 import { text } from "@language/text";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import KattIBoks from "../../img/KattIBoks";
-import { baseUrl } from "../../urls.client";
+import { baseUrl } from "../../utils/client/urls.ts";
 import styles from "./ErrorDescription.module.css";
 
 interface Props {
@@ -10,7 +10,6 @@ interface Props {
 }
 
 const ErrorDescription = ({language}: Props) => {
-
   return (
     <div className={styles.errorDiv} data-testid="errordiv">
       <Heading size={"xlarge"}>{text.errorHeading[language]}</Heading>

@@ -1,18 +1,11 @@
-import UtkastList from "@components/UtkastList/UtkastList";
-import type { Language } from "@language/language";
-import { text } from "@language/text";
+import UtkastList from "@components/utkast-list/UtkastList.tsx";
+import type { Language } from "@language/language.ts";
+import { text } from "@language/text.ts";
 import { Alert, Loader } from "@navikt/ds-react";
-import { useLanguage } from "@src/hooks/useLanguage";
-import { baseUrl, utkastApiUrl } from "src/urls.client";
-import { fetcher } from "src/utils/api.client";
+import { baseUrl } from "@src/utils/client/urls.ts";
+import { fetcher } from "@src/utils/client/api.ts";
 import useSWR from "swr";
 import styles from "./Utkast.module.css";
-
-export interface UtkastProps {
-  loading: boolean;
-  utkast: UtkastElement[] | undefined;
-  isPartialContent: boolean;
-}
 
 export interface UtkastElement {
   tittel: string;
@@ -34,9 +27,7 @@ interface Props {
 
 const Utkast = ({ language }: Props) => {
 
-  const { data: utkastApiData, error, isLoading } = useSWR({url: utkastApiUrl}, fetcher);
-
-  useLanguage(language);
+  const { data: utkastApiData, error, isLoading } = useSWR({url: "utkastApiUrl"}, fetcher);
 
   const utkastlist = utkastApiData?.data;
   const isPartialContent = utkastApiData?.statusCode == 207;
