@@ -9,12 +9,11 @@ import { text } from "../../language/text";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { sortByOpprettet } from "../../utils/server/sorting";
 import { getOboToken } from "../../utils/server/token";
-import type { UtkastElement } from "./Utkast";
-import EmptyUtkastList from "@components/empty-utkast-list/EmptyUtkastList";
+import type { UtkastElement } from "./UtkastTypes.ts";
+import UtkastEmpty from "../utkast-empty/UtkastEmpty.astro";
 import styles from "./Utkast.module.css";
 
 const oboToken = await getOboToken(Astro.locals.token);
-let isError = false;
 
 const data = await fetch(utkastApiUrl, {
     method: "GET",
@@ -26,22 +25,20 @@ const data = await fetch(utkastApiUrl, {
 }).then((response) => {
         if (!response.ok) {
             console.error(`Error, fetch failed with status: ${response.status}`)
-            isError = true;
-            return [];
+            Astro.redirect("/error");
         }
 
         return response.json();
 }).catch((error) => {
     console.error(`Error, fetch failed: ${error}`);
-    isError = true;
+    Astro.redirect("/error");
 });
 
 const language = Astro.currentLocale as Language;
 const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
 ---
 
-{data?.length == 0 && <EmptyUtkastList language={language} client:only="react"/>}
-{isError ? <Alert variant="error">Klarte ikke å hente utkast, prøv på nytt senere.</Alert> : (
+{data?.length == 0 && <UtkastEmpty language={language} />}
 <ul class={styles.utkastList} data-testid="utkastlist">
     {data?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
             <li class={styles.container}>
