@@ -1,4 +1,4 @@
-import { type MetricValues } from "@components/utkast/Utkast.tsx";
+import { type MetricValues } from "@components/utkast/UtkastTypes.ts";
 
 import { init, track } from "@amplitude/analytics-browser";
 
