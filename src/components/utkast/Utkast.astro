@@ -38,9 +38,9 @@ const language = Astro.currentLocale as Language;
 const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
 ---
 
-{data?.length == 0 && <UtkastEmpty language={language} />}
-<ul class={styles.utkastList} data-testid="utkastlist">
-    {data?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
+{data?.length == 0 ? <UtkastEmpty language={language} /> :
+    <ul class={styles.utkastList} data-testid="utkastlist">
+        {data?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
             <li class={styles.container}>
                 <a href={utkast.link} class={styles.link}>
                     <div class={styles.top}>
@@ -64,7 +64,8 @@ const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
                     </div>
                 </a>
             </li>
-    ))}
-</ul>
+        ))}
+    </ul>}
+
 
 
