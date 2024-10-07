@@ -10,7 +10,7 @@ import styles from "../../styles/error.module.css";
 const language = Astro.currentLocale as Language;
 ---
 
-<Layout title="Utkast" breadcrumbs={[]}>
+<Layout title="Utkast">
   <div class={styles.container}>
     <Heading size={"xlarge"}>{text.errorHeading[language]}</Heading>
     <KattIBoks alt={text.errorKitten[language]} />

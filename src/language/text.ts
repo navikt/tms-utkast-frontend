@@ -1,5 +1,5 @@
 export const text = {
-  hovedoverskrift: {
+  utkast: {
     nb: "Utkast",
     en: "Drafts",
     nn: "Utkast",

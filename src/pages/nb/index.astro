@@ -9,11 +9,11 @@ import styles from "../../styles/index.module.css";
 const language = Astro.currentLocale as Language;
 ---
 
-<Layout title="Utkast" breadcrumbs={[]}>
+<Layout title="Utkast">
   <div class={styles.headingWrapper}>
     <div>
       <Heading size={"large"}>
-        {text.hovedoverskrift[language]}
+        {text.utkast[language]}
       </Heading>
       <BodyLong className={styles.ingress} size={"large"}>
         {text.description[language]}
