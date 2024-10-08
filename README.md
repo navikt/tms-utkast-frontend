@@ -2,9 +2,6 @@
 
 Frontend for tilgang til liste med utkast
 
-- url i prod: TODO
-- url i dev: TODO
-
 # Kom i gang
 
 1. Installer dependencies med npm run install
