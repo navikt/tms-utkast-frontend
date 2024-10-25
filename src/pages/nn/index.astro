@@ -21,7 +21,7 @@ const language = Astro.currentLocale as Language;
     </div>
   </div>
   <div class={styles.utkastWrapper}>
-    <Utkast language={language} server:defer la>
+    <Utkast language={language} server:defer>
       <Loader slot="fallback"/>
     </Utkast>
   </div>  
