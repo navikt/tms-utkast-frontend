@@ -35,14 +35,14 @@ export const text = {
     nn: "Hentar innhald ...",
   },
   errorHeading: {
-    nb: "Oisann, noe gikk galt!",
-    en: "Oups, something went wrong!",
-    nn: "Oisann, noko gjekk gale",
+    nb: "Noe gikk galt!",
+    en: "Something went wrong!",
+    nn: "Noko gjekk gale",
   },
   errorText: {
-    nb: "Vi fant dessverre ikke det du lette etter",
-    en: "We couldn't find the content you were looking for",
-    nn: "Vi fann dessverre ikkje det du leita etter",
+    nb: "Vi har for øyeblikket tekniske problemer. Dette kan føre til at du ikke får opp all informasjon. Vennligst prøv igjen senere.",
+    en: "We're having technical difficulties. Some information may not be available, please try again later.",
+    nn: "Vi har for øyeblikket tekniske problemer. Dette kan føre til at du ikke får opp all informasjon. Vennligst prøv igjen senere.",
   },
   errorHelp: {
     nb: "Prøv igjen senere eller gå til ",

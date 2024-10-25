@@ -12,8 +12,15 @@ import { getOboToken } from "../../utils/server/token";
 import type { UtkastElement } from "./UtkastTypes.ts";
 import UtkastEmpty from "../utkast-empty/UtkastEmpty.astro";
 import styles from "./Utkast.module.css";
+import Error from "../error/Error.astro";
+
+interface Props {
+    language:Language;
+}
+const { language } = Astro.props;
 
 const oboToken = await getOboToken(Astro.locals.token);
+let isError = false;
 
 const data = await fetch(utkastApiUrl, {
     method: "GET",
@@ -25,47 +32,50 @@ const data = await fetch(utkastApiUrl, {
 }).then((response) => {
         if (!response.ok) {
             console.error(`Error, fetch failed with status: ${response.status}`)
-            Astro.redirect("/error");
+            isError = true
         }
 
         return response.json();
 }).catch((error) => {
     console.error(`Error, fetch failed: ${error}`);
-    Astro.redirect("/error");
+    isError = true
 });
 
-const language = Astro.currentLocale as Language;
 const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
 ---
 
-{data?.length == 0 ? <UtkastEmpty language={language} /> :
-    <ul class={styles.utkastList} data-testid="utkastlist">
-        {data?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
-            <li class={styles.container}>
-                <a href={utkast.link} class={styles.link}>
-                    <div class={styles.top}>
-                        <div class={styles.wrapper}>
-                            <div class={styles.ikon}>
-                                <Pencil aria-hidden={true} />
-                            </div>
-                            <BodyShort size="medium" className={styles.utkastNavn}>
-                                {text.utkast[language]}
-                            </BodyShort>
-                        </div>
-                        <div class={`${styles.wrapper} ${styles.endretTekst}`}>
-                            <BodyLong size="small">{text.opprettet[language] + dateFormatter(utkast.opprettet)}</BodyLong>
-                            <ChevronRightIcon className={styles.chevron} fontSize="1.25rem" aria-hidden={true} aria-label="Chevron" />
-                        </div>
-                    </div>
-                    <div class={styles.bottom}>
-                        <Heading size="xsmall" level="2" className={styles.utkastTittel}>
-                            {utkast.tittel}
-                        </Heading>
-                    </div>
-                </a>
-            </li>
-        ))}
-    </ul>}
+<>
+    {isError ? <Error language={language} />:
+    data?.length == 0 ? <UtkastEmpty language={language} /> :
+            <ul class={styles.utkastList} data-testid="utkastlist">
+                {data?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
+                        <li class={styles.container}>
+                            <a href={utkast.link} class={styles.link}>
+                                <div class={styles.top}>
+                                    <div class={styles.wrapper}>
+                                        <div class={styles.ikon}>
+                                            <Pencil aria-hidden={true} />
+                                        </div>
+                                        <BodyShort size="medium" className={styles.utkastNavn}>
+                                            {text.utkast[language]}
+                                        </BodyShort>
+                                    </div>
+                                    <div class={`${styles.wrapper} ${styles.endretTekst}`}>
+                                        <BodyLong size="small">{text.opprettet[language] + dateFormatter(utkast.opprettet)}</BodyLong>
+                                        <ChevronRightIcon className={styles.chevron} fontSize="1.25rem" aria-hidden={true} aria-label="Chevron" />
+                                    </div>
+                                </div>
+                                <div class={styles.bottom}>
+                                    <Heading size="xsmall" level="2" className={styles.utkastTittel}>
+                                        {utkast.tittel}
+                                    </Heading>
+                                </div>
+                            </a>
+                        </li>
+                ))}
+            </ul>}
+</>
+
 
 
 

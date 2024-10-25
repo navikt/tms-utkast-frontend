@@ -23,7 +23,7 @@ const UTKAST_API_URL = {
 };
 
 const BASE_URL: EnvUrl = {
-  local: "http://localhost:4321/minside",
+  local: "http://localhost:4321/minside/",
   development: "https://www.ansatt.dev.nav.no/minside/",
   production: "https://www.nav.no/minside/",
 };
