@@ -7,11 +7,13 @@ import type { Language } from "../language/language";
 import styles from "./Layout.module.css";
 
 const language = Astro.currentLocale as Language;
+console.log(language)
 
 const Decorator = await fetchDecoratorReact({
   env: getEnvironment(),
   params: {
     context: "privatperson",
+    language: language,
     breadcrumbs: [
         {
             title: text.minSide[language],
