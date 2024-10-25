@@ -20,7 +20,7 @@ interface Props {
 const { language } = Astro.props;
 
 const oboToken = await getOboToken(Astro.locals.token);
-let isError = true;
+let isError = false;
 
 const data = await fetch(utkastApiUrl, {
     method: "GET",
