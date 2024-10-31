@@ -7,9 +7,9 @@ const initUtkastClickTracking = () => {
 
   utkastWrapper?.addEventListener("click", (event  ) => {
     const target = (event?.target as HTMLElement).closest("a");
-    const targetHref = target!.href;
+    const skjemaurl = target!.href;
     const { utkastSkjemanavn, utkastSkjemakode } = target?.dataset || {};
-    track("skjema åpnet", { targetHref, utkastSkjemanavn, utkastSkjemakode });
+    track("skjema åpnet", { skjemaurl, utkastSkjemanavn, utkastSkjemakode });
   });
 };
 
