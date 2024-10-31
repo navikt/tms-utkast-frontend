@@ -2,6 +2,17 @@ import { type MetricValues } from "@components/utkast/UtkastTypes.ts";
 
 import { init, track } from "@amplitude/analytics-browser";
 
+const initUtkastClickTracking = () => {
+  const utkastWrapper = document.getElementById("utkastWrapper");
+
+  utkastWrapper?.addEventListener("click", (event  ) => {
+    const target = (event?.target as HTMLElement).closest("a");
+    const targetHref = target!.href;
+    const { utkastSkjemanavn, utkastSkjemakode } = target?.dataset || {};
+    track("skjema åpnet", { targetHref, utkastSkjemanavn, utkastSkjemakode });
+  });
+};
+
 export const initAmplitude = () => {
   init("default", undefined, {
     useBatch: true,
@@ -10,16 +21,5 @@ export const initAmplitude = () => {
       sourceName: window.location.toString(),
     },
   });
+  initUtkastClickTracking()
 };
-
-export const logAmplitudeEvent = (
-  skjemaurl: string,
-  metrics: MetricValues | null | undefined
-) => {
-  if (metrics) {
-    track("skjema åpnet", { skjemaurl, ...metrics });
-  } else {
-    track("skjema åpnet", { skjemaurl });
-  }
-};
-
