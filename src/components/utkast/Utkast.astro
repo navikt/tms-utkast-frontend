@@ -50,8 +50,9 @@ const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
             <ul class={styles.utkastList} data-testid="utkastlist">
                 {data?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
                         <li class={styles.container}>
-                            <a href={utkast.link} class={styles.link}>
-                                <div class={styles.top}>
+                            <a data-utkast-skjemanavn={utkast.metrics?.skjemanavn}
+                               data-utkast-skjemakode={utkast.metrics?.skjemakode} href={utkast.link} class={styles.link}>
+                            <div class={styles.top}>
                                     <div class={styles.wrapper}>
                                         <div class={styles.ikon}>
                                             <Pencil aria-hidden={true} />
