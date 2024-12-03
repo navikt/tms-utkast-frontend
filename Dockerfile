@@ -1,6 +1,7 @@
 FROM gcr.io/distroless/nodejs20-debian12
 
 WORKDIR usr/src/app
+
 COPY ./dist ./dist
 COPY ./node_modules ./node_modules
 
