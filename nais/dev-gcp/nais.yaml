@@ -21,6 +21,9 @@ spec:
   readiness:
     path: /minside/utkast/api/internal/isReady
     initialDelay: 10
+  prometheus:
+    enabled: true
+    path: /minside/utkast/metrics
   replicas:
     min: 2
     max: 4
