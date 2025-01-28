@@ -46,11 +46,10 @@ const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
 <>
     {isError ? <Error language={language} />:
     data?.length == 0 ? <UtkastEmpty language={language} /> :
-            <ul class={styles.utkastList} data-testid="utkastlist">
+            <ul class={styles.utkastList}>
                 {data?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
                         <li class={styles.container}>
-                            <a data-utkast-skjemanavn={utkast.metrics?.skjemanavn}
-                               data-utkast-skjemakode={utkast.metrics?.skjemakode} href={utkast.link} class={styles.link}>
+                            <a href={utkast.link} class={styles.link}>
                             <div class={styles.top}>
                                     <div class={styles.wrapper}>
                                         <div class={styles.ikon}>
