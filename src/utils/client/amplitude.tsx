@@ -1,25 +1,16 @@
-import { type MetricValues } from "@components/utkast/UtkastTypes.ts";
+import { getAmplitudeInstance } from "@navikt/nav-dekoratoren-moduler";
 
-import { init, track } from "@amplitude/analytics-browser";
+export const initUtkastClickTracking = () => {
+  const logger = getAmplitudeInstance("dekoratoren");
 
-const initUtkastClickTracking = () => {
   const utkastWrapper = document.getElementById("utkastWrapper");
 
   utkastWrapper?.addEventListener("click", (event  ) => {
     const target = (event?.target as HTMLElement).closest("a");
     const skjemaurl = target!.href;
     const { utkastSkjemanavn, utkastSkjemakode } = target?.dataset || {};
-    track("skjema åpnet", { skjemaurl, utkastSkjemanavn, utkastSkjemakode });
-  });
-};
 
-export const initAmplitude = () => {
-  init("default", undefined, {
-    useBatch: true,
-    serverUrl: "https://amplitude.nav.no/collect-auto",
-    ingestionMetadata: {
-      sourceName: window.location.toString(),
-    },
+    logger("skjema åpnet", { skjemaurl, utkastSkjemanavn, utkastSkjemakode })
+        .catch(() => console.warn("Uninitialized amplitude"));
   });
-  initUtkastClickTracking()
 };
