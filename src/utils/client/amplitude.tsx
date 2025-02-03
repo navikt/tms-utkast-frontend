@@ -9,6 +9,8 @@ export const initUtkastClickTracking = () => {
     const target = (event?.target as HTMLElement).closest("a");
     const skjemaurl = target!.href;
     const { utkastSkjemanavn, utkastSkjemakode } = target?.dataset || {};
-    logger("skjema åpnet", { skjemaurl, utkastSkjemanavn, utkastSkjemakode });
+
+    logger("skjema åpnet", { skjemaurl, utkastSkjemanavn, utkastSkjemakode })
+        .catch(() => console.warn("Uninitialized amplitude"));
   });
 };
