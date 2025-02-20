@@ -2,7 +2,7 @@
 import pino from "pino-http";
 import dayjs from "dayjs";
 import Pencil from "../../img/Pencil";
-import UtkastEmpty from "../utkast-empty/UtkastEmpty.astro";
+import IngenUtkast from "../ingen/IngenUtkast.astro";
 import Error from "../error/Error.astro";
 import { utkastApiUrl } from "../../utils/server/urls";
 import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
@@ -47,7 +47,7 @@ const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
 
 <>
     {isError ? <Error language={language} />:
-    data?.length == 0 ? <UtkastEmpty language={language} /> :
+    data?.length == 0 ? <IngenUtkast language={language} /> :
             <ul class={styles.utkastList} data-testid="utkastlist">
                 {data?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
                         <li class={styles.container}>
