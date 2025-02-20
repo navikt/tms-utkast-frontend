@@ -23,11 +23,6 @@ const logger = pino().logger;
 const { language } = Astro.props;
 let isError = false;
 
-// TODO: remove this
-// logger.info("test");
-// logger.warn("test");
-// logger.error("test");
-
 const data = await fetch(utkastApiUrl, {
     method: "GET",
     headers: {
