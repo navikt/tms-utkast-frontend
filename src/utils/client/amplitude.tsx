@@ -2,7 +2,6 @@ import { getAmplitudeInstance } from "@navikt/nav-dekoratoren-moduler";
 
 export const initUtkastClickTracking = () => {
   const logger = getAmplitudeInstance("dekoratoren");
-
   const utkastWrapper = document.getElementById("utkastWrapper");
 
   utkastWrapper?.addEventListener("click", (event  ) => {

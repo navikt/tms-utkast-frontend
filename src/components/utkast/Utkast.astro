@@ -1,25 +1,32 @@
 ---
-import type { Language } from "../../language/language";
+import pino from "pino-http";
 import dayjs from "dayjs";
-import { utkastApiUrl } from "../../utils/server/urls";
 import Pencil from "../../img/Pencil";
-import { BodyLong, BodyShort, Heading, Alert } from "@navikt/ds-react";
+import UtkastEmpty from "../utkast-empty/UtkastEmpty.astro";
+import Error from "../error/Error.astro";
+import { utkastApiUrl } from "../../utils/server/urls";
+import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
 import { text } from "../../language/text";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { sortByOpprettet } from "../../utils/server/sorting";
 import { getOboToken } from "../../utils/server/token";
+import type { Language } from "../../language/language";
 import type { UtkastElement } from "./UtkastTypes.ts";
-import UtkastEmpty from "../utkast-empty/UtkastEmpty.astro";
 import styles from "./Utkast.module.css";
-import Error from "../error/Error.astro";
 
 interface Props {
     language:Language;
 }
-const { language } = Astro.props;
 
 const oboToken = await getOboToken(Astro.locals.token);
+const logger = pino().logger;
+const { language } = Astro.props;
 let isError = false;
+
+// TODO: remove this
+// logger.info("test");
+// logger.warn("test");
+// logger.error("test");
 
 const data = await fetch(utkastApiUrl, {
     method: "GET",
@@ -30,13 +37,13 @@ const data = await fetch(utkastApiUrl, {
     },
 }).then((response) => {
         if (!response.ok) {
-            console.error(`Error, fetch failed with status: ${response.status}`)
+            logger.error(`Error, fetch failed with status: ${response.status}`);
             isError = true
         }
 
         return response.json();
 }).catch((error) => {
-    console.error(`Error, fetch failed: ${error}`);
+    logger.error(`Error, fetch failed: ${error}`);
     isError = true
 });
 
