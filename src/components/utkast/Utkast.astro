@@ -15,7 +15,7 @@ import type { UtkastElement } from "./UtkastTypes.ts";
 import styles from "./Utkast.module.css";
 
 interface Props {
-    language:Language;
+  language: Language;
 }
 
 const oboToken = await getOboToken(Astro.locals.token);
@@ -24,60 +24,74 @@ const { language } = Astro.props;
 let isError = false;
 
 const data = await fetch(utkastApiUrl, {
-    method: "GET",
-    headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${oboToken}`,
-    },
-}).then((response) => {
-        if (!response.ok) {
-            logger.error(`Error, fetch failed with status: ${response.status}`);
-            isError = true
-        }
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    Authorization: `Bearer ${oboToken}`,
+  },
+})
+  .then((response) => {
+    if (!response.ok) {
+      logger.error(`Error, fetch failed with status: ${response.status}`);
+      isError = true;
+    }
 
-        return response.json();
-}).catch((error) => {
+    return response.json();
+  })
+  .catch((error) => {
     logger.error(`Error, fetch failed: ${error}`);
-    isError = true
-});
+    isError = true;
+  });
 
 const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
 ---
 
 <>
-    {isError ? <Error language={language} />:
-    data?.length == 0 ? <IngenUtkast language={language} /> :
-            <ul class={styles.utkastList} data-testid="utkastlist">
-                {data?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
-                        <li class={styles.container}>
-                            <a data-utkast-skjemanavn={utkast.metrics?.skjemanavn}
-                               data-utkast-skjemakode={utkast.metrics?.skjemakode} href={utkast.link} class={styles.link}>
-                            <div class={styles.top}>
-                                    <div class={styles.wrapper}>
-                                        <div class={styles.ikon}>
-                                            <Pencil aria-hidden={true} />
-                                        </div>
-                                        <BodyShort size="medium" className={styles.utkastNavn}>
-                                            {text.utkast[language]}
-                                        </BodyShort>
-                                    </div>
-                                    <div class={`${styles.wrapper} ${styles.endretTekst}`}>
-                                        <BodyLong size="small">{text.opprettet[language] + dateFormatter(utkast.opprettet)}</BodyLong>
-                                        <ChevronRightIcon className={styles.chevron} fontSize="1.25rem" aria-hidden={true} aria-label="Chevron" />
-                                    </div>
-                                </div>
-                                <div class={styles.bottom}>
-                                    <Heading size="xsmall" level="2" className={styles.utkastTittel}>
-                                        {utkast.tittel}
-                                    </Heading>
-                                </div>
-                            </a>
-                        </li>
-                ))}
-            </ul>}
+  {
+    isError ? (
+      <Error language={language} />
+    ) : data?.length == 0 ? (
+      <IngenUtkast language={language} />
+    ) : (
+      <ul class={styles.utkastList}>
+        {data?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
+          <li class={styles.container}>
+            <a href={utkast.link} class={styles.link}>
+              <div class={styles.top}>
+                <div class={styles.wrapper}>
+                  <div class={styles.ikon}>
+                    <Pencil aria-hidden={true} />
+                  </div>
+                  <BodyShort size="medium" className={styles.utkastNavn}>
+                    {text.utkast[language]}
+                  </BodyShort>
+                </div>
+                <div class={`${styles.wrapper} ${styles.endretTekst}`}>
+                  <BodyLong size="small">
+                    {text.opprettet[language] + dateFormatter(utkast.opprettet)}
+                  </BodyLong>
+                  <ChevronRightIcon
+                    className={styles.chevron}
+                    fontSize="1.25rem"
+                    aria-hidden={true}
+                    aria-label="Chevron"
+                  />
+                </div>
+              </div>
+              <div class={styles.bottom}>
+                <Heading
+                  size="xsmall"
+                  level="2"
+                  className={styles.utkastTittel}
+                >
+                  {utkast.tittel}
+                </Heading>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
 </>
-
-
-
-
