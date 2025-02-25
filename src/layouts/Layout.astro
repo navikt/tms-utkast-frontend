@@ -86,7 +86,7 @@ const Decorator = await fetchDecoratorReact({
   const { consent }: Consent = getCurrentConsent();
 
   if (consent.analytics) {
-    const scriptTag = `<script defer data-astro-rerun src="https://cdn.nav.no/team-researchops/sporing/sporing.js" data-host-url="https://umami.nav.no" data-website-id="8dfbb064-8462-460c-8a21-06a5bcf932de" />`;
+    const scriptTag = `<script is:inline defer data-astro-rerun src="https://cdn.nav.no/team-researchops/sporing/sporing.js" data-host-url="https://umami.nav.no" data-website-id="8dfbb064-8462-460c-8a21-06a5bcf932de" />`;
     document.head.insertAdjacentHTML("beforeend", scriptTag);
   }
 </script>
