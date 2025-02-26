@@ -75,6 +75,7 @@ const Decorator = await fetchDecoratorReact({
 
 <script>
   import { getCurrentConsent } from "@navikt/nav-dekoratoren-moduler";
+  import { getEnvironment } from "@src/utils/client/urls";
 
   interface Consent {
     consent: {
@@ -91,10 +92,15 @@ const Decorator = await fetchDecoratorReact({
     script.setAttribute("data-astro-rerun", "");
     script.src = "https://cdn.nav.no/team-researchops/sporing/sporing.js";
     script.setAttribute("data-host-url", "https://umami.nav.no");
-    script.setAttribute(
-      "data-website-id",
-      "28461d11-25ed-4e27-bfc6-6994e6dffb63"
-    );
+    getEnvironment() === "production"
+      ? script.setAttribute(
+          "data-website-id",
+          "28461d11-25ed-4e27-bfc6-6994e6dffb63"
+        )
+      : script.setAttribute(
+          "data-website-id",
+          "8dfbb064-8462-460c-8a21-06a5bcf932de"
+        );
     document.head.appendChild(script);
   }
 </script>
