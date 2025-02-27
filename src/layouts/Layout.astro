@@ -88,19 +88,14 @@ const Decorator = await fetchDecoratorReact({
 
   if (consent.analytics) {
     const script = document.createElement("script");
+    const websiteId= getEnvironment() === "production" ? "28461d11-25ed-4e27-bfc6-6994e6dffb63": "8dfbb064-8462-460c-8a21-06a5bcf932de";
+
     script.defer = true;
-    script.setAttribute("data-astro-rerun", "");
     script.src = "https://cdn.nav.no/team-researchops/sporing/sporing.js";
+    script.setAttribute("data-astro-rerun", "");
     script.setAttribute("data-host-url", "https://umami.nav.no");
-    getEnvironment() === "production"
-      ? script.setAttribute(
-          "data-website-id",
-          "28461d11-25ed-4e27-bfc6-6994e6dffb63"
-        )
-      : script.setAttribute(
-          "data-website-id",
-          "8dfbb064-8462-460c-8a21-06a5bcf932de"
-        );
+    script.setAttribute("data-website-id", websiteId);
+
     document.head.appendChild(script);
   }
 </script>
