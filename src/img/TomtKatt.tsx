@@ -78,12 +78,42 @@ const TomtKatt = ({ alt }: Props) => (
       fill="black"
       fillOpacity="0.19"
     />
-    <path fillRule="evenodd" clipRule="evenodd" d="M45.1111 96.9714H116.889V90.6286H45.1111V96.9714Z" fill="#707070" />
-    <path fillRule="evenodd" clipRule="evenodd" d="M45.1111 111.771H116.889V105.429H45.1111V111.771Z" fill="#707070" />
-    <path fillRule="evenodd" clipRule="evenodd" d="M45.1111 126.571H116.889V120.229H45.1111V126.571Z" fill="#707070" />
-    <path fillRule="evenodd" clipRule="evenodd" d="M45.1111 141.371H116.889V135.029H45.1111V141.371Z" fill="#707070" />
-    <path fillRule="evenodd" clipRule="evenodd" d="M45.1111 156.171H116.889V149.829H45.1111V156.171Z" fill="#707070" />
-    <path fillRule="evenodd" clipRule="evenodd" d="M45.1111 82.1714H116.889V75.8286H45.1111V82.1714Z" fill="#707070" />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M45.1111 96.9714H116.889V90.6286H45.1111V96.9714Z"
+      fill="#707070"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M45.1111 111.771H116.889V105.429H45.1111V111.771Z"
+      fill="#707070"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M45.1111 126.571H116.889V120.229H45.1111V126.571Z"
+      fill="#707070"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M45.1111 141.371H116.889V135.029H45.1111V141.371Z"
+      fill="#707070"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M45.1111 156.171H116.889V149.829H45.1111V156.171Z"
+      fill="#707070"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M45.1111 82.1714H116.889V75.8286H45.1111V82.1714Z"
+      fill="#707070"
+    />
     <path
       fillRule="evenodd"
       clipRule="evenodd"

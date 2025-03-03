@@ -1,10 +1,10 @@
 ---
-import { text } from "../../language/text";
-import Layout from "../../layouts/Layout.astro";
-import {BodyLong, Heading, Loader} from "@navikt/ds-react";
-import Utkast from "../../components/utkast/Utkast.astro";
-import type { Language } from "../../language/language";
-import styles from "../../styles/index.module.css";
+import { text } from '../../language/text';
+import Layout from '../../layouts/Layout.astro';
+import { BodyLong, Heading, Loader } from '@navikt/ds-react';
+import Utkast from '../../components/utkast/Utkast.astro';
+import type { Language } from '../../language/language';
+import styles from '../../styles/index.module.css';
 
 const language = Astro.currentLocale as Language;
 ---
@@ -12,17 +12,17 @@ const language = Astro.currentLocale as Language;
 <Layout title="Utkast">
   <div class={styles.headingWrapper}>
     <div>
-      <Heading size={"large"}>
+      <Heading size={'large'}>
         {text.utkast[language]}
       </Heading>
-      <BodyLong className={styles.ingress} size={"large"}>
+      <BodyLong className={styles.ingress} size={'large'}>
         {text.description[language]}
       </BodyLong>
     </div>
   </div>
   <div class={styles.utkastWrapper}>
     <Utkast language={language} server:defer>
-      <Loader slot="fallback"/>
+      <Loader slot="fallback" />
     </Utkast>
-  </div>  
+  </div>
 </Layout>

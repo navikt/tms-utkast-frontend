@@ -1,11 +1,11 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 export interface TokenXConfig {
-  tokenXClientId: string
-  privateJwk: string
-  tokenXWellKnownUrl: string
-  idportenClientId: string
-  idportenWellKnownUrl: string
+  tokenXClientId: string;
+  privateJwk: string;
+  tokenXWellKnownUrl: string;
+  idportenClientId: string;
+  idportenWellKnownUrl: string;
 }
 
 const RequiredTokenXConfigSchema = z.object({
@@ -14,7 +14,7 @@ const RequiredTokenXConfigSchema = z.object({
   tokenXWellKnownUrl: z.string(),
   idportenClientId: z.string(),
   idportenWellKnownUrl: z.string(),
-})
+});
 
 export function verifyAndGetTokenXConfig(): TokenXConfig {
   const parsedEnv = RequiredTokenXConfigSchema.safeParse({
@@ -23,10 +23,10 @@ export function verifyAndGetTokenXConfig(): TokenXConfig {
     tokenXWellKnownUrl: process.env.TOKEN_X_WELL_KNOWN_URL,
     idportenClientId: process.env.IDPORTEN_CLIENT_ID,
     idportenWellKnownUrl: process.env.IDPORTEN_WELL_KNOWN_URL,
-  })
+  });
 
   if (parsedEnv.success) {
-    return parsedEnv.data
+    return parsedEnv.data;
   }
 
   throw new Error(
@@ -35,5 +35,5 @@ export function verifyAndGetTokenXConfig(): TokenXConfig {
       null,
       2,
     )}. Are you sure you have enabled TokenX Wonderwall in your nais.yml for this environment?`,
-  )
+  );
 }

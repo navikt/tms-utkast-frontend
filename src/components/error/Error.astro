@@ -1,17 +1,16 @@
 ---
-import {Alert, Heading, BodyLong} from "@navikt/ds-react";
-import styles from "./Error.module.css";
-import {text} from "@language/text.ts";
-import {type Language} from "../../language/language";
+import { Alert, Heading, BodyLong } from '@navikt/ds-react';
+import styles from './Error.module.css';
+import { text } from '@language/text.ts';
+import { type Language } from '../../language/language';
 interface Props {
-    language:Language;
+  language: Language;
 }
 const { language } = Astro.props;
 ---
 
 <div class={styles.error}>
-    <Alert variant="error">
-        <BodyLong >{text.errorText[language]}</BodyLong>
-    </Alert>
+  <Alert variant="error">
+    <BodyLong>{text.errorText[language]}</BodyLong>
+  </Alert>
 </div>
-
