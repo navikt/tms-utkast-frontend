@@ -1,23 +1,27 @@
 ---
-import {BodyLong, Heading} from "@navikt/ds-react";
+import { BodyLong, Heading } from "@navikt/ds-react";
 import TomtKatt from "../../img/TomtKatt";
-import {text} from "@language/text.ts";
-import type {Language} from "@language/language.ts";
+import { text } from "@language/text.ts";
+import type { Language } from "@language/language.ts";
 import styles from "./IngenUtkast.module.css";
 
 const language = Astro.currentLocale as Language;
 ---
 
 <div class={styles.ingenUtkast}>
-    <div class={styles.ingenUtkastTekst}>
-        <Heading size="small" level="2">
-            {text.ingenUtkastTittel[language]}
-        </Heading>
-        <BodyLong size="medium">{text.ingenUtkastIngress[language]}</BodyLong>
-        <a href={"https://www.nav.no/tjenester"} class={styles.lenke}>
-            {" "}
-            {text.ingenUtkastLenketekst[language]}
-        </a>
-    </div>
-    <TomtKatt alt={text.emptyKitten[language]} />
+  <div class={styles.ingenUtkastTekst}>
+    <Heading size="small" level="2">
+      {text.ingenUtkastTittel[language]}
+    </Heading>
+    <BodyLong size="medium">{text.ingenUtkastIngress[language]}</BodyLong>
+    <a
+      href={"https://www.nav.no/tjenester"}
+      class={styles.lenke}
+      data-umami-event="ingen-utkast-lenke-åpnet"
+    >
+      {" "}
+      {text.ingenUtkastLenketekst[language]}
+    </a>
+  </div>
+  <TomtKatt alt={text.emptyKitten[language]} />
 </div>
