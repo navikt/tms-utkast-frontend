@@ -1,7 +1,7 @@
-import { type Client, Issuer } from "openid-client";
-import { verifyAndGetTokenXConfig } from "./config";
+import { type Client, Issuer } from 'openid-client';
+import { verifyAndGetTokenXConfig } from './config';
 
-let tokenXIssuer: Issuer<Client>
+let tokenXIssuer: Issuer<Client>;
 
 export async function getTokenXIssuer(): Promise<Issuer<Client>> {
   if (tokenXIssuer == null) {
@@ -12,7 +12,7 @@ export async function getTokenXIssuer(): Promise<Issuer<Client>> {
   return tokenXIssuer;
 }
 
-let idportenIssuer: Issuer<Client>
+let idportenIssuer: Issuer<Client>;
 
 export async function getIdportenIssuer(): Promise<Issuer<Client>> {
   if (idportenIssuer == null) {
