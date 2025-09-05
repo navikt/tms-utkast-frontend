@@ -2,14 +2,13 @@ import { validateIdportenToken } from './auth/validate';
 import { defineMiddleware } from 'astro/middleware';
 import { loginUrl } from './urls';
 import { isInternal } from './utils';
-import { isLocal } from '@src/utils/server/urls.ts';
-import pino from 'pino-http';
+import { isLocal } from '@src/utils/server/urls';
+import logger from '@src/utils/server/logger';
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const bearerToken: string | null | undefined =
     context.request.headers.get('authorization');
   const params = encodeURIComponent(context.url.search);
-  const logger = pino().logger;
 
   if (isLocal) {
     return next();
