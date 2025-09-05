@@ -20,12 +20,13 @@
     "@navikt/ds-react": "6.16.2",
     "@navikt/nav-dekoratoren-moduler": "3.2.2",
     "@navikt/oasis": "^3.4.0",
+    "@opentelemetry/sdk-node": "0.202.0",
     "astro": "^5.3.1",
     "dayjs": "1.11.10",
     "husky": "^9.1.7",
     "jose": "5.2.3",
     "openid-client": "5.4.3",
-    "pino-http": "10.4.0",
+    "pino": "^9.9.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rollup-plugin-import-map": "3.0.0",
@@ -38,9 +39,9 @@
     "@types/react-dom": "18.2.21",
     "hono": "4.4.2",
     "prettier": "3.5.2",
+    "prettier-plugin-astro": "^0.14.1",
     "tsx": "4.7.1",
-    "typescript": "5.3.3",
-    "prettier-plugin-astro": "^0.14.1"
+    "typescript": "5.3.3"
   },
   "engines": {
     "node": ">=22.0.0"

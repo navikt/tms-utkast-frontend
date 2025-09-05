@@ -1,9 +1,8 @@
 import { requestOboToken } from '@navikt/oasis';
-import { isLocal } from '@src/utils/server/environment.ts';
-import pino from 'pino-http';
+import { isLocal } from '@src/utils/server/environment';
+import logger from './logger';
 
 const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-utkast`;
-const logger = pino().logger;
 
 export const getOboToken = async (token: string): Promise<string> => {
   const oboResult = await requestOboToken(token, audience);
