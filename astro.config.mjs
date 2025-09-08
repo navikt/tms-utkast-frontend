@@ -1,8 +1,8 @@
-import { defineConfig } from 'astro/config';
+import node from "@astrojs/node";
+import react from "@astrojs/react";
+import { defineConfig } from "astro/config";
 import { rollupImportMapPlugin } from "rollup-plugin-import-map";
 import importmap from "./importmap.json";
-import react from "@astrojs/react";
-import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
@@ -31,11 +31,11 @@ export default defineConfig({
     defaultLocale: "nb",
     locales: ["nb", "nn", "en"],
     routing: {
-      prefixDefaultLocale: true
-    }
+      prefixDefaultLocale: true,
+    },
   },
   output: "server",
   adapter: node({
     mode: "standalone",
-  })
+  }),
 });

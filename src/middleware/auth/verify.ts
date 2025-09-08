@@ -1,14 +1,14 @@
 import {
-  createRemoteJWKSet,
+  type createRemoteJWKSet,
   errors,
-  jwtVerify,
   type JWTVerifyResult,
+  jwtVerify,
   type ResolvedKey,
-} from 'jose';
-import type { Client, Issuer } from 'openid-client';
+} from "jose";
+import type { Client, Issuer } from "openid-client";
 
 export type ValidationResult<ErrorTypes extends string> =
-  | 'valid'
+  | "valid"
   | ValidationError<ErrorTypes>;
 
 type ValidationError<ErrorTypes extends string> = {
@@ -23,9 +23,9 @@ export async function verifyJwt(
   issuer: Issuer<Client>,
 ): Promise<
   | (JWTVerifyResult & ResolvedKey)
-  | ValidationError<'EXPIRED' | 'UNKNOWN_JOSE_ERROR'>
+  | ValidationError<"EXPIRED" | "UNKNOWN_JOSE_ERROR">
 > {
-  const token = bearerToken.replace('Bearer ', '');
+  const token = bearerToken.replace("Bearer ", "");
 
   try {
     return await jwtVerify(token, jwkSet, {
@@ -34,7 +34,7 @@ export async function verifyJwt(
   } catch (err) {
     if (err instanceof errors.JWTExpired) {
       return {
-        errorType: 'EXPIRED',
+        errorType: "EXPIRED",
         message: err.message,
         error: err,
       };
@@ -42,7 +42,7 @@ export async function verifyJwt(
 
     if (err instanceof errors.JOSEError) {
       return {
-        errorType: 'UNKNOWN_JOSE_ERROR',
+        errorType: "UNKNOWN_JOSE_ERROR",
         message: err.message,
         error: err,
       };

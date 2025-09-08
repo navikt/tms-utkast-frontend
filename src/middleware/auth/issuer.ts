@@ -1,5 +1,5 @@
-import { type Client, Issuer } from 'openid-client';
-import { verifyAndGetTokenXConfig } from './config';
+import { type Client, Issuer } from "openid-client";
+import { verifyAndGetTokenXConfig } from "./config";
 
 let tokenXIssuer: Issuer<Client>;
 

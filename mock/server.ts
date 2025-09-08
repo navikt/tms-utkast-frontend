@@ -1,20 +1,23 @@
-import { Hono } from "hono";
-import { HTTPException } from 'hono/http-exception';
 import { serve } from "@hono/node-server";
+import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { HTTPException } from "hono/http-exception";
 
 const api = new Hono();
 
-api.use("/*", cors({
-  origin: "http://localhost:4321",
-  credentials: true,
-}));
+api.use(
+  "/*",
+  cors({
+    origin: "http://localhost:4321",
+    credentials: true,
+  }),
+);
 
-api.get('/utkast/v2/utkast/error', (c) => {
-  throw new HTTPException(502, { message: 'Custom error message' });
+api.get("/utkast/v2/utkast/error", (c) => {
+  throw new HTTPException(502, { message: "Custom error message" });
 });
 
-api.get('/utkast/v2/utkast', (c) => {
+api.get("/utkast/v2/utkast", (c) => {
   return c.json([
     {
       utkastId: "12467899999",
