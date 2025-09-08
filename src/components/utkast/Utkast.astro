@@ -1,18 +1,18 @@
 ---
-import { ChevronRightIcon } from '@navikt/aksel-icons';
-import { BodyLong, BodyShort, Heading } from '@navikt/ds-react';
-import logger from '@src/utils/server/logger.ts';
-import dayjs from 'dayjs';
-import Pencil from '../../img/Pencil';
-import type { Language } from '../../language/language';
-import { text } from '../../language/text';
-import { sortByOpprettet } from '../../utils/server/sorting';
-import { getOboToken } from '../../utils/server/token';
-import { utkastApiUrl } from '../../utils/server/urls';
-import Error from '../error/Error.astro';
-import IngenUtkast from '../ingen/IngenUtkast.astro';
-import styles from './Utkast.module.css';
-import type { UtkastElement } from './UtkastTypes.ts';
+import { ChevronRightIcon } from "@navikt/aksel-icons";
+import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
+import logger from "@src/utils/server/logger.ts";
+import dayjs from "dayjs";
+import Pencil from "../../img/Pencil";
+import type { Language } from "../../language/language";
+import { text } from "../../language/text";
+import { sortByOpprettet } from "../../utils/server/sorting";
+import { getOboToken } from "../../utils/server/token";
+import { utkastApiUrl } from "../../utils/server/urls";
+import Error from "../error/Error.astro";
+import IngenUtkast from "../ingen/IngenUtkast.astro";
+import styles from "./Utkast.module.css";
+import type { UtkastElement } from "./UtkastTypes.ts";
 
 interface Props {
   language: Language;
@@ -23,10 +23,10 @@ const { language } = Astro.props;
 let isError = false;
 
 const data = await fetch(utkastApiUrl, {
-  method: 'GET',
+  method: "GET",
   headers: {
-    'Content-Type': 'application/json',
-    Accept: 'application/json',
+    "Content-Type": "application/json",
+    Accept: "application/json",
     Authorization: `Bearer ${oboToken}`,
   },
 })
@@ -43,7 +43,7 @@ const data = await fetch(utkastApiUrl, {
     isError = true;
   });
 
-const dateFormatter = (date: string) => dayjs(date).format('DD.MM.YYYY');
+const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
 ---
 
 <>

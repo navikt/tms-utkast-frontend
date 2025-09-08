@@ -1,5 +1,5 @@
-import { createRemoteJWKSet } from 'jose';
-import { getIdportenIssuer } from './issuer';
+import { createRemoteJWKSet } from "jose";
+import { getIdportenIssuer } from "./issuer";
 
 let remoteJWKSet: ReturnType<typeof createRemoteJWKSet>;
 

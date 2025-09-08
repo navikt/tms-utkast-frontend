@@ -1,17 +1,17 @@
 ---
-import { fetchDecoratorReact } from '@navikt/nav-dekoratoren-moduler/ssr';
-import type { Language } from '../language/language';
-import { text } from '../language/text';
-import { getDecoratorEnvironment } from '../utils/server/environment';
-import { baseUrl } from '../utils/server/urls';
-import styles from './Layout.module.css';
+import { fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
+import type { Language } from "../language/language";
+import { text } from "../language/text";
+import { getDecoratorEnvironment } from "../utils/server/environment";
+import { baseUrl } from "../utils/server/urls";
+import styles from "./Layout.module.css";
 
 const language = Astro.currentLocale as Language;
 
 const Decorator = await fetchDecoratorReact({
   env: getDecoratorEnvironment(),
   params: {
-    context: 'privatperson',
+    context: "privatperson",
     language: language,
     breadcrumbs: [
       {
@@ -25,17 +25,17 @@ const Decorator = await fetchDecoratorReact({
     ],
     availableLanguages: [
       {
-        locale: 'nb',
+        locale: "nb",
         url: `${baseUrl}utkast/nb`,
         handleInApp: false,
       },
       {
-        locale: 'en',
+        locale: "en",
         url: `${baseUrl}utkast/en`,
         handleInApp: false,
       },
       {
-        locale: 'nn',
+        locale: "nn",
         url: `${baseUrl}utkast/nn`,
         handleInApp: false,
       },

@@ -1,13 +1,13 @@
-import logger from '@src/utils/server/logger';
-import { isLocal } from '@src/utils/server/urls';
-import { defineMiddleware } from 'astro/middleware';
-import { validateIdportenToken } from './auth/validate';
-import { loginUrl } from './urls';
-import { isInternal } from './utils';
+import logger from "@src/utils/server/logger";
+import { isLocal } from "@src/utils/server/urls";
+import { defineMiddleware } from "astro/middleware";
+import { validateIdportenToken } from "./auth/validate";
+import { loginUrl } from "./urls";
+import { isInternal } from "./utils";
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const bearerToken: string | null | undefined =
-    context.request.headers.get('authorization');
+    context.request.headers.get("authorization");
   const params = encodeURIComponent(context.url.search);
 
   if (isLocal) {
@@ -20,14 +20,14 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
   if (!bearerToken) {
     logger.info(
-      'Could not find any bearer token on the request. Redirecting to login.',
+      "Could not find any bearer token on the request. Redirecting to login.",
     );
     return context.redirect(`${loginUrl}${params}`);
   }
 
   const validationResult = await validateIdportenToken(bearerToken);
 
-  if (validationResult !== 'valid') {
+  if (validationResult !== "valid") {
     const error = new Error(
       `Invalid JWT token found (cause: ${validationResult.errorType} ${validationResult.message}, redirecting to login.`,
     );

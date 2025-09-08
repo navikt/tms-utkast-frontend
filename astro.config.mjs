@@ -1,26 +1,26 @@
-import node from '@astrojs/node';
-import react from '@astrojs/react';
-import { defineConfig } from 'astro/config';
-import { rollupImportMapPlugin } from 'rollup-plugin-import-map';
-import importmap from './importmap.json';
+import node from "@astrojs/node";
+import react from "@astrojs/react";
+import { defineConfig } from "astro/config";
+import { rollupImportMapPlugin } from "rollup-plugin-import-map";
+import importmap from "./importmap.json";
 
 // https://astro.build/config
 export default defineConfig({
-  base: '/minside/utkast',
+  base: "/minside/utkast",
   build: {
-    assetsPrefix: 'https://cdn.nav.no/min-side/tms-utkast-frontend',
+    assetsPrefix: "https://cdn.nav.no/min-side/tms-utkast-frontend",
   },
   integrations: [
     react(),
     {
-      name: 'importmap',
+      name: "importmap",
       hooks: {
-        'astro:build:setup': ({ vite, target }) => {
-          if (target === 'client') {
+        "astro:build:setup": ({ vite, target }) => {
+          if (target === "client") {
             vite.plugins.push({
               ...rollupImportMapPlugin(importmap),
-              enforce: 'pre',
-              apply: 'build',
+              enforce: "pre",
+              apply: "build",
             });
           }
         },
@@ -28,14 +28,14 @@ export default defineConfig({
     },
   ],
   i18n: {
-    defaultLocale: 'nb',
-    locales: ['nb', 'nn', 'en'],
+    defaultLocale: "nb",
+    locales: ["nb", "nn", "en"],
     routing: {
       prefixDefaultLocale: true,
     },
   },
-  output: 'server',
+  output: "server",
   adapter: node({
-    mode: 'standalone',
+    mode: "standalone",
   }),
 });
