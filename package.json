@@ -9,7 +9,6 @@
     "mock": "tsx mock/server.ts",
     "preview": "astro preview",
     "astro": "astro",
-    "prettier": "prettier --write './src/**/*.{ts,tsx,astro}'",
     "prepare": "husky"
   },
   "dependencies": {
@@ -40,8 +39,6 @@
     "@types/react-dom": "18.2.21",
     "hono": "4.9.6",
     "lint-staged": "16.1.6",
-    "prettier": "3.5.2",
-    "prettier-plugin-astro": "0.14.1",
     "tsx": "4.7.1",
     "typescript": "5.3.3"
   },
