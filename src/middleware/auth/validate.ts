@@ -1,7 +1,7 @@
-import { type ValidationResult, verifyJwt } from './verify';
 import { verifyAndGetTokenXConfig } from './config';
 import { getIdportenIssuer } from './issuer';
 import { getJwkSet } from './jwk';
+import { type ValidationResult, verifyJwt } from './verify';
 
 export type IdportenErrorVariants =
   | 'EXPIRED'

@@ -1,9 +1,9 @@
-import { validateIdportenToken } from './auth/validate';
+import logger from '@src/utils/server/logger';
+import { isLocal } from '@src/utils/server/urls';
 import { defineMiddleware } from 'astro/middleware';
+import { validateIdportenToken } from './auth/validate';
 import { loginUrl } from './urls';
 import { isInternal } from './utils';
-import { isLocal } from '@src/utils/server/urls';
-import logger from '@src/utils/server/logger';
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const bearerToken: string | null | undefined =

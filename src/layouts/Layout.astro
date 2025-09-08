@@ -1,9 +1,9 @@
 ---
 import { fetchDecoratorReact } from '@navikt/nav-dekoratoren-moduler/ssr';
-import { getDecoratorEnvironment } from '../utils/server/environment';
-import { text } from '../language/text';
-import { baseUrl } from '../utils/server/urls';
 import type { Language } from '../language/language';
+import { text } from '../language/text';
+import { getDecoratorEnvironment } from '../utils/server/environment';
+import { baseUrl } from '../utils/server/urls';
 import styles from './Layout.module.css';
 
 const language = Astro.currentLocale as Language;

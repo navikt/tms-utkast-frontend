@@ -1,18 +1,18 @@
 ---
+import { ChevronRightIcon } from '@navikt/aksel-icons';
+import { BodyLong, BodyShort, Heading } from '@navikt/ds-react';
+import logger from '@src/utils/server/logger.ts';
 import dayjs from 'dayjs';
 import Pencil from '../../img/Pencil';
-import IngenUtkast from '../ingen/IngenUtkast.astro';
-import Error from '../error/Error.astro';
-import { utkastApiUrl } from '../../utils/server/urls';
-import { BodyLong, BodyShort, Heading } from '@navikt/ds-react';
+import type { Language } from '../../language/language';
 import { text } from '../../language/text';
-import { ChevronRightIcon } from '@navikt/aksel-icons';
 import { sortByOpprettet } from '../../utils/server/sorting';
 import { getOboToken } from '../../utils/server/token';
-import type { Language } from '../../language/language';
-import type { UtkastElement } from './UtkastTypes.ts';
+import { utkastApiUrl } from '../../utils/server/urls';
+import Error from '../error/Error.astro';
+import IngenUtkast from '../ingen/IngenUtkast.astro';
 import styles from './Utkast.module.css';
-import logger from '@src/utils/server/logger.ts';
+import type { UtkastElement } from './UtkastTypes.ts';
 
 interface Props {
   language: Language;

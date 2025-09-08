@@ -1,8 +1,8 @@
 import {
-  createRemoteJWKSet,
+  type createRemoteJWKSet,
   errors,
-  jwtVerify,
   type JWTVerifyResult,
+  jwtVerify,
   type ResolvedKey,
 } from 'jose';
 import type { Client, Issuer } from 'openid-client';
