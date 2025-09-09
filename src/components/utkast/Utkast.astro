@@ -2,13 +2,14 @@
 import { UTKAST_API_URL } from "astro:env/server";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
+import ErrorBox from "@src/components/error/Error.astro";
+import Pencil from "@src/img/Pencil";
+import type { Language } from "@src/language/language";
+import { text } from "@src/language/text";
 import logger from "@src/utils/server/logger.ts";
+import { sortByOpprettet } from "@src/utils/server/sorting";
+import { getOboToken } from "@src/utils/server/token";
 import dayjs from "dayjs";
-import Pencil from "../../img/Pencil";
-import type { Language } from "../../language/language";
-import { text } from "../../language/text";
-import { sortByOpprettet } from "../../utils/server/sorting";
-import { getOboToken } from "../../utils/server/token";
 import IngenUtkast from "../ingen/IngenUtkast.astro";
 import styles from "./Utkast.module.css";
 import type { UtkastElement } from "./UtkastTypes.ts";
@@ -48,7 +49,7 @@ const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
 <>
   {
     isError ? (
-      <Error language={language} />
+      <ErrorBox language={language} />
     ) : data?.length == 0 ? (
       <IngenUtkast language={language} />
     ) : (
