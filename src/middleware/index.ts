@@ -1,14 +1,14 @@
+import { REDIRECT_URI } from "astro:env/server";
+import { getToken, validateToken } from "@navikt/oasis";
 import logger from "@src/utils/server/logger";
 import { defineMiddleware } from "astro/middleware";
 import { isLocal } from "../utils/server/environment";
-import { validateIdportenToken } from "./auth/validate";
-import { loginUrl } from "./urls";
 import { isInternal } from "./utils";
 
 export const onRequest = defineMiddleware(async (context, next) => {
-  const bearerToken: string | null | undefined =
-    context.request.headers.get("authorization");
+  const token = getToken(context.request.headers);
   const params = encodeURIComponent(context.url.search);
+  const loginUrl = `/minside/utkast/oauth2/login?redirect=${REDIRECT_URI}`;
 
   if (isLocal) {
     return next();
@@ -18,24 +18,21 @@ export const onRequest = defineMiddleware(async (context, next) => {
     return next();
   }
 
-  if (!bearerToken) {
+  if (!token) {
     logger.info(
       "Could not find any bearer token on the request. Redirecting to login.",
     );
     return context.redirect(`${loginUrl}${params}`);
   }
 
-  const validationResult = await validateIdportenToken(bearerToken);
+  const validation = await validateToken(token);
 
-  if (validationResult !== "valid") {
-    const error = new Error(
-      `Invalid JWT token found (cause: ${validationResult.errorType} ${validationResult.message}, redirecting to login.`,
-    );
-    logger.error(error);
+  if (!validation.ok) {
+    console.info("Validation of token failed. Redirecting to login");
     return context.redirect(`${loginUrl}${params}`);
   }
 
-  context.locals.token = bearerToken;
+  context.locals.token = token;
 
   return next();
 });

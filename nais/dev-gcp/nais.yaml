@@ -51,3 +51,5 @@ spec:
       value: "http://tms-utkast/v2/utkast"
     - name: MIN_SIDE_URL
       value: "https://www.ansatt.dev.nav.no/minside/"
+    - name: REDIRECT_URI
+      value: "https://www.ansatt.dev.nav.no/minside/utkast"
