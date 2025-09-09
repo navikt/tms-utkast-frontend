@@ -1,4 +1,4 @@
-import { getEnvironment } from "../utils/server/environment";
+import { getEnvironment } from "@src/utils/server/environment";
 
 const REDIRECT_URI = {
   local: "http://localhost:3000/minside/utkast",
