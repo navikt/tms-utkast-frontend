@@ -1,11 +1,11 @@
 ---
+import { MIN_SIDE_URL } from "astro:env/server";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import KattIBoks from "../img/KattIBoks";
 import type { Language } from "../language/language";
 import { text } from "../language/text";
 import Layout from "../layouts/Layout.astro";
 import styles from "../styles/error.module.css";
-import { baseUrl } from "../utils/server/urls";
 
 const language = Astro.currentLocale as Language;
 ---
@@ -19,7 +19,7 @@ const language = Astro.currentLocale as Language;
     </BodyLong>
     <BodyLong>
       {text.errorHelp[language]}
-      <a href={baseUrl}>{text.minSide[language]}</a>
+      <a href={MIN_SIDE_URL}>{text.minSide[language]}</a>
     </BodyLong>
   </div>
 </Layout>

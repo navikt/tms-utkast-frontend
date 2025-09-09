@@ -1,9 +1,9 @@
 ---
+import { MIN_SIDE_URL } from "astro:env/server";
 import { fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
 import type { Language } from "../language/language";
 import { text } from "../language/text";
 import { getDecoratorEnvironment } from "../utils/server/environment";
-import { baseUrl } from "../utils/server/urls";
 import styles from "./Layout.module.css";
 
 const language = Astro.currentLocale as Language;
@@ -16,27 +16,27 @@ const Decorator = await fetchDecoratorReact({
     breadcrumbs: [
       {
         title: text.minSide[language],
-        url: baseUrl,
+        url: MIN_SIDE_URL,
       },
       {
         title: text.utkast[language],
-        url: baseUrl,
+        url: MIN_SIDE_URL,
       },
     ],
     availableLanguages: [
       {
         locale: "nb",
-        url: `${baseUrl}utkast/nb`,
+        url: `${MIN_SIDE_URL}utkast/nb`,
         handleInApp: false,
       },
       {
         locale: "en",
-        url: `${baseUrl}utkast/en`,
+        url: `${MIN_SIDE_URL}utkast/en`,
         handleInApp: false,
       },
       {
         locale: "nn",
-        url: `${baseUrl}utkast/nn`,
+        url: `${MIN_SIDE_URL}utkast/nn`,
         handleInApp: false,
       },
     ],
@@ -75,7 +75,7 @@ const Decorator = await fetchDecoratorReact({
 
 <script>
   import { getCurrentConsent } from '@navikt/nav-dekoratoren-moduler';
-  import { getEnvironment } from '@src/utils/client/urls';
+  import { getEnvironment } from '../utils/client/environment';
 
   interface Consent {
     consent: {
