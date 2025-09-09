@@ -1,8 +1,8 @@
 import { REDIRECT_URI } from "astro:env/server";
 import { getToken, validateToken } from "@navikt/oasis";
-import logger from "@src/utils/server/logger";
 import { defineMiddleware } from "astro/middleware";
-import { isLocal } from "../utils/server/environment";
+import { isLocal } from "../utils/environment";
+import logger from "../utils/logger";
 import { isInternal } from "./utils";
 
 export const onRequest = defineMiddleware(async (context, next) => {

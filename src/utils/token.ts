@@ -1,5 +1,5 @@
 import { requestOboToken } from "@navikt/oasis";
-import { isLocal } from "@src/utils/server/environment";
+import { isLocal } from "./environment";
 import logger from "./logger";
 
 const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-utkast`;

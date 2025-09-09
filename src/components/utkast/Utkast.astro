@@ -6,10 +6,11 @@ import ErrorBox from "@src/components/error/Error.astro";
 import Pencil from "@src/img/Pencil";
 import type { Language } from "@src/language/language";
 import { text } from "@src/language/text";
-import logger from "@src/utils/server/logger.ts";
-import { sortByOpprettet } from "@src/utils/server/sorting";
-import { getOboToken } from "@src/utils/server/token";
 import dayjs from "dayjs";
+import { fetchUtkast } from "../../utils/fetch";
+import logger from "../../utils/logger.ts";
+import { sortByOpprettet } from "../../utils/sorting";
+import { getOboToken } from "../../utils/token";
 import IngenUtkast from "../ingen/IngenUtkast.astro";
 import styles from "./Utkast.module.css";
 import type { UtkastElement } from "./UtkastTypes.ts";
@@ -20,28 +21,16 @@ interface Props {
 
 const oboToken = await getOboToken(Astro.locals.token);
 const { language } = Astro.props;
+
+let data = [];
 let isError = false;
 
-const data = await fetch(UTKAST_API_URL, {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    Authorization: `Bearer ${oboToken}`,
-  },
-})
-  .then((response) => {
-    if (!response.ok) {
-      logger.error(`Error, fetch failed with status: ${response.status}`);
-      isError = true;
-    }
-
-    return response.json();
-  })
-  .catch((error) => {
-    logger.error(`Error, fetch failed: ${error}`);
-    isError = true;
-  });
+try {
+  data = await fetchUtkast(oboToken, UTKAST_API_URL);
+} catch (error) {
+  logger.error("Error fetching utkast: " + error);
+  isError = true;
+}
 
 const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
 ---
