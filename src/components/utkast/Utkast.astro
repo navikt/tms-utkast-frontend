@@ -1,4 +1,5 @@
 ---
+import { UTKAST_API_URL } from "astro:env/server";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
 import logger from "@src/utils/server/logger.ts";
@@ -8,8 +9,6 @@ import type { Language } from "../../language/language";
 import { text } from "../../language/text";
 import { sortByOpprettet } from "../../utils/server/sorting";
 import { getOboToken } from "../../utils/server/token";
-import { utkastApiUrl } from "../../utils/server/urls";
-import Error from "../error/Error.astro";
 import IngenUtkast from "../ingen/IngenUtkast.astro";
 import styles from "./Utkast.module.css";
 import type { UtkastElement } from "./UtkastTypes.ts";
@@ -22,7 +21,7 @@ const oboToken = await getOboToken(Astro.locals.token);
 const { language } = Astro.props;
 let isError = false;
 
-const data = await fetch(utkastApiUrl, {
+const data = await fetch(UTKAST_API_URL, {
   method: "GET",
   headers: {
     "Content-Type": "application/json",

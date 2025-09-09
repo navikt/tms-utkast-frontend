@@ -1,6 +1,6 @@
 import node from "@astrojs/node";
 import react from "@astrojs/react";
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import { rollupImportMapPlugin } from "rollup-plugin-import-map";
 import importmap from "./importmap.json";
 
@@ -38,4 +38,18 @@ export default defineConfig({
   adapter: node({
     mode: "standalone",
   }),
+  env: {
+    schema: {
+      UTKAST_API_URL: envField.string({
+        context: "server",
+        access: "secret",
+        default: "http://localhost:3000/utkast/v2/utkast",
+      }),
+      MIN_SIDE_URL: envField.string({
+        context: "server",
+        access: "secret",
+        default: "http://localhost:4321/minside/",
+      }),
+    },
+  },
 });

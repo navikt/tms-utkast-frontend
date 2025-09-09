@@ -1,6 +1,6 @@
 import logger from "@src/utils/server/logger";
-import { isLocal } from "@src/utils/server/urls";
 import { defineMiddleware } from "astro/middleware";
+import { isLocal } from "../utils/server/environment";
 import { validateIdportenToken } from "./auth/validate";
 import { loginUrl } from "./urls";
 import { isInternal } from "./utils";
