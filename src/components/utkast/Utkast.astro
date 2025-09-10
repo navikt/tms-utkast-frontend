@@ -2,15 +2,15 @@
 import { UTKAST_API_URL } from "astro:env/server";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
+import Pencil from "@src/assets/Pencil";
 import ErrorBox from "@src/components/error/Error.astro";
-import Pencil from "@src/img/Pencil";
 import type { Language } from "@src/language/language";
 import { text } from "@src/language/text";
+import { fetchUtkast } from "@src/utils/fetch";
+import logger from "@src/utils/logger.ts";
+import { sortByOpprettet } from "@src/utils/sorting";
+import { getOboToken } from "@src/utils/token";
 import dayjs from "dayjs";
-import { fetchUtkast } from "../../utils/fetch";
-import logger from "../../utils/logger.ts";
-import { sortByOpprettet } from "../../utils/sorting";
-import { getOboToken } from "../../utils/token";
 import IngenUtkast from "../ingen/IngenUtkast.astro";
 import styles from "./Utkast.module.css";
 import type { UtkastElement } from "./UtkastTypes.ts";
@@ -28,7 +28,7 @@ let isError = false;
 try {
   data = await fetchUtkast(oboToken, UTKAST_API_URL);
 } catch (error) {
-  logger.error("Error fetching utkast: " + error);
+  logger.error(`Error fetching utkast: ${error}`);
   isError = true;
 }
 
@@ -53,7 +53,7 @@ const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
               <div class={styles.top}>
                 <div class={styles.wrapper}>
                   <div class={styles.ikon}>
-                    <Pencil aria-hidden={true} />
+                    <Pencil alt={text.pencil[language]} aria-hidden={true} />
                   </div>
                   <BodyShort size="medium" className={styles.utkastNavn}>
                     {text.utkast[language]}
