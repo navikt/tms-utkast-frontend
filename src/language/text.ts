@@ -94,4 +94,9 @@ export const text = {
     en: "Some of our systems are currently experiencing issues.",
     nn: "Noen av systemene våre har problemer for øyeblikket.",
   },
+  pencil: {
+    nb: "Blyant",
+    en: "Pencil",
+    nn: "Blyant",
+  },
 };

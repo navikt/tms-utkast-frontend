@@ -1,3 +1,5 @@
+import { useId } from "react";
+
 interface Props {
   alt: string;
 }
@@ -12,7 +14,7 @@ const TomtKatt = ({ alt }: Props) => (
     role="img"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <title id="tomt-katt">{alt}</title>
+    <title id={useId()}>{alt}</title>
     <path
       fillRule="evenodd"
       clipRule="evenodd"
