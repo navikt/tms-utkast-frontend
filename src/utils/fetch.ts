@@ -2,7 +2,6 @@ export const fetchUtkast = async (oboToken: string, url: string) => {
   const response = await fetch(url, {
     method: "GET",
     headers: {
-      "Content-Type": "application/json",
       Authorization: `Bearer ${oboToken}`,
     },
   });
