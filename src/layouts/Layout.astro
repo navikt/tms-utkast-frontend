@@ -3,7 +3,7 @@ import { MIN_SIDE_URL } from "astro:env/server";
 import { fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
 import type { Language } from "../language/language";
 import { text } from "../language/text";
-import { getDecoratorEnvironment } from "../utils/server/environment";
+import { getDecoratorEnvironment } from "../utils/environment";
 import styles from "./Layout.module.css";
 
 const language = Astro.currentLocale as Language;
