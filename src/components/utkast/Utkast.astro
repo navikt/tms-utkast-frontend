@@ -45,11 +45,7 @@ const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
       <ul class={styles.utkastList}>
         {data?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
           <li class={styles.container}>
-            <a
-              href={utkast.link}
-              class={styles.link}
-              data-umami-event="utkast-åpnet"
-            >
+            <a href={utkast.link} class={styles.link} id="utkast-åpnet">
               <div class={styles.top}>
                 <div class={styles.wrapper}>
                   <div class={styles.ikon}>
@@ -72,11 +68,7 @@ const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
                 </div>
               </div>
               <div class={styles.bottom}>
-                <Heading
-                  size="xsmall"
-                  level="2"
-                  className={styles.utkastTittel}
-                >
+                <Heading size="xsmall" level="2" className={styles.utkastTittel}>
                   {utkast.tittel}
                 </Heading>
               </div>
@@ -87,3 +79,9 @@ const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
     )
   }
 </>
+<script>
+    import { logEvent } from "@src/utils/analytics";
+
+    const utkast = document.querySelector("#utkast-åpnet");
+    utkast?.addEventListener("click", () => logEvent("utkast-åpnet"));
+</script>
