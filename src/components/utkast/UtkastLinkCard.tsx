@@ -21,8 +21,8 @@ export default function UtkastLinkCard({
         <LinkCard.Anchor href={utkast.link}>{utkast.tittel}</LinkCard.Anchor>
       </LinkCard.Title>
       <LinkCard.Footer>
-        <Tag variant="info" size="small">
-          {`${text.opprettet[language]}: ${dateFormatter(utkast.opprettet)}`}
+        <Tag variant="warning-moderate" size="small">
+          {`${text.opprettet[language]} ${dateFormatter(utkast.opprettet)}`}
         </Tag>
       </LinkCard.Footer>
     </LinkCard>
