@@ -7,8 +7,13 @@
   margin: 0;
   max-width: 632px;
   width: 100%;
+  margin-bottom: 128px;
 }
 
 .container {
   margin-bottom: 0.75rem;
+}
+
+.linkCard {
+  background-color: var(--a-surface-default-neutral);
 }
