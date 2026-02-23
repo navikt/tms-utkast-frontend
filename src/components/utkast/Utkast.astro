@@ -40,6 +40,7 @@ try {
         {data?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
           <li class={styles.container}>
             <UtkastLinkCard
+              client:load
               utkast={utkast}
               language={language}
             />
