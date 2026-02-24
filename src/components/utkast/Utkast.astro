@@ -50,13 +50,3 @@ try {
     )
   }
 </>
-
-<script>
-    import { logEvent } from "@src/utils/analytics";
-
-    document
-      .querySelectorAll('[data-analytics-id="utkast-åpnet"]')
-      .forEach((element) => {
-        element.addEventListener("click", () => logEvent("utkast-åpnet"));
-      });
-</script>

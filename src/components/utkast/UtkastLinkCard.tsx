@@ -1,6 +1,7 @@
 import { LinkCard, Tag } from "@navikt/ds-react";
 import type { Language } from "@src/language/language";
 import { text } from "@src/language/text";
+import { logEvent } from "@src/utils/analytics";
 import dayjs from "dayjs";
 import type { UtkastElement } from "./UtkastTypes";
 
@@ -16,7 +17,7 @@ export default function UtkastLinkCard({
   const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
 
   return (
-    <LinkCard data-analytics-id="utkast-åpnet">
+    <LinkCard onClick={() => logEvent("utkast-åpnet")}>
       <LinkCard.Title>
         <LinkCard.Anchor href={utkast.link}>{utkast.tittel}</LinkCard.Anchor>
       </LinkCard.Title>
