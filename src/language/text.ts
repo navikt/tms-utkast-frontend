@@ -60,9 +60,14 @@ export const text = {
     nn: "Mi side",
   },
   opprettet: {
-    nb: "Opprettet ",
-    en: "Created ",
-    nn: "Oppretta ",
+    nb: "Du startet på utkastet ",
+    en: "You started the draft ",
+    nn: "Du starta på utkastet ",
+  },
+  slettes: {
+    nb: "Utkastet slettes ",
+    en: "The draft will be deleted ",
+    nn: "Utkastet slettes ",
   },
   endret: {
     nb: "Endret ",

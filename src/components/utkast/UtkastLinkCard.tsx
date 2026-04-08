@@ -21,11 +21,16 @@ export default function UtkastLinkCard({
       <LinkCard.Title>
         <LinkCard.Anchor href={utkast.link}>{utkast.tittel}</LinkCard.Anchor>
       </LinkCard.Title>
-      <LinkCard.Footer>
-        <Tag variant="moderate" data-color="info" size="medium">
-          {`${text.opprettet[language]} ${dateFormatter(utkast.opprettet)}`}
-        </Tag>
-      </LinkCard.Footer>
+      <LinkCard.Description>
+        {text.opprettet[language]} {dateFormatter(utkast.opprettet)}
+      </LinkCard.Description>
+      {utkast.sistEndret && (
+        <LinkCard.Footer>
+          <Tag variant="moderate" data-color="info" size="medium">
+            {`${text.slettes[language]} ${dateFormatter(utkast.slettesEtter)}`}
+          </Tag>
+        </LinkCard.Footer>
+      )}
     </LinkCard>
   );
 }
