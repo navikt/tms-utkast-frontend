@@ -13,7 +13,7 @@ const language = Astro.currentLocale as Language;
 <Layout title="Utkast">
   <div class={styles.headingWrapper}>
     <div>
-      <Breadcrumb />
+      <Breadcrumb language={language} />
       <Heading size={'large'}>
         {text.utkast[language]}
       </Heading>
