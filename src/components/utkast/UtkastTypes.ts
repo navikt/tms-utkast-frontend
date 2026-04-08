@@ -4,6 +4,7 @@ export interface UtkastElement {
   utkastId: string;
   opprettet: string;
   sistEndret: string;
+  slettesEtter: string | null;
   metrics?: MetricValues | null;
 }
 

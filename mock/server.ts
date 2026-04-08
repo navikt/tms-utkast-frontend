@@ -25,6 +25,7 @@ api.get("/utkast/v2/utkast", (c) => {
       link: "https://www.intern.dev.nav.no/minside/",
       opprettet: "2020-03-23T08:53:24.636Z",
       sistEndret: null,
+      slettesEtter: "2020-04-23T08:53:24.636Z",
       metrics: {
         skjemakode: "2233/8",
         skjemanavn: "Dagpenger søknadskjema",
@@ -36,6 +37,7 @@ api.get("/utkast/v2/utkast", (c) => {
       link: "https://www.intern.dev.nav.no/minside/",
       opprettet: "2020-03-13T08:53:24.636Z",
       sistEndret: "2020-03-14T08:53:24.636Z",
+      slettesEtter: null,
       metrics: null,
     },
     {
@@ -44,6 +46,7 @@ api.get("/utkast/v2/utkast", (c) => {
       link: "https://www.intern.dev.nav.no/minside/",
       opprettet: "2020-10-13T08:53:24.636Z",
       sistEndret: null,
+      slettesEtter: "2020-11-13T08:53:24.636Z",
     },
     {
       utkastId: "124610",
@@ -51,6 +54,7 @@ api.get("/utkast/v2/utkast", (c) => {
       link: "https://www.intern.dev.nav.no/minside/",
       opprettet: "2023-03-13T08:53:24.636Z",
       sistEndret: "2023-03-14T08:53:24.636Z",
+      slettesEtter: null,
     },
   ]);
 });

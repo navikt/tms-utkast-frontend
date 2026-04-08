@@ -1,0 +1,10 @@
+---
+import { MIN_SIDE_URL } from "astro:env/server";
+import { Link } from "@navikt/ds-react";
+import styles from "./breadcrumb.module.css";
+---
+
+<Link href={MIN_SIDE_URL} className={styles.breadcrumb}>
+  Min side
+</Link>
+
