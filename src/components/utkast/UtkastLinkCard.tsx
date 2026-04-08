@@ -24,7 +24,7 @@ export default function UtkastLinkCard({
       <LinkCard.Description>
         {text.opprettet[language]} {dateFormatter(utkast.opprettet)}
       </LinkCard.Description>
-      {utkast.sistEndret && (
+      {utkast.slettesEtter && (
         <LinkCard.Footer>
           <Tag variant="moderate" data-color="info" size="medium">
             {`${text.slettes[language]} ${dateFormatter(utkast.slettesEtter)}`}
