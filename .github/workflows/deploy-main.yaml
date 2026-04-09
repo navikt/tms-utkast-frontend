@@ -27,7 +27,7 @@ jobs:
           cache: "pnpm"
 
       - name: "Install dependencies"
-        run: "pnpm install"
+        run: "pnpm install --frozen-lockfile"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
