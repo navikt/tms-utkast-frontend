@@ -39,5 +39,3 @@ export default function UtkastLinkCard({
     </LinkCard>
   );
 }
-// boarder color
-// endre ingress teksten.
