@@ -16,15 +16,16 @@ updates:
     cooldown:
       default-days: 7
     groups:
-      aksel:
+      navikt:
         patterns:
-          - "@navikt/aksel-*"
-          - "@navikt/ds-*"
-      react:
+          - "@navikt/*"
+      astro:
         patterns:
-          - "react"
-          - "react-dom"
+          - "astro"
+          - "@astrojs/*"
       minor-and-patch:
         update-types:
           - "patch"
           - "minor"
+        exclude-patterns:
+          - "@navikt/ds-*" # midlertidig ekskludering av ds-oppdateringer inntil vi får inn ds-css
