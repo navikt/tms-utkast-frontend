@@ -1,5 +1,6 @@
 ---
 import { BodyLong, Heading, Loader } from "@navikt/ds-react";
+import Breadcrumb from "@src/components/breadcrumb/Breadcrumb.astro";
 import Utkast from "../../components/utkast/Utkast.astro";
 import type { Language } from "../../language/language";
 import { text } from "../../language/text";
@@ -12,6 +13,7 @@ const language = Astro.currentLocale as Language;
 <Layout title="Utkast">
   <div class={styles.headingWrapper}>
     <div>
+      <Breadcrumb language={language} />
       <Heading size={'large'}>
         {text.utkast[language]}
       </Heading>

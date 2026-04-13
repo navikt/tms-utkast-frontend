@@ -1,0 +1,13 @@
+---
+import { MIN_SIDE_URL } from "astro:env/server";
+import { Link } from "@navikt/ds-react";
+import type { Language } from "@src/language/language";
+import { text } from "@src/language/text";
+import styles from "./breadcrumb.module.css";
+
+const { language } = Astro.props as { language: Language };
+---
+
+<Link href={MIN_SIDE_URL} className={styles.breadcrumb}>
+  {text.minSide[language]}
+</Link>

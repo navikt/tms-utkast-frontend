@@ -5,9 +5,9 @@ export const text = {
     nn: "Utkast",
   },
   description: {
-    nb: "Her finner du påbegynte søknader og andre skjemaer du ikke har sendt inn ennå",
-    en: "On this page you can find applications or other forms you have started but not completed yet ",
-    nn: "Her finn du søknader du har starta på og andre skjema du ikkje har sendt inn enno",
+    nb: "Her kan du fortsette på skjemaer du ikke har sendt til oss ennå",
+    en: "Here you can continue with the forms you have not yet submitted to us",
+    nn: "Her kan du halde fram med skjema du ikkje har sendt inn til oss enno",
   },
   started: {
     nb: "Påbegynt",
@@ -60,9 +60,14 @@ export const text = {
     nn: "Mi side",
   },
   opprettet: {
-    nb: "Opprettet ",
-    en: "Created ",
-    nn: "Oppretta ",
+    nb: "Du startet på utkastet ",
+    en: "You started the draft ",
+    nn: "Du starta på utkastet ",
+  },
+  slettes: {
+    nb: "Utkastet slettes ",
+    en: "The draft will be deleted ",
+    nn: "Utkastet slettes ",
   },
   endret: {
     nb: "Endret ",
