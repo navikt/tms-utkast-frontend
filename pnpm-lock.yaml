@@ -56,7 +56,7 @@ importers:
         version: 2.2.3
       '@hono/node-server':
         specifier: 1.19.1
-        version: 1.19.1(hono@4.9.6)
+        version: 1.19.1(hono@4.12.12)
       '@types/node':
         specifier: 24.3.1
         version: 24.3.1
@@ -67,8 +67,8 @@ importers:
         specifier: 18.2.21
         version: 18.2.21
       hono:
-        specifier: 4.9.6
-        version: 4.9.6
+        specifier: 4.12.12
+        version: 4.12.12
       lint-staged:
         specifier: 16.1.6
         version: 16.1.6
@@ -1590,8 +1590,8 @@ packages:
   hastscript@9.0.1:
     resolution: {integrity: sha512-g7df9rMFX/SPi34tyGCyUBREQoKkapwdY/T04Qn9TDWfHhAYt4/I0gMVirzK5wEzeUqIjEB+LXC/ypb7Aqno5w==}
 
-  hono@4.9.6:
-    resolution: {integrity: sha512-doVjXhSFvYZ7y0dNokjwwSahcrAfdz+/BCLvAMa/vHLzjj8+CFyV5xteThGUsKdkaasgN+gF2mUxao+SGLpUeA==}
+  hono@4.12.12:
+    resolution: {integrity: sha512-p1JfQMKaceuCbpJKAPKVqyqviZdS0eUxH9v82oWo1kb9xjQ5wA6iP3FNVAPDFlz5/p7d45lO+BpSk1tuSZMF4Q==}
     engines: {node: '>=16.9.0'}
 
   html-dom-parser@5.1.8:
@@ -3178,9 +3178,9 @@ snapshots:
       protobufjs: 7.5.4
       yargs: 17.7.2
 
-  '@hono/node-server@1.19.1(hono@4.9.6)':
+  '@hono/node-server@1.19.1(hono@4.12.12)':
     dependencies:
-      hono: 4.9.6
+      hono: 4.12.12
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
@@ -4395,7 +4395,7 @@ snapshots:
       property-information: 7.1.0
       space-separated-tokens: 2.0.2
 
-  hono@4.9.6: {}
+  hono@4.12.12: {}
 
   html-dom-parser@5.1.8:
     dependencies:
