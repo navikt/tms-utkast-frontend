@@ -19,7 +19,7 @@
     "@navikt/ds-react": "8.0.0",
     "@navikt/nav-dekoratoren-moduler": "3.7.1",
     "@navikt/oasis": "3.4.0",
-    "@opentelemetry/sdk-node": "0.204.0",
+    "@opentelemetry/sdk-node": "0.214.0",
     "astro": "5.13.6",
     "dayjs": "1.11.18",
     "husky": "9.1.7",
