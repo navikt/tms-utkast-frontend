@@ -1,9 +1,9 @@
 ---
 import { UTKAST_API_URL } from "astro:env/server";
+import { logger } from "@navikt/pino-logger";
 import ErrorBox from "@src/components/error/Error.astro";
 import type { Language } from "@src/language/language";
 import { fetchUtkast } from "@src/utils/fetch";
-import logger from "@src/utils/logger.ts";
 import { sortByOpprettet } from "@src/utils/sorting";
 import { getOboToken } from "@src/utils/token";
 import IngenUtkast from "../ingen/IngenUtkast.astro";
@@ -39,11 +39,7 @@ try {
       <ul class={styles.utkastList}>
         {data?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
           <li class={styles.container}>
-            <UtkastLinkCard
-              client:load
-              utkast={utkast}
-              language={language}
-            />
+            <UtkastLinkCard client:load utkast={utkast} language={language} />
           </li>
         ))}
       </ul>
