@@ -20,7 +20,7 @@
     "@navikt/nav-dekoratoren-moduler": "3.7.1",
     "@navikt/oasis": "3.4.0",
     "@navikt/pino-logger": "5.0.0",
-    "astro": "5.13.6",
+    "astro": "5.18.0",
     "dayjs": "1.11.18",
     "husky": "9.1.7",
     "pino": "9.9.4",
