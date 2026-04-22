@@ -16,9 +16,10 @@ updates:
     cooldown:
       default-days: 7
     groups:
-      navikt:
+      aksel:
         patterns:
-          - "@navikt/*"
+          - "@navikt/aksel-*"
+          - "@navikt/ds-*"
       astro:
         patterns:
           - "astro"
@@ -33,3 +34,12 @@ updates:
         update-types:
           - "patch"
           - "minor"
+        exclude-patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+          - "@navikt/aksel-*"
+          - "@navikt/ds-*"
+          - "@astrojs/*"
+          - "astro"
