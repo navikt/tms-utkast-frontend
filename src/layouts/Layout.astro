@@ -1,4 +1,5 @@
 ---
+import "@navikt/ds-css";
 import { MIN_SIDE_URL } from "astro:env/server";
 import { fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
 import type { Language } from "../language/language";
@@ -42,15 +43,6 @@ const Decorator = await fetchDecoratorReact({
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Utkast</title>
-    <link
-      rel="preload"
-      href="https://cdn.nav.no/aksel/@navikt/ds-css/8.0.0/index.min.css"
-      as="style"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.nav.no/aksel/@navikt/ds-css/8.0.0/index.min.css"
-    />
     <Decorator.HeadAssets />
   </head>
   <body class="main">
