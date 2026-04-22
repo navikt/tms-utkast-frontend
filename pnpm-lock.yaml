@@ -18,8 +18,8 @@ importers:
         specifier: 4.3.1
         version: 4.3.1(@types/node@24.3.1)(@types/react-dom@18.2.21)(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(tsx@4.21.0)(yaml@2.8.3)
       '@navikt/aksel-icons':
-        specifier: 7.29.1
-        version: 7.29.1
+        specifier: 8.9.1
+        version: 8.9.1
       '@navikt/ds-react':
         specifier: 8.0.0
         version: 8.0.0(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -794,9 +794,6 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
-
-  '@navikt/aksel-icons@7.29.1':
-    resolution: {integrity: sha512-ERX4lUCYcPDQN3UT1051UY8bDb6vBwAePMSDuRO5bLnTSSq8ZqNxPDtSxaihp35DeqZi08j7AJQXGGpn0exd9g==, tarball: https://npm.pkg.github.com/download/@navikt/aksel-icons/7.29.1/dd3a4014c46263847d74a531a9b4cf2850bbe018}
 
   '@navikt/aksel-icons@8.9.1':
     resolution: {integrity: sha512-yjeyQPBHvaeRs5BMRRgzwo1cMC/249f4rkxmeIX2CjZDjJvqDycJphqrddjQKUmBcf6XVfv0nx6dcqnf0Z8obQ==, tarball: https://npm.pkg.github.com/download/@navikt/aksel-icons/8.9.1/ff1f10cabbda2ee7f6baa457cadcabb13adc64cc}
@@ -3270,8 +3267,6 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
-
-  '@navikt/aksel-icons@7.29.1': {}
 
   '@navikt/aksel-icons@8.9.1': {}
 
