@@ -14,6 +14,7 @@ export default defineConfig({
     locales: ["nb", "nn", "en"],
     routing: {
       prefixDefaultLocale: true,
+      redirectToDefaultLocale: true,
     },
   },
   output: "server",
