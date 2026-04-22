@@ -23,9 +23,13 @@ updates:
         patterns:
           - "astro"
           - "@astrojs/*"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
       minor-and-patch:
         update-types:
           - "patch"
           - "minor"
-        exclude-patterns:
-          - "@navikt/ds-*" # midlertidig ekskludering av ds-oppdateringer inntil vi får inn ds-css
