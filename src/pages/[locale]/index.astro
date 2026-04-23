@@ -1,6 +1,7 @@
 ---
-import { BodyLong, Heading, Loader } from "@navikt/ds-react";
-import Breadcrumb from "@src/components/breadcrumb/Breadcrumb.astro";
+import { MIN_SIDE_URL } from "astro:env/server";
+import { Loader } from "@navikt/ds-react";
+import PageHeader from "@src/components/pageHeader/PageHeader.astro";
 import Utkast from "../../components/utkast/Utkast.astro";
 import type { Language } from "../../language/language";
 import { text } from "../../language/text";
@@ -12,15 +13,11 @@ const language = Astro.currentLocale as Language;
 
 <Layout title="Utkast">
   <div class={styles.headingWrapper}>
-    <div>
-      <Breadcrumb language={language} />
-      <Heading size={'large'}>
-        {text.utkast[language]}
-      </Heading>
-      <BodyLong className={styles.ingress} size={'large'}>
-        {text.description[language]}
-      </BodyLong>
-    </div>
+    <PageHeader
+      breadcrumbItems={[{ href: MIN_SIDE_URL, label: text.minSide[language] }]}
+      title={text.utkast[language]}
+      description={text.description[language]}
+    />
   </div>
   <div class={styles.utkastWrapper}>
     <Utkast language={language} server:defer>
