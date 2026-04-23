@@ -17,7 +17,7 @@ const { title, description, breadcrumbItems } = Astro.props;
 ---
 
 <div class={styles.pageHeader}>
-  <nav aria-label="Du er her" class={styles.breadcrumb}>
+  <nav class={styles.breadcrumb}>
     <ol class={styles.breadcrumbList}>
       {
         breadcrumbItems.map(({ href, label }) => (
