@@ -1,14 +1,14 @@
 ---
 import "@navikt/ds-css";
 import { MIN_SIDE_URL } from "astro:env/server";
-import { fetchDecoratorReact } from "@navikt/nav-dekoratoren-moduler/ssr";
+import { fetchDecoratorHtml } from "@navikt/nav-dekoratoren-moduler/ssr";
 import type { Language } from "../language/language";
 import { getDecoratorEnvironment } from "../utils/environment";
 import styles from "./Layout.module.css";
 
 const language = Astro.currentLocale as Language;
 
-const Decorator = await fetchDecoratorReact({
+const Decorator = await fetchDecoratorHtml({
   env: getDecoratorEnvironment(),
   params: {
     context: "privatperson",
@@ -32,6 +32,13 @@ const Decorator = await fetchDecoratorReact({
     ],
   },
 });
+
+const {
+  DECORATOR_HEAD_ASSETS,
+  DECORATOR_HEADER,
+  DECORATOR_FOOTER,
+  DECORATOR_SCRIPTS,
+} = Decorator;
 ---
 
 <!doctype html>
@@ -42,14 +49,14 @@ const Decorator = await fetchDecoratorReact({
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Utkast</title>
-    <Decorator.HeadAssets />
+    <Fragment set:html={DECORATOR_HEAD_ASSETS} />
   </head>
   <body class="main">
-    <Decorator.Header />
+  <Fragment set:html={DECORATOR_HEADER} />
     <div class={styles.container}>
       <slot />
     </div>
-    <Decorator.Footer />
-    <Decorator.Scripts />
+  <Fragment set:html={DECORATOR_FOOTER} />
+  <Fragment set:html={DECORATOR_SCRIPTS} />
   </body>
 </html>
