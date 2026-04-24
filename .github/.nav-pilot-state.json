@@ -3,7 +3,7 @@
   "version": "2026.04.20-194821-8b2cb9f",
   "scope": "repo",
   "source_sha": "8b2cb9f",
-  "installed_at": "2026-04-22T09:38:39Z",
+  "installed_at": "2026-04-24T09:51:34Z",
   "files": [
     {
       "path": ".github/agents/accessibility.agent.md",
