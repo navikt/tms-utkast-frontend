@@ -9,7 +9,7 @@
 
   text-align: center;
   margin-top: 50px;
-  color: var(--a-text-default);
+  color: var(--ax-text-neutral);
 }
 
 .container h1 {
@@ -17,5 +17,5 @@
 }
 
 .container a {
-  color: var(--a-text-default);
+  color: var(--ax-text-neutral);
 }

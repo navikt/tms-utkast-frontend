@@ -1,18 +1,5 @@
 .headingWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  height: 100%;
   width: 100%;
-  margin: 0 auto;
-  padding: 16px 0;
-  max-width: 632px;
-}
-
-.headingWrapper h1 {
-  color: var(--a-text-default);
-  margin-bottom: 10px;
 }
 
 .utkastWrapper {
@@ -23,12 +10,4 @@
   height: 100%;
   width: 100%;
   margin: 0 auto;
-}
-
-.utkast h1 {
-  color: var(--a-text-default);
-}
-
-.ingress {
-  color: var(--a-text-default);
 }
