@@ -59,7 +59,7 @@ importers:
         version: 2.4.13
       '@hono/node-server':
         specifier: 2.0.0
-        version: 2.0.0(hono@4.12.15)
+        version: 2.0.0(hono@4.12.18)
       '@types/node':
         specifier: 25.6.0
         version: 25.6.0
@@ -70,8 +70,8 @@ importers:
         specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.14)
       hono:
-        specifier: 4.12.15
-        version: 4.12.15
+        specifier: 4.12.18
+        version: 4.12.18
       lint-staged:
         specifier: 16.4.0
         version: 16.4.0
@@ -1374,8 +1374,8 @@ packages:
   hastscript@9.0.1:
     resolution: {integrity: sha512-g7df9rMFX/SPi34tyGCyUBREQoKkapwdY/T04Qn9TDWfHhAYt4/I0gMVirzK5wEzeUqIjEB+LXC/ypb7Aqno5w==}
 
-  hono@4.12.15:
-    resolution: {integrity: sha512-qM0jDhFEaCBb4TxoW7f53Qrpv9RBiayUHo0S52JudprkhvpjIrGoU1mnnr29Fvd1U335ZFPZQY1wlkqgfGXyLg==}
+  hono@4.12.18:
+    resolution: {integrity: sha512-RWzP96k/yv0PQfyXnWjs6zot20TqfpfsNXhOnev8d1InAxubW93L11/oNUc3tQqn2G0bSdAOBpX+2uDFHV7kdQ==}
     engines: {node: '>=16.9.0'}
 
   html-dom-parser@5.1.8:
@@ -2885,9 +2885,9 @@ snapshots:
 
   '@floating-ui/utils@0.2.11': {}
 
-  '@hono/node-server@2.0.0(hono@4.12.15)':
+  '@hono/node-server@2.0.0(hono@4.12.18)':
     dependencies:
-      hono: 4.12.15
+      hono: 4.12.18
 
   '@img/colour@1.1.0':
     optional: true
@@ -3818,7 +3818,7 @@ snapshots:
       property-information: 7.1.0
       space-separated-tokens: 2.0.2
 
-  hono@4.12.15: {}
+  hono@4.12.18: {}
 
   html-dom-parser@5.1.8:
     dependencies:
