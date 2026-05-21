@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  yaml@>=2.0.0 <2.8.3: '>=2.8.3'
-
 importers:
 
   .:
@@ -30,8 +27,8 @@ importers:
         specifier: 8.10.5
         version: 8.10.5(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@navikt/nav-dekoratoren-moduler':
-        specifier: 3.7.1
-        version: 3.7.1(html-react-parser@5.2.17(@types/react@19.2.14)(react@19.2.6))(react@19.2.6)
+        specifier: 4.0.0
+        version: 4.0.0(html-react-parser@5.2.17(@types/react@19.2.14)(react@19.2.6))(react@19.2.6)
       '@navikt/oasis':
         specifier: 4.1.4
         version: 4.1.4
@@ -656,6 +653,10 @@ packages:
   '@navikt/aksel-icons@8.10.5':
     resolution: {integrity: sha512-XDmygarYMyGhGxE5x5uVDCxPPW5dty2A0yVvdT+I6VyRjvDDY/jtAw0NU/HV5itAm7prCwO19IKf1DvjuzU31g==, tarball: https://npm.pkg.github.com/download/@navikt/aksel-icons/8.10.5/5904f4043e27a4f7f7005fd9fd2fe1ceed130d3b}
 
+  '@navikt/analytics-types@0.0.9':
+    resolution: {integrity: sha512-bopCvqEogyFcmrJiBxK/Mr25d6yPKF7GR36MGrJqiHCPJYf1rDu6lK4cpooTG4Q//D/1xTkHRom8ZH5BI6dTew==, tarball: https://npm.pkg.github.com/download/@navikt/analytics-types/0.0.9/5919241a6dbb782eb101fff3234ce5c36d16e942}
+    engines: {node: '>=20.0.0', npm: '>=9.0.0'}
+
   '@navikt/ds-css@8.10.5':
     resolution: {integrity: sha512-XJXHPyN0IPQV/zMSVw06uJsqrSyOObgJ7PiQ9wSkw5bLfwv8ksn51HV3EkRXy7h0A8EHnlywFvgROwMVIBqHoA==, tarball: https://npm.pkg.github.com/download/@navikt/ds-css/8.10.5/55b51c6fdb86d5123b4b18265f53dc67eb26e6f7}
 
@@ -669,8 +670,8 @@ packages:
   '@navikt/ds-tokens@8.10.6':
     resolution: {integrity: sha512-tsYS9Wy5/t6fryllnQfbzNkjD8lTA4b+enkbDj0SLTYfB4naCeXO4cog1jl3u/y3IhqqVTIMnyO7ujv1mLbYTg==, tarball: https://npm.pkg.github.com/download/@navikt/ds-tokens/8.10.6/3070167a2ab8445b7f04935d47175c87cc0167a3}
 
-  '@navikt/nav-dekoratoren-moduler@3.7.1':
-    resolution: {integrity: sha512-MQLxR4uoADCd6i0hFnWHN/XLPevEfxkBK9yEgbtcY0v2gsj69nALH/7DvTKqSxqRovxOHibVa7mZKZEBAMRBvg==, tarball: https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/3.7.1/09490a131cedd7779e35d413d20c36bd01ef57a0}
+  '@navikt/nav-dekoratoren-moduler@4.0.0':
+    resolution: {integrity: sha512-jsZmmEnXT63gwy0Or6skvdrxVG+acFmK55SURFah9LuPn8KAmrQa3EHhUhRZNsdt+tP5UgsnPA8HVoyurwLPXA==, tarball: https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/4.0.0/65595610e69365df6008576d13e7f24511715683}
     engines: {node: 24.x}
     peerDependencies:
       html-react-parser: '>=5.x'
@@ -2270,7 +2271,7 @@ packages:
       sugarss: ^5.0.0
       terser: ^5.16.0
       tsx: ^4.8.1
-      yaml: '>=2.8.3'
+      yaml: ^2.4.2
     peerDependenciesMeta:
       '@types/node':
         optional: true
@@ -2425,6 +2426,11 @@ packages:
 
   yaml-language-server@1.20.0:
     resolution: {integrity: sha512-qhjK/bzSRZ6HtTvgeFvjNPJGWdZ0+x5NREV/9XZWFjIGezew2b4r5JPy66IfOhd5OA7KeFwk1JfmEbnTvev0cA==}
+    hasBin: true
+
+  yaml@2.7.1:
+    resolution: {integrity: sha512-10ULxpnOCQXxJvBgxsn9ptjq6uviG/htZKk9veJGhlqn3w/DxQ631zFF+nlQXLwmImeS5amR2dl2U8sg6U9jsQ==}
+    engines: {node: '>= 14'}
     hasBin: true
 
   yaml@2.8.3:
@@ -2999,6 +3005,8 @@ snapshots:
 
   '@navikt/aksel-icons@8.10.5': {}
 
+  '@navikt/analytics-types@0.0.9': {}
+
   '@navikt/ds-css@8.10.5': {}
 
   '@navikt/ds-react@8.10.5(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
@@ -3015,8 +3023,9 @@ snapshots:
 
   '@navikt/ds-tokens@8.10.6': {}
 
-  '@navikt/nav-dekoratoren-moduler@3.7.1(html-react-parser@5.2.17(@types/react@19.2.14)(react@19.2.6))(react@19.2.6)':
+  '@navikt/nav-dekoratoren-moduler@4.0.0(html-react-parser@5.2.17(@types/react@19.2.14)(react@19.2.6))(react@19.2.6)':
     dependencies:
+      '@navikt/analytics-types': 0.0.9
       csp-header: 6.3.1
       html-react-parser: 5.2.17(@types/react@19.2.14)(react@19.2.6)
       js-cookie: 3.0.5
@@ -5079,7 +5088,9 @@ snapshots:
       vscode-languageserver-textdocument: 1.0.12
       vscode-languageserver-types: 3.17.5
       vscode-uri: 3.1.0
-      yaml: 2.8.4
+      yaml: 2.7.1
+
+  yaml@2.7.1: {}
 
   yaml@2.8.3: {}
 
