@@ -4,8 +4,15 @@ on:
     - cron: '0 7 * * 1'  # Mandager kl 07:00
   workflow_dispatch:
 jobs:
-  sync:
+  sync-nav-pilot:
     uses: navikt/copilot/.github/workflows/copilot-customization-sync.yml@main
+    permissions:
+      contents: write
+      pull-requests: write
+  sync-tms-agent-skills:
+    uses: navikt/copilot/.github/workflows/copilot-customization-sync.yml@main
+    with:
+      source_repo: https://github.com/navikt/tms-agent-skills/tree/main
     permissions:
       contents: write
       pull-requests: write
