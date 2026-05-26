@@ -7,7 +7,7 @@ jobs:
   sync:
     uses: navikt/copilot/.github/workflows/copilot-customization-sync.yml@main
     with:
-      source_repo: https://github.com/navikt/tms-copilot
+      source_repo: navikt/tms-copilot
     permissions:
       contents: write
       pull-requests: write
