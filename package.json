@@ -18,7 +18,7 @@
     "@navikt/aksel-icons": "8.10.6",
     "@navikt/ds-css": "8.10.6",
     "@navikt/ds-react": "8.10.6",
-    "@navikt/nav-dekoratoren-moduler": "3.7.1",
+    "@navikt/nav-dekoratoren-moduler": "4.2.0",
     "@navikt/oasis": "4.1.4",
     "@navikt/pino-logger": "5.0.0",
     "astro": "6.3.8",
