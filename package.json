@@ -36,7 +36,7 @@
     "@types/react-dom": "19.2.3",
     "hono": "4.12.23",
     "lint-staged": "16.4.0",
-    "tsx": "4.22.3",
+    "tsx": "4.22.4",
     "typescript": "5.9.3"
   },
   "lint-staged": {
