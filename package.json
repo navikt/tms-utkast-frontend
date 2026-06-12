@@ -25,14 +25,14 @@
     "dayjs": "1.11.21",
     "husky": "9.1.7",
     "pino": "10.3.1",
-    "react": "19.2.6",
-    "react-dom": "19.2.6"
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.16",
     "@hono/node-server": "2.0.4",
     "@types/node": "25.9.1",
-    "@types/react": "19.2.15",
+    "@types/react": "19.2.16",
     "@types/react-dom": "19.2.3",
     "hono": "4.12.23",
     "lint-staged": "16.4.0",
