@@ -7,6 +7,10 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "mock": "tsx mock/server.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
     "preview": "astro preview",
     "astro": "astro",
     "prepare": "husky"
@@ -31,13 +35,20 @@
   "devDependencies": {
     "@biomejs/biome": "2.4.16",
     "@hono/node-server": "2.0.4",
+    "@playwright/test": "1.60.0",
+    "@testing-library/dom": "10.4.1",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
     "@types/node": "25.9.1",
     "@types/react": "19.2.15",
     "@types/react-dom": "19.2.3",
+    "@vitest/coverage-v8": "4.1.8",
     "hono": "4.12.23",
+    "jsdom": "29.1.1",
     "lint-staged": "16.4.0",
     "tsx": "4.22.4",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vitest": "4.1.8"
   },
   "lint-staged": {
     "*.{astro,js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
