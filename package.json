@@ -37,7 +37,7 @@
     "hono": "4.12.23",
     "lint-staged": "16.4.0",
     "tsx": "4.22.4",
-    "typescript": "5.9.3"
+    "typescript": "6.0.3"
   },
   "lint-staged": {
     "*.{astro,js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
