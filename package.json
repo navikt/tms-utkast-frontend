@@ -29,8 +29,8 @@
     "dayjs": "1.11.21",
     "husky": "9.1.7",
     "pino": "10.3.1",
-    "react": "19.2.6",
-    "react-dom": "19.2.6"
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.16",
@@ -40,7 +40,7 @@
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.2",
     "@types/node": "25.9.1",
-    "@types/react": "19.2.15",
+    "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "@vitest/coverage-v8": "4.1.8",
     "hono": "4.12.23",
