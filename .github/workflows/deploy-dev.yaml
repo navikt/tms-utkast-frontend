@@ -28,6 +28,17 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
+      - name: "Run unit and component tests"
+        run: "pnpm test"
+
+      - name: "Install Playwright browsers"
+        run: "pnpm exec playwright install --with-deps chromium"
+
+      - name: "Run E2E tests"
+        run: "pnpm test:e2e"
+        env:
+          CI: "true"
+
       - name: "Build application"
         run: "pnpm run build"
         env:
