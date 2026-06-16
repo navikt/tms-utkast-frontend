@@ -21,11 +21,9 @@ flowchart LR
     bruker["Innbygger\n(nettleser)"]
     frontend["tms-utkast-frontend\n(Astro SSR)"]
     backend["tms-utkast\n(backend)"]
-    dekorator["nav-dekoratoren"]
 
     bruker -->|ID-porten-innlogging| frontend
     frontend -->|TokenX OBO-token| backend
-    frontend -->|henter header/footer| dekorator
 ```
 
 Innkommende forespørsler valideres i Astro-middleware (`src/middleware/index.ts`) med `@navikt/oasis`. Mot `tms-utkast` veksles brukerens token til et on-behalf-of-token via TokenX før utkast hentes.
