@@ -46,7 +46,7 @@
     "@vitest/coverage-v8": "4.1.9",
     "hono": "4.12.25",
     "jsdom": "29.1.1",
-    "lint-staged": "16.4.0",
+    "lint-staged": "17.0.7",
     "tsx": "4.22.4",
     "typescript": "5.9.3",
     "vitest": "4.1.9"
