@@ -44,7 +44,7 @@
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "@vitest/coverage-v8": "4.1.8",
-    "hono": "4.12.23",
+    "hono": "4.12.25",
     "jsdom": "29.1.1",
     "lint-staged": "16.4.0",
     "tsx": "4.22.4",
