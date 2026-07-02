@@ -1,6 +1,5 @@
 import { REDIRECT_URI } from "astro:env/server";
 import { getToken, validateToken } from "@navikt/oasis";
-import { logger } from "@navikt/pino-logger";
 import { defineMiddleware } from "astro/middleware";
 import { isLocal } from "../utils/environment";
 import { isInternal } from "./utils";
@@ -19,7 +18,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   if (!token) {
-    logger.info(
+    context.logger.info(
       "Could not find any bearer token on the request. Redirecting to login.",
     );
     return context.redirect(`${loginUrl}${params}`);
@@ -28,7 +27,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const validation = await validateToken(token);
 
   if (!validation.ok) {
-    console.info("Validation of token failed. Redirecting to login");
+    context.logger.info("Validation of token failed. Redirecting to login");
     return context.redirect(`${loginUrl}${params}`);
   }
 
