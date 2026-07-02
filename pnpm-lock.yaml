@@ -20,6 +20,9 @@ importers:
       '@navikt/aksel-icons':
         specifier: 8.12.0
         version: 8.12.0
+      '@navikt/astro-logger':
+        specifier: 1.0.0
+        version: 1.0.0(astro@7.0.2(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@25.9.3)(tsx@4.22.4)(yaml@2.9.0))(pino@10.3.1)
       '@navikt/ds-css':
         specifier: 8.12.0
         version: 8.12.0
@@ -32,9 +35,6 @@ importers:
       '@navikt/oasis':
         specifier: 4.1.4
         version: 4.1.4
-      '@navikt/pino-logger':
-        specifier: 5.0.0
-        version: 5.0.0(pino@10.3.1)
       astro:
         specifier: 7.0.2
         version: 7.0.2(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@25.9.3)(tsx@4.22.4)(yaml@2.9.0)
@@ -899,6 +899,13 @@ packages:
   '@navikt/aksel-icons@8.12.0':
     resolution: {integrity: sha512-fyoDI6rimF3OnTT16+CrFdS8m7R+Ffn9/fJN1/2Q6SMThitpm1EmHFz+0RLeH2U20aLEIzQvzKfdryU5cUMCaA==, tarball: https://npm.pkg.github.com/download/@navikt/aksel-icons/8.12.0/5f51810e0e62ebae550c74545e9fb0308a09c8bc}
 
+  '@navikt/astro-logger@1.0.0':
+    resolution: {integrity: sha512-4PlhIDb5g9I9yGPNri6aoAN9EZrtADerzOky3HMET4+T50Nl6aJvJF+ov2XumMPStTFrgxOvb6zGAi0nj9hVJg==, tarball: https://npm.pkg.github.com/download/@navikt/astro-logger/1.0.0/8465e16527b5b42c04338723e9a676da6412a8f7}
+    engines: {node: ^20.19.0 || >= 22.12.0 || 24.x}
+    peerDependencies:
+      astro: ^7.0.0
+      pino: 8 || 9 || 10
+
   '@navikt/ds-css@8.12.0':
     resolution: {integrity: sha512-yHWnAFOhkfzmxC9fOfmIrY3bfbhCgoFWjdJqECZpSKvM8X8qxIm428liLgUwMkLD3uFdfLuGOEh81ONq2aUhyg==, tarball: https://npm.pkg.github.com/download/@navikt/ds-css/8.12.0/6dbc970d209725f1aff7ba28530a726b97c9f940}
 
@@ -908,6 +915,9 @@ packages:
       '@types/react': ^17.0.30 || ^18 || ^19
       react: ^17 || ^18 || ^19
       react-dom: ^17 || ^18 || ^19
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
 
   '@navikt/ds-tokens@8.13.1':
     resolution: {integrity: sha512-wi8sBX6UPDZ3tVI2Nx2KJkiGutx6U5fixeVHRo/oX36RvkYVW9zjYO8/I51BLGdiJW0qOufqFOEs+AEVupuRZA==, tarball: https://npm.pkg.github.com/download/@navikt/ds-tokens/8.13.1/414cbe1c161ae08b13ff64d0acd8328c8f5a5bda}
@@ -918,16 +928,13 @@ packages:
     peerDependencies:
       html-react-parser: '>=5.x'
       react: '>=17.x'
+    peerDependenciesMeta:
+      react:
+        optional: true
 
   '@navikt/oasis@4.1.4':
     resolution: {integrity: sha512-v+LW8V5CTiHkfIXhceQ8RXRtrBktCK8wSFYmiR6hmzl9CJRYRLUpFC7YbLiC7jwHIuLHKUyl+Zawf8zQm6fDeQ==, tarball: https://npm.pkg.github.com/download/@navikt/oasis/4.1.4/0d9c93820b9b6d93b1bd9da134feb95461ad8a47}
     engines: {node: ^20.19.0 || >= 22.12.0 || 24.x || 25.x}
-
-  '@navikt/pino-logger@5.0.0':
-    resolution: {integrity: sha512-CKINa+iUUaQnqcpiGrmWb51EDogXzI4zP3QRq2eY3vS6y6RPrTbskoRB/3wQbo6qkgUgCqu8THv7EZZfkz00qg==, tarball: https://npm.pkg.github.com/download/@navikt/pino-logger/5.0.0/5f799d5d37d66c8a80f8dcf0131ddb41466dc4f3}
-    engines: {node: ^20.19.0 || >= 22.12.0 || 24.x}
-    peerDependencies:
-      pino: 8 || 9 || 10
 
   '@navikt/texas@4.1.4':
     resolution: {integrity: sha512-WS+agfWCqHyCtIpn/iQHNBRwn1gzCQDe0NY9Tz5ErrBsWHNxtqIV7W2eAmRUa3DLrZGHczoQhup+PYT6UX/SpQ==, tarball: https://npm.pkg.github.com/download/@navikt/texas/4.1.4/1725aca0fa0b803e0048212c3e202d24c10f3c3b}
@@ -1248,10 +1255,6 @@ packages:
   '@vscode/l10n@0.0.18':
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
 
-  abbrev@2.0.0:
-    resolution: {integrity: sha512-6/mh1E2u2YgEsCHdY0Yx5oW+61gZU+1vXaoiHHrpKeuRNNgFvS+/jrwHiQhB5apAf5oB7UB7E19ol2R2LKH8hQ==}
-    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
-
   ajv-draft-04@1.0.0:
     resolution: {integrity: sha512-mv00Te6nmYbRp5DCwclxtt7yV/joXJPGS7nM+97GdxvuttCOfgI3K4U25zboyeX0O+myI8ERluxQe5wljMmVIw==}
     peerDependencies:
@@ -1333,10 +1336,6 @@ packages:
   axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
     engines: {node: '>= 0.4'}
-
-  backoff@2.5.0:
-    resolution: {integrity: sha512-wC5ihrnUXmR2douXmXLCe5O3zg3GKIyvRi/hi58a/XyRxVI+3/yM0PYueQOZXPXQ9pxBislYkw+sF9b7C/RuMA==}
-    engines: {node: '>= 0.6'}
 
   bail@2.0.2:
     resolution: {integrity: sha512-0xO6mYd7JB2YesxDKplafRpsiOzPt9V02ddPCLbY1xYGPOX24NTyN50qnUxgCPcSoYMhKpAuBTjQoRZCAkUDRw==}
@@ -1574,9 +1573,6 @@ packages:
   encodeurl@2.0.0:
     resolution: {integrity: sha512-Q0n9HRi4m6JuGIV1eFlmvJB7ZEVxu93IrMyiMsGC0lrMJMWzRgx6WGquyfQgZVb31vhGgXnfmPNNXmxnOkRBrg==}
     engines: {node: '>= 0.8'}
-
-  end-of-stream@1.4.5:
-    resolution: {integrity: sha512-ooEGc6HP26xXq/N+GCGOT0JKCLDGrq2bQUZrQ7gyrJiZANJ/8YDTxTpQBXGMn+WbIQXNVpyWymm7KYVICQnyOg==}
 
   entities@4.5.0:
     resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
@@ -2055,11 +2051,6 @@ packages:
     resolution: {integrity: sha512-J6l92tKHX6w8Jy5nO1Vuc01NoIiRGi/d6qBKVxh+IQ8Cr3b6HbVNfKiF8ZpFKufTwpwxMmce2W3iQZ861ZRyTg==}
     engines: {node: '>=18'}
 
-  nopt@7.2.1:
-    resolution: {integrity: sha512-taM24ViiimT/XntxbPyJQzCG+p4EKOpgD3mxFwW38mGjVUrfERQOeY4EDHjdnptttfHuHQXFx+lTP08Q+mLa/w==}
-    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
-    hasBin: true
-
   normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
@@ -2084,9 +2075,6 @@ packages:
   on-finished@2.4.1:
     resolution: {integrity: sha512-oVlzkg3ENAhCk2zdv7IJwd/QUD4z2RxRwpkcGY8psCVcCYZNq4wYnVWALHM+brtuJjePWiYF/ClmuDr8Ch5+kg==}
     engines: {node: '>= 0.8'}
-
-  once@1.4.0:
-    resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
 
   onetime@7.0.0:
     resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
@@ -2142,10 +2130,6 @@ packages:
   pino-abstract-transport@3.0.0:
     resolution: {integrity: sha512-wlfUczU+n7Hy/Ha5j9a/gZNy7We5+cXp8YL+X+PG8S0KXxw7n/JXA3c46Y0zQznIJ83URJiwy7Lh56WLokNuxg==}
 
-  pino-socket@7.4.0:
-    resolution: {integrity: sha512-UBXkwDRz9RM5pG8gWKxxsonmqM3kk0fx8PbueWlg4LywNT2+Jl0C2xGVPNUyNYn5OjbZopodV8d/UZbuKVEf4w==}
-    hasBin: true
-
   pino-std-serializers@7.1.0:
     resolution: {integrity: sha512-BndPH67/JxGExRgiX1dX0w1FvZck5Wa4aal9198SrRhZjH3GxKQUKIBnYJTdj2HDN3UQAS06HlfcSbQj2OHmaw==}
 
@@ -2166,10 +2150,6 @@ packages:
   postcss@8.5.15:
     resolution: {integrity: sha512-FfR8sjd4em2T6fb3I2MwAJU7HWVMr9zba+enmQeeWFfCbm+UOC/0X4DS8XtpUTMwWMGbjKYP7xjfNekzyGmB3A==}
     engines: {node: ^10 || ^12 || >=14}
-
-  precond@0.2.3:
-    resolution: {integrity: sha512-QCYG84SgGyGzqJ/vlMsxeXd/pgL/I94ixdNFyh1PusWmTCyVfPJjZ1K1jvHtsbfnXQs2TSkEP2fR7QiMZAnKFQ==}
-    engines: {node: '>= 0.6'}
 
   prettier@3.8.4:
     resolution: {integrity: sha512-N2MylSdi48+5N/6S5j+maeHbUSIzzZ5uOcX5Hm4QpV8Dkb1HFjfAKTKX6yNPJQD9AhcT3ifHNB66tWTTJDi11Q==}
@@ -2197,9 +2177,6 @@ packages:
 
   property-information@7.2.0:
     resolution: {integrity: sha512-IAtzIB6sUiWaJYrX9smp3V46pBGbBeLFRGdh25kg1334VcBlD8HzhPeNIWQH9zhGmo2itIe25EHt9dQP7G5hmg==}
-
-  pump@3.0.4:
-    resolution: {integrity: sha512-VS7sjc6KR7e1ukRFhQSY5LM2uBWAUPiOPa/A3mkKmiMwSmRFUITt0xuj+/lesgnCv+dPIEYlkzrcyXgquIHMcA==}
 
   punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
@@ -2239,10 +2216,6 @@ packages:
   react@19.2.7:
     resolution: {integrity: sha512-HNe9WslTbXmFK8o8cmwgAeJFSBvt1bPdHCVKtaaV+WlAN36mpT4hcRpwbf3fY56ar2oIXzsBpOAiIRHAdY0OlQ==}
     engines: {node: '>=0.10.0'}
-
-  readable-stream@3.6.2:
-    resolution: {integrity: sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==}
-    engines: {node: '>= 6'}
 
   readdirp@4.1.2:
     resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
@@ -2312,9 +2285,6 @@ packages:
     resolution: {integrity: sha512-1F1eEtUBtFvcGm1HQ9TiUIUHPQG7mSAODrhIzjxoUEFuo8OcbrGLiVLkevNgj84TE4lnHvnumwFjhJO5Eu135g==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
-
-  safe-buffer@5.2.1:
-    resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
 
   safe-stable-stringify@2.5.0:
     resolution: {integrity: sha512-b3rppTKm9T+PsVCBEOUR46GWI7fdOs00VKZ1+9c1EWDaDMvjQc6tUwuFyIprgGgTcWoVHSKrU8H31ZHA2e0RHA==}
@@ -2423,9 +2393,6 @@ packages:
     resolution: {integrity: sha512-IIaP0g3iy9Cyy18w3M9YcaDudujEAVHKt3a3QJg1+sr/oX96TbaGUubG0hJyCjCBThFH+tFpcIyoUHUn1ogaLA==}
     engines: {node: '>=20'}
 
-  string_decoder@1.3.0:
-    resolution: {integrity: sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==}
-
   stringify-entities@4.0.4:
     resolution: {integrity: sha512-IwfBptatlO+QCJUo19AqvrPNqlVMpW9YEL2LIVY+Rpv2qsjCGxaDLNRgeGsQWJhfItebuJhsGSLjaBbNSQ+ieg==}
 
@@ -2468,9 +2435,6 @@ packages:
   thread-stream@4.2.0:
     resolution: {integrity: sha512-e2zZ96wSChazBsbENf/Pcm/4swHt2cEKQ92rhUjkL9GCKiTDJIaTBenjE/m9DXi0QBmTMDkFDdOomUy20A1tDQ==}
     engines: {node: '>=20'}
-
-  through2@4.0.2:
-    resolution: {integrity: sha512-iOqSav00cVxEEICeD7TjLB1sueEL+81Wpzp2bY17uZjZN0pWZPuo4suZ/61VujxmqSGFfgOcNuTZ85QJwNZQpw==}
 
   tiny-inflate@1.0.3:
     resolution: {integrity: sha512-pkY1fj1cKHb2seWDy0B16HeWyczlJA9/WW3u3c4z/NiWDsO3DOU5D7nhTLE9CF0yXv/QZFY7sEJmj24dK+Rrqw==}
@@ -2642,9 +2606,6 @@ packages:
     hasBin: true
     peerDependencies:
       browserslist: '>= 4.21.0'
-
-  util-deprecate@1.0.2:
-    resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
   vfile-location@5.0.3:
     resolution: {integrity: sha512-5yXvWDEgqeiYiBe1lbxYF7UMAIm/IcopxMHrMQDq3nvKcjPKIhZklUKL+AE7J7uApI4kwe2snsK+eI6UTj9EHg==}
@@ -2888,9 +2849,6 @@ packages:
   wrap-ansi@9.0.2:
     resolution: {integrity: sha512-42AtmgqjV+X1VpdOfyTGOYRi0/zsoLqtXQckTmqTeybT+BDIbM/Guxo7x3pE2vtpr1ok6xRqM9OpBe+Jyoqyww==}
     engines: {node: '>=18'}
-
-  wrappy@1.0.2:
-    resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
 
   xml-name-validator@5.0.0:
     resolution: {integrity: sha512-EvGK8EJ3DhaHfbRlETOWAS5pO9MZITeauHKJyb8wyajUfQUenkIg2MvLDTZ4T/TgIcm3HU0TFBgWWboAZ30UHg==}
@@ -3636,6 +3594,12 @@ snapshots:
 
   '@navikt/aksel-icons@8.12.0': {}
 
+  '@navikt/astro-logger@1.0.0(astro@7.0.2(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@25.9.3)(tsx@4.22.4)(yaml@2.9.0))(pino@10.3.1)':
+    dependencies:
+      '@opentelemetry/api': 1.9.1
+      astro: 7.0.2(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@25.9.3)(tsx@4.22.4)(yaml@2.9.0)
+      pino: 10.3.1
+
   '@navikt/ds-css@8.12.0': {}
 
   '@navikt/ds-react@8.12.0(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
@@ -3644,11 +3608,12 @@ snapshots:
       '@floating-ui/react-dom': 2.1.8(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@navikt/aksel-icons': 8.12.0
       '@navikt/ds-tokens': 8.13.1
-      '@types/react': 19.2.17
       date-fns: 4.4.0
       react: 19.2.7
       react-day-picker: 9.14.0(react@19.2.7)
       react-dom: 19.2.7(react@19.2.7)
+    optionalDependencies:
+      '@types/react': 19.2.17
 
   '@navikt/ds-tokens@8.13.1': {}
 
@@ -3657,6 +3622,7 @@ snapshots:
       csp-header: 6.3.1
       html-react-parser: 6.1.3(@types/react@19.2.17)(react@19.2.7)
       js-cookie: 3.0.5
+    optionalDependencies:
       react: 19.2.7
 
   '@navikt/oasis@4.1.4':
@@ -3665,13 +3631,6 @@ snapshots:
       '@opentelemetry/api': 1.9.1
       jose: 6.2.3
       prom-client: 15.1.3
-
-  '@navikt/pino-logger@5.0.0(pino@10.3.1)':
-    dependencies:
-      '@opentelemetry/api': 1.9.1
-      pino: 10.3.1
-    optionalDependencies:
-      pino-socket: 7.4.0
 
   '@navikt/texas@4.1.4': {}
 
@@ -4006,9 +3965,6 @@ snapshots:
 
   '@vscode/l10n@0.0.18': {}
 
-  abbrev@2.0.0:
-    optional: true
-
   ajv-draft-04@1.0.0(ajv@8.20.0):
     optionalDependencies:
       ajv: 8.20.0
@@ -4161,11 +4117,6 @@ snapshots:
   axe-core@4.11.4: {}
 
   axobject-query@4.1.0: {}
-
-  backoff@2.5.0:
-    dependencies:
-      precond: 0.2.3
-    optional: true
 
   bail@2.0.2: {}
 
@@ -4369,11 +4320,6 @@ snapshots:
   emoji-regex@8.0.0: {}
 
   encodeurl@2.0.0: {}
-
-  end-of-stream@1.4.5:
-    dependencies:
-      once: 1.4.0
-    optional: true
 
   entities@4.5.0: {}
 
@@ -4844,11 +4790,6 @@ snapshots:
 
   node-releases@2.0.50: {}
 
-  nopt@7.2.1:
-    dependencies:
-      abbrev: 2.0.0
-    optional: true
-
   normalize-path@3.0.0: {}
 
   nth-check@2.1.1:
@@ -4870,11 +4811,6 @@ snapshots:
   on-finished@2.4.1:
     dependencies:
       ee-first: 1.1.1
-
-  once@1.4.0:
-    dependencies:
-      wrappy: 1.0.2
-    optional: true
 
   onetime@7.0.0:
     dependencies:
@@ -4925,15 +4861,6 @@ snapshots:
     dependencies:
       split2: 4.2.0
 
-  pino-socket@7.4.0:
-    dependencies:
-      backoff: 2.5.0
-      nopt: 7.2.1
-      pump: 3.0.4
-      split2: 4.2.0
-      through2: 4.0.2
-    optional: true
-
   pino-std-serializers@7.1.0: {}
 
   pino@10.3.1:
@@ -4964,9 +4891,6 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  precond@0.2.3:
-    optional: true
-
   prettier@3.8.4: {}
 
   pretty-format@27.5.1:
@@ -4987,12 +4911,6 @@ snapshots:
       tdigest: 0.1.2
 
   property-information@7.2.0: {}
-
-  pump@3.0.4:
-    dependencies:
-      end-of-stream: 1.4.5
-      once: 1.4.0
-    optional: true
 
   punycode@2.3.1: {}
 
@@ -5022,13 +4940,6 @@ snapshots:
   react-refresh@0.18.0: {}
 
   react@19.2.7: {}
-
-  readable-stream@3.6.2:
-    dependencies:
-      inherits: 2.0.4
-      string_decoder: 1.3.0
-      util-deprecate: 1.0.2
-    optional: true
 
   readdirp@4.1.2: {}
 
@@ -5115,9 +5026,6 @@ snapshots:
       '@rolldown/binding-wasm32-wasi': 1.1.3
       '@rolldown/binding-win32-arm64-msvc': 1.1.3
       '@rolldown/binding-win32-x64-msvc': 1.1.3
-
-  safe-buffer@5.2.1:
-    optional: true
 
   safe-stable-stringify@2.5.0: {}
 
@@ -5266,11 +5174,6 @@ snapshots:
       get-east-asian-width: 1.6.0
       strip-ansi: 7.2.0
 
-  string_decoder@1.3.0:
-    dependencies:
-      safe-buffer: 5.2.1
-    optional: true
-
   stringify-entities@4.0.4:
     dependencies:
       character-entities-html4: 2.1.0
@@ -5321,11 +5224,6 @@ snapshots:
   thread-stream@4.2.0:
     dependencies:
       real-require: 1.0.0
-
-  through2@4.0.2:
-    dependencies:
-      readable-stream: 3.6.2
-    optional: true
 
   tiny-inflate@1.0.3: {}
 
@@ -5444,9 +5342,6 @@ snapshots:
       browserslist: 4.28.4
       escalade: 3.2.0
       picocolors: 1.1.1
-
-  util-deprecate@1.0.2:
-    optional: true
 
   vfile-location@5.0.3:
     dependencies:
@@ -5659,9 +5554,6 @@ snapshots:
       ansi-styles: 6.2.3
       string-width: 7.2.0
       strip-ansi: 7.2.0
-
-  wrappy@1.0.2:
-    optional: true
 
   xml-name-validator@5.0.0: {}
 

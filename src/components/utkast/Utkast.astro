@@ -1,6 +1,5 @@
 ---
 import { UTKAST_API_URL } from "astro:env/server";
-import { logger } from "@navikt/pino-logger";
 import ErrorBox from "@src/components/error/Error.astro";
 import type { Language } from "@src/language/language";
 import { fetchUtkast } from "@src/utils/fetch";
@@ -15,7 +14,7 @@ interface Props {
   language: Language;
 }
 
-const oboToken = await getOboToken(Astro.locals.token);
+const oboToken = await getOboToken(Astro.locals.token, Astro.logger);
 const { language } = Astro.props;
 
 let data = [];
@@ -24,7 +23,7 @@ let isError = false;
 try {
   data = await fetchUtkast(oboToken, UTKAST_API_URL);
 } catch (error) {
-  logger.error(`Error fetching utkast: ${error}`);
+  Astro.logger.error(`Error fetching utkast: ${error}`);
   isError = true;
 }
 ---
