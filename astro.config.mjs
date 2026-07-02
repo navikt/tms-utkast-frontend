@@ -5,6 +5,10 @@ import { defineConfig, envField } from "astro/config";
 // https://astro.build/config
 export default defineConfig({
   base: "/minside/utkast",
+  // Astro 7 changed the default to 'jsx', which strips spaces between inline
+  // elements. Pin to HTML-aware compression to keep rendered output identical
+  // to Astro 6 (no whitespace regressions in user-facing Norwegian copy).
+  compressHTML: true,
   build: {
     assetsPrefix: "https://cdn.nav.no/min-side/tms-utkast-frontend",
   },
