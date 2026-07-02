@@ -1,13 +1,12 @@
 import { requestOboToken } from "@navikt/oasis";
+import type { APIContext } from "astro";
 import { isLocal } from "./environment";
 
 const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-utkast`;
 
-type Logger = { error: (message: string) => void };
-
 export const getOboToken = async (
   token: string,
-  logger: Logger,
+  logger: APIContext["logger"],
 ): Promise<string> => {
   const oboResult = await requestOboToken(token, audience);
 
