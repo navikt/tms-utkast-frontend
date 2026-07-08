@@ -12,6 +12,11 @@ export default defineConfig({
   build: {
     assetsPrefix: "https://cdn.nav.no/min-side/tms-utkast-frontend",
   },
+  vite: {
+    build: {
+      sourcemap: true,
+    },
+  },
   integrations: [react()],
   logger: {
     entrypoint: "@navikt/astro-logger",
