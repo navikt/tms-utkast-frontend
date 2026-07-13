@@ -26,7 +26,7 @@ flowchart LR
     frontend -->|TokenX OBO-token| backend
 ```
 
-Innkommende forespørsler valideres i Astro-middleware (`src/middleware/index.ts`) med `@navikt/oasis`. Mot `tms-utkast` veksles brukerens token til et on-behalf-of-token via TokenX før utkast hentes.
+Innkommende forespørsler valideres i Astro-middleware (`src/middleware/middleware.ts`) med `@navikt/oasis`. Mot `tms-utkast` veksles brukerens token til et on-behalf-of-token via TokenX før utkast hentes.
 
 ## Miljøer
 
