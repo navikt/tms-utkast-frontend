@@ -20,7 +20,7 @@
     "@astrojs/node": "11.0.1",
     "@astrojs/react": "6.0.0",
     "@navikt/aksel-icons": "8.14.0",
-    "@navikt/astro-auth": "1.0.4",
+    "@navikt/astro-auth": "1.0.7",
     "@navikt/astro-logger": "1.0.0",
     "@navikt/ds-css": "8.14.0",
     "@navikt/ds-react": "8.14.0",
