@@ -45,11 +45,6 @@ export default defineConfig({
         access: "secret",
         default: "http://localhost:4321/minside/",
       }),
-      REDIRECT_URI: envField.string({
-        context: "server",
-        access: "secret",
-        default: "http://localhost:3000/minside/utkast",
-      }),
     },
   },
 });
