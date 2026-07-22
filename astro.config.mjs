@@ -2,7 +2,7 @@ import node from "@astrojs/node";
 import react from "@astrojs/react";
 import mockServer from "@navikt/astro-mocks";
 import { defineConfig, envField } from "astro/config";
-import utkastMocks from "./mock/utkast.json" with { type: "json" };
+import utkast from "./src/mocks/utkast.json" with { type: "json" };
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,7 +15,7 @@ export default defineConfig({
       sourcemap: true,
     },
   },
-  integrations: [react(), mockServer({ mocks: utkastMocks })],
+  integrations: [react(), mockServer({ mocks: utkast })],
   logger: {
     entrypoint: "@navikt/astro-logger",
   },
