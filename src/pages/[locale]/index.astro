@@ -1,11 +1,11 @@
 ---
 import { MIN_SIDE_URL } from "astro:env/server";
 import { Loader } from "@navikt/ds-react";
+import Layout from "@src/layouts/Layout.astro";
 import type { Language } from "@src/shared/language/language";
 import { text } from "@src/shared/language/text";
-import Layout from "../../layouts/Layout.astro";
-import PageHeader from "../../shared/page-header/PageHeader.astro";
-import Utkast from "../../utkast/Utkast.astro";
+import PageHeader from "@src/shared/page-header/PageHeader.astro";
+import Utkast from "@src/utkast/Utkast.astro";
 import styles from "./_index.module.css";
 
 const language = Astro.currentLocale as Language;

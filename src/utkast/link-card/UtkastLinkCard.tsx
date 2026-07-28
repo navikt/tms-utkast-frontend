@@ -1,7 +1,7 @@
 import { LinkCard, Tag } from "@navikt/ds-react";
+import type { Language } from "@src/shared/language/language";
+import { logEvent } from "@src/shared/utils/analytics";
 import dayjs from "dayjs";
-import type { Language } from "../../shared/language/language";
-import { logEvent } from "../../shared/utils/analytics";
 import styles from "../Utkast.module.css";
 import { text } from "../utkastText";
 import type { UtkastElement } from "../utkastTypes";
