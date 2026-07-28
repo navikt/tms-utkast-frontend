@@ -30,18 +30,22 @@ try {
 
 <>
   {
-    isError ? (
-      <ErrorBox language={language} />
-    ) : data?.length == 0 ? (
-      <IngenUtkast language={language} />
-    ) : (
-      <ul class={styles.utkastList}>
-        {data?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
-          <li class={styles.container}>
-            <UtkastLinkCard client:load utkast={utkast} language={language} />
-          </li>
-        ))}
-      </ul>
-    )
+    () => {
+      if (isError) {
+        return <ErrorBox language={language} />;
+      }
+      if (data?.length == 0) {
+        return <IngenUtkast language={language} />;
+      }
+      return (
+        <ul class={styles.utkastList}>
+          {data?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
+            <li class={styles.container}>
+              <UtkastLinkCard client:load utkast={utkast} language={language} />
+            </li>
+          ))}
+        </ul>
+      );
+    }
   }
 </>
