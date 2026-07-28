@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { fetchUtkast } from "./fetch";
+import { fetchUtkast } from "./utkastFetch";
 
 describe("fetchUtkast", () => {
   beforeEach(() => {
@@ -48,8 +48,6 @@ describe("fetchUtkast", () => {
     });
     vi.stubGlobal("fetch", fetchMock);
 
-    await expect(
-      fetchUtkast("token-123", "https://api.test/utkast"),
-    ).rejects.toThrow("Http error with status: 503");
+    await expect(fetchUtkast("token-123", "https://api.test/utkast")).rejects.toThrow("Http error with status: 503");
   });
 });

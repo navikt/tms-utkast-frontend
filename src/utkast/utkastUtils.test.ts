@@ -1,15 +1,14 @@
 import { describe, expect, it } from "vitest";
-import { sortByOpprettet, type UtkastElement } from "./sorting";
+import type { UtkastElement } from "./utkastTypes";
+import { sortByOpprettet } from "./utkastUtils";
 
-const makeUtkast = (
-  opprettet: string,
-  overrides: Partial<UtkastElement> = {},
-): UtkastElement => ({
+const makeUtkast = (opprettet: string, overrides: Partial<UtkastElement> = {}): UtkastElement => ({
   tittel: "Utkast",
   link: "https://nav.no/utkast",
   utkastId: opprettet,
   opprettet,
   sistEndret: opprettet,
+  slettesEtter: null,
   ...overrides,
 });
 
@@ -21,11 +20,7 @@ describe("sortByOpprettet", () => {
 
     const sorted = [eldst, nyest, midt].sort(sortByOpprettet);
 
-    expect(sorted.map((u) => u.opprettet)).toEqual([
-      nyest.opprettet,
-      midt.opprettet,
-      eldst.opprettet,
-    ]);
+    expect(sorted.map((u) => u.opprettet)).toEqual([nyest.opprettet, midt.opprettet, eldst.opprettet]);
   });
 
   it("should return -1 when the first draft is created after the second", () => {

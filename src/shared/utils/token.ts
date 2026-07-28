@@ -4,10 +4,7 @@ import { isLocal } from "./environment";
 
 const audience = `${process.env.NAIS_CLUSTER_NAME}:min-side:tms-utkast`;
 
-export const getOboToken = async (
-  token: string,
-  logger: APIContext["logger"],
-): Promise<string> => {
+export const getOboToken = async (token: string, logger: APIContext["logger"]): Promise<string> => {
   const oboResult = await requestOboToken(token, audience);
 
   if (isLocal) {
