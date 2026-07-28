@@ -2,8 +2,8 @@
 import "@navikt/ds-css";
 import { MIN_SIDE_URL } from "astro:env/server";
 import { fetchDecoratorHtml } from "@navikt/nav-dekoratoren-moduler/ssr";
-import type { Language } from "../language/language";
-import { getDecoratorEnvironment } from "../utils/environment";
+import type { Language } from "@src/shared/language/language";
+import { getDecoratorEnvironment } from "@src/shared/utils/environment";
 import styles from "./Layout.module.css";
 
 const language = Astro.currentLocale as Language;
@@ -33,12 +33,7 @@ const Decorator = await fetchDecoratorHtml({
   },
 });
 
-const {
-  DECORATOR_HEAD_ASSETS,
-  DECORATOR_HEADER,
-  DECORATOR_FOOTER,
-  DECORATOR_SCRIPTS,
-} = Decorator;
+const { DECORATOR_HEAD_ASSETS, DECORATOR_HEADER, DECORATOR_FOOTER, DECORATOR_SCRIPTS } = Decorator;
 ---
 
 <!doctype html>

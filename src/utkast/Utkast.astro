@@ -1,14 +1,14 @@
 ---
 import { UTKAST_API_URL } from "astro:env/server";
-import ErrorBox from "@src/components/error/Error.astro";
-import type { Language } from "@src/language/language";
-import { fetchUtkast } from "@src/utils/fetch";
-import { sortByOpprettet } from "@src/utils/sorting";
-import { getOboToken } from "@src/utils/token";
-import IngenUtkast from "../ingen/IngenUtkast.astro";
+import type { Language } from "@src/shared/language/language";
+import { getOboToken } from "@src/shared/utils/token";
+import ErrorBox from "./fallback/Error.astro";
+import IngenUtkast from "./ingen/IngenUtkast.astro";
+import UtkastLinkCard from "./link-card/UtkastLinkCard";
 import styles from "./Utkast.module.css";
-import UtkastLinkCard from "./UtkastLinkCard";
-import type { UtkastElement } from "./UtkastTypes.ts";
+import { fetchUtkast } from "./utkastFetch";
+import type { UtkastElement } from "./utkastTypes";
+import { sortByOpprettet } from "./utkastUtils";
 
 interface Props {
   language: Language;

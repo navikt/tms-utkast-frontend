@@ -1,9 +1,9 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import type { UtkastElement } from "./UtkastTypes";
+import type { UtkastElement } from "../utkastTypes";
 
 const logEvent = vi.fn();
-vi.mock("@src/utils/analytics", () => ({
+vi.mock("@src/shared/utils/analytics", () => ({
   logEvent: (...args: unknown[]) => logEvent(...args),
 }));
 
@@ -33,17 +33,13 @@ describe("UtkastLinkCard", () => {
   it("should render the created date formatted as DD.MM.YYYY", () => {
     render(<UtkastLinkCard utkast={baseUtkast} language="nb" />);
 
-    expect(
-      screen.getByText(/Du startet på utkastet 15\.03\.2024/),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Du startet på utkastet 15\.03\.2024/)).toBeInTheDocument();
   });
 
   it("should render the created text in english when language is en", () => {
     render(<UtkastLinkCard utkast={baseUtkast} language="en" />);
 
-    expect(
-      screen.getByText(/You started the draft 15\.03\.2024/),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/You started the draft 15\.03\.2024/)).toBeInTheDocument();
   });
 
   it("should not render a deletion tag when slettesEtter is null", () => {
@@ -53,16 +49,9 @@ describe("UtkastLinkCard", () => {
   });
 
   it("should render a deletion tag when slettesEtter is set", () => {
-    render(
-      <UtkastLinkCard
-        utkast={{ ...baseUtkast, slettesEtter: "2024-06-01T10:00:00.000Z" }}
-        language="nb"
-      />,
-    );
+    render(<UtkastLinkCard utkast={{ ...baseUtkast, slettesEtter: "2024-06-01T10:00:00.000Z" }} language="nb" />);
 
-    expect(
-      screen.getByText(/Utkastet slettes 01\.06\.2024/),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Utkastet slettes 01\.06\.2024/)).toBeInTheDocument();
   });
 
   it("should log an analytics event when the card is clicked", () => {
