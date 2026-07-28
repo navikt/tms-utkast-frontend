@@ -1,13 +1,13 @@
+import type { UtkastElement } from "@src/utkast/utkastTypes";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import type { UtkastElement } from "../utkastTypes";
 
 const logEvent = vi.fn();
 vi.mock("@src/shared/utils/analytics", () => ({
   logEvent: (...args: unknown[]) => logEvent(...args),
 }));
 
-import UtkastLinkCard from "./UtkastLinkCard";
+import UtkastLinkCard from "@src/utkast/link-card/UtkastLinkCard";
 
 const baseUtkast: UtkastElement = {
   tittel: "Søknad om dagpenger",

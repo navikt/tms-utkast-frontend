@@ -9,9 +9,9 @@ Node 24 + pnpm 10. Installing `@navikt/*` packages pulls from GitHub Packages (s
 - `pnpm dev` — dev server at http://localhost:4321/minside/utkast. `@navikt/astro-mocks` serves `src/mocks/utkast.json` as the backend, and auth/token-exchange is skipped in local mode. There is no separate mock command; the mock runs inside `astro dev`.
 - `pnpm build` — `astro check` (typecheck) **then** `astro build`. Use this to verify types.
 - `pnpm test` — Vitest unit/component tests (jsdom). `pnpm test:watch`, `pnpm test:coverage`.
-  - Single file: `pnpm test src/utkast/utkastFetch.test.ts`
+  - Single file: `pnpm test test/unit/utkast/utkastFetch.test.ts`
   - Single case: `pnpm vitest run -t "should send a bearer authorization header"`
-- `pnpm test:e2e` — Playwright (`e2e/`), auto-starts the dev server on 4321. Includes axe-core accessibility checks.
+- `pnpm test:e2e` — Playwright (`test/integration/`), auto-starts the dev server on 4321. Includes axe-core accessibility checks.
 - Lint/format: Biome. `npx @biomejs/biome check --write <paths>`. Husky + lint-staged auto-formats staged files on commit. `lineWidth` is 120 and `organizeImports` is on, so imports get reordered.
 
 CI (`.github/workflows/deploy-main.yaml`) runs `test:coverage` → Playwright e2e → `build` before deploy.
@@ -26,6 +26,7 @@ CI (`.github/workflows/deploy-main.yaml`) runs `test:coverage` → Playwright e2
 ## Conventions
 
 - **Vertical slice architecture** (see `.github/skills/vertical-slice-architecture/SKILL.md`). Each feature is a self-contained folder under `src/<feature>/` (e.g. `src/utkast/`) co-locating: the `.astro` component, `<feature>Types.ts`, `<feature>Text.ts`, `<feature>Fetch.ts`/`<feature>Utils.ts`, a co-located `.module.css`, and sub-variants as subfolders (`ingen/` empty state, `fallback/` error, `link-card/`). Only cross-cutting infrastructure goes in `src/shared/` (`assets/`, `language/`, `utils/`, `loader/`, `page-header/`). A feature must not import from another feature — share via `src/shared/`.
+- **Tests live under a single `test/` umbrella**, split by runner: `test/unit/` holds Vitest `*.test.ts`/`*.test.tsx` files in a tree that **mirrors** `src/` (e.g. `test/unit/utkast/utkastFetch.test.ts` tests `src/utkast/utkastFetch.ts`, JVM/Gradle-style) — import the code under test via the `@src/*` alias, not relative paths; `vitest.config.ts` `include` is `test/unit/**/*.test.{ts,tsx}`. `test/integration/` holds Playwright specs (`*.spec.ts`) — `playwright.config.ts` sets `testDir: "./test/integration"` with `testMatch: "**/*.spec.ts"` so it never picks up the Vitest `.test` files.
 - **i18n text**: objects keyed `{ nb, nn, en }`. Feature-specific strings live in the feature's `<feature>Text.ts`; page/shell strings in `src/shared/language/text.ts`.
 - **CSS**: co-located CSS Modules (`*.module.css`). Page-level style modules are prefixed with `_` (e.g. `src/pages/[locale]/_index.module.css`) so they aren't treated as routes.
 - **Mock backend**: add local endpoints to `src/mocks/utkast.json` as `{ "path": "...", "response": ... }` objects; the path must match what the code requests (e.g. `/utkast/v2/utkast`).

@@ -1,6 +1,6 @@
+import type { UtkastElement } from "@src/utkast/utkastTypes";
+import { sortByOpprettet } from "@src/utkast/utkastUtils";
 import { describe, expect, it } from "vitest";
-import type { UtkastElement } from "./utkastTypes";
-import { sortByOpprettet } from "./utkastUtils";
 
 const makeUtkast = (opprettet: string, overrides: Partial<UtkastElement> = {}): UtkastElement => ({
   tittel: "Utkast",

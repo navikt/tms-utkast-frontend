@@ -1,5 +1,5 @@
 import { expect, type Locator, type Page } from "@playwright/test";
-import type { Language } from "../../src/shared/language/language";
+import type { Language } from "../../../src/shared/language/language";
 
 const BASE_PATH = "/minside/utkast";
 

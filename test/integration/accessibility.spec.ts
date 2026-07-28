@@ -8,9 +8,7 @@ test.describe("Tilgjengelighet (a11y)", () => {
     await utkast.goto();
     await utkast.expectAtLeastOneUtkast();
 
-    const results = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-      .analyze();
+    const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
 
     expect(results.violations).toEqual([]);
   });
@@ -19,9 +17,7 @@ test.describe("Tilgjengelighet (a11y)", () => {
     await page.goto("/minside/utkast/nb/error");
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 
-    const results = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-      .analyze();
+    const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
 
     expect(results.violations).toEqual([]);
   });
