@@ -3,3 +3,5 @@ import type { UtkastElement } from "./utkastTypes";
 
 export const sortByOpprettet = (a: UtkastElement, b: UtkastElement) =>
   dayjs(a.opprettet).isAfter(dayjs(b.opprettet)) ? -1 : 1;
+
+export const isIngen = (utkast: UtkastElement[]) => utkast.length === 0;
