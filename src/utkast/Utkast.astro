@@ -6,9 +6,8 @@ import ErrorBox from "./fallback/Error.astro";
 import IngenUtkast from "./ingen/IngenUtkast.astro";
 import UtkastLinkCard from "./link-card/UtkastLinkCard";
 import styles from "./Utkast.module.css";
-import { fetchUtkast } from "./utkastFetch";
 import type { UtkastElement } from "./utkastTypes";
-import { isIngen, sortByOpprettet } from "./utkastUtils";
+import { fetchUtkast, isIngen, sortByOpprettet } from "./utkastUtils";
 
 interface Props {
   language: Language;
