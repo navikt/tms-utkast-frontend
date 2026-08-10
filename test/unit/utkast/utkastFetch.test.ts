@@ -1,4 +1,4 @@
-import { fetchUtkast } from "@src/utkast/utkastFetch";
+import { fetchUtkast } from "@src/utkast/utkastUtils";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 describe("fetchUtkast", () => {
