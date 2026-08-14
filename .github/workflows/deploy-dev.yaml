@@ -8,11 +8,8 @@ permissions:
 
 jobs:
   build-and-deploy:
-    uses: navikt/tms-deploy/.github/workflows/astro-deploy-v1.yaml@main
+    uses: navikt/tms-deploy/.github/workflows/astro-deploy-v1.yaml@v1
     with:
       app-name: "tms-utkast-frontend"
       clusters: '["dev-gcp"]'
-    secrets:
-      READER_TOKEN: ${{ secrets.READER_TOKEN }}
-      ASTRO_KEY: ${{ secrets.ASTRO_KEY }}
-      NAIS_WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+    secrets: inherit
