@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   build-and-deploy:
-    uses: navikt/tms-deploy/.github/workflows/astro-deploy-v1.yaml@v1
+    uses: navikt/tms-deploy/.github/workflows/astro-deploy-v1.yaml@main
     with:
       app-name: "tms-utkast-frontend"
       clusters: '["dev-gcp", "prod-gcp"]'
