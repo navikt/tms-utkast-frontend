@@ -26,27 +26,27 @@
     "@navikt/nav-dekoratoren-moduler": "3.7.1",
     "@navikt/oasis": "4.1.4",
     "astro": "7.1.6",
-    "dayjs": "1.11.21",
+    "dayjs": "1.11.23",
     "pino": "10.3.1",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
-    "@axe-core/playwright": "4.12.1",
-    "@biomejs/biome": "2.5.7",
+    "@axe-core/playwright": "4.13.0",
+    "@biomejs/biome": "2.5.9",
     "@navikt/astro-mocks": "0.1.5",
     "@playwright/test": "1.62.1",
     "@testing-library/dom": "10.4.1",
-    "@testing-library/jest-dom": "7.0.0",
+    "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.2",
-    "@types/node": "26.1.2",
+    "@types/node": "26.2.0",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
-    "@vitest/coverage-v8": "4.1.10",
+    "@vitest/coverage-v8": "4.1.11",
     "jsdom": "30.0.1",
     "lefthook": "2.1.10",
     "typescript": "5.9.3",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   },
   "engines": {
     "node": ">=24.0.0"
