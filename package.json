@@ -46,7 +46,7 @@
     "jsdom": "30.0.1",
     "lefthook": "2.1.10",
     "typescript": "5.9.3",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   },
   "engines": {
     "node": ">=24.0.0"
