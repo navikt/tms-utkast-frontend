@@ -33,8 +33,8 @@ importers:
         specifier: 8.16.2
         version: 8.16.2(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@navikt/nav-dekoratoren-moduler':
-        specifier: 3.7.1
-        version: 3.7.1(html-react-parser@6.1.3(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+        specifier: 4.3.0
+        version: 4.3.0(html-react-parser@6.1.3(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
       '@navikt/oasis':
         specifier: 4.1.4
         version: 4.1.4
@@ -897,6 +897,10 @@ packages:
   '@navikt/aksel-icons@8.16.2':
     resolution: {integrity: sha512-d2GWooeIEJYq8NYJIJJhMo84Vac6SyCvLJDFWG6RSj8vcgFanQMnKAram1zd48UO/rjuuZZk99p4UZt4jsD0RA==, tarball: https://npm.pkg.github.com/download/@navikt/aksel-icons/8.16.2/8873ba72cb6d59c80e864fb04cf43ca0731dbfa5}
 
+  '@navikt/analytics-types@0.0.9':
+    resolution: {integrity: sha512-bopCvqEogyFcmrJiBxK/Mr25d6yPKF7GR36MGrJqiHCPJYf1rDu6lK4cpooTG4Q//D/1xTkHRom8ZH5BI6dTew==, tarball: https://npm.pkg.github.com/download/@navikt/analytics-types/0.0.9/5919241a6dbb782eb101fff3234ce5c36d16e942}
+    engines: {node: '>=20.0.0', npm: '>=9.0.0'}
+
   '@navikt/astro-auth@1.0.8':
     resolution: {integrity: sha512-3fFP6ql+8lKnKM2RwbJw7uisAk9ctIdTVOSQlJfI5C3e3OTe/PluMk6uvkKaQbzp3Cu+QcuBKIn/A56//4atfw==, tarball: https://npm.pkg.github.com/download/@navikt/astro-auth/1.0.8/7dc3fc8e67b508b96f742697e6258238d082aa48}
     engines: {node: ^20.19.0 || >= 22.12.0 || 24.x}
@@ -929,8 +933,8 @@ packages:
   '@navikt/ds-tokens@8.16.2':
     resolution: {integrity: sha512-WXtLRb034uUN1SUBEg+AYUrAu0zm+P0xuUheIWABEDpWnVGmfXDng7lIW5JDFbut3rQIa1xfzvUfeL3ghc4eng==, tarball: https://npm.pkg.github.com/download/@navikt/ds-tokens/8.16.2/a22ed996203e7730664ed43d7025c68609c937a8}
 
-  '@navikt/nav-dekoratoren-moduler@3.7.1':
-    resolution: {integrity: sha512-MQLxR4uoADCd6i0hFnWHN/XLPevEfxkBK9yEgbtcY0v2gsj69nALH/7DvTKqSxqRovxOHibVa7mZKZEBAMRBvg==, tarball: https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/3.7.1/09490a131cedd7779e35d413d20c36bd01ef57a0}
+  '@navikt/nav-dekoratoren-moduler@4.3.0':
+    resolution: {integrity: sha512-DpUW0J1pIAncsEh698x6mSt7UsILEIbrYFzKTDuXem0y2bYjG+ki78NV2lhN/nPYXcoVYizsC1eetH72VMEoEw==, tarball: https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/4.3.0/d2d64c4afd0201f3a1e8ec8fba9651c05fdfb736}
     engines: {node: 24.x}
     peerDependencies:
       html-react-parser: '>=5.x'
@@ -1749,9 +1753,8 @@ packages:
   jose@6.2.3:
     resolution: {integrity: sha512-YYVDInQKFJfR/xa3ojUTl8c2KoTwiL1R5Wg9YCydwH0x0B9grbzlg5HC7mMjCtUJjbQ/YnGEZIhI5tCgfTb4Hw==}
 
-  js-cookie@3.0.5:
-    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
-    engines: {node: '>=14'}
+  js-cookie@3.0.8:
+    resolution: {integrity: sha512-yeJd4aNAdYZQjaon2bpD/Gb0B/omw7HQOsynXXcOiWVCacbBcPlgn8S/d1X6blFSaHao7ozqtW7NZW19xpCtIw==}
 
   js-tokens@10.0.0:
     resolution: {integrity: sha512-lM/UBzQmfJRo9ABXbPWemivdCW8V2G8FHaHdypQaIy523snUjog0W71ayWXTjiR+ixeMyVHN2XcpnTd/liPg/Q==}
@@ -3564,6 +3567,8 @@ snapshots:
 
   '@navikt/aksel-icons@8.16.2': {}
 
+  '@navikt/analytics-types@0.0.9': {}
+
   '@navikt/astro-auth@1.0.8(astro@7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.1)(tsx@4.23.0)(yaml@2.9.0))':
     dependencies:
       '@navikt/oasis': 4.1.4
@@ -3595,11 +3600,12 @@ snapshots:
 
   '@navikt/ds-tokens@8.16.2': {}
 
-  '@navikt/nav-dekoratoren-moduler@3.7.1(html-react-parser@6.1.3(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
+  '@navikt/nav-dekoratoren-moduler@4.3.0(html-react-parser@6.1.3(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
     dependencies:
+      '@navikt/analytics-types': 0.0.9
       csp-header: 6.3.1
       html-react-parser: 6.1.3(@types/react@19.2.18)(react@19.2.8)
-      js-cookie: 3.0.5
+      js-cookie: 3.0.8
       react: 19.2.8
 
   '@navikt/oasis@4.1.4':
@@ -4470,7 +4476,7 @@ snapshots:
 
   jose@6.2.3: {}
 
-  js-cookie@3.0.5: {}
+  js-cookie@3.0.8: {}
 
   js-tokens@10.0.0: {}
 
