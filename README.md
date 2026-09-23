@@ -48,7 +48,7 @@ Kallet gjøres server-side med et TokenX OBO-token (audience `<cluster>:min-side
 
 ## Utvikling
 
-Lokalt nås appen på http://localhost:4321/minside/utkast. I lokal modus hoppes innlogging og token-veksling over.
+Lokalt nås appen på http://localhost:4321/minside/utkast.
 
 Tilgjengelige kommandoer (bygg, test, mock og kjøring) finner du med `pnpm run` — det viser den til enhver tid oppdaterte listen over `scripts` i `package.json`. Repoet bruker Node 24 og pnpm.
 
