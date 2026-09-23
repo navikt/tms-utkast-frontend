@@ -63,6 +63,9 @@ importers:
       '@navikt/astro-mocks':
         specifier: 0.1.5
         version: 0.1.5(astro@7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.1)(tsx@4.23.0)(yaml@2.9.0))
+      '@navikt/browserslist-config':
+        specifier: 0.1.0
+        version: 0.1.0(vite@8.3.0(@types/node@26.4.1)(esbuild@0.28.2)(tsx@4.23.0)(yaml@2.9.0))
       '@playwright/test':
         specifier: 1.62.1
         version: 1.62.1
@@ -915,6 +918,12 @@ packages:
     engines: {node: '>=18.14.1'}
     peerDependencies:
       astro: '>=4.0.0'
+
+  '@navikt/browserslist-config@0.1.0':
+    resolution: {integrity: sha512-F0UK+jKpAtbrCVDNvo4VH2HKpAXmDO61gt97p0j+LrfGlo3o4TasNSLc0TAfYej+p+WD06Ykau+LmFDHfCOXHQ==, tarball: https://npm.pkg.github.com/download/@navikt/browserslist-config/0.1.0/d50de0fec87da901e73431d4c11e425d8173897c}
+    engines: {node: '>=24'}
+    peerDependencies:
+      vite: '>=7'
 
   '@navikt/ds-css@8.16.2':
     resolution: {integrity: sha512-RMKKQ1OTXGPwSGPsWEvOXpRTxA+QhnHc4oGG0ePg7AeeGQvYE/VjtySL2ddOYwAR8BygyvuB/sDrjm5AkQQ0cw==, tarball: https://npm.pkg.github.com/download/@navikt/ds-css/8.16.2/a132ee47c528af289b89dd5d806ac1abfc937e44}
@@ -3578,6 +3587,10 @@ snapshots:
   '@navikt/astro-mocks@0.1.5(astro@7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.1)(tsx@4.23.0)(yaml@2.9.0))':
     dependencies:
       astro: 7.3.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.1)(tsx@4.23.0)(yaml@2.9.0)
+
+  '@navikt/browserslist-config@0.1.0(vite@8.3.0(@types/node@26.4.1)(esbuild@0.28.2)(tsx@4.23.0)(yaml@2.9.0))':
+    dependencies:
+      vite: 8.3.0(@types/node@26.4.1)(esbuild@0.28.2)(tsx@4.23.0)(yaml@2.9.0)
 
   '@navikt/ds-css@8.16.2': {}
 
