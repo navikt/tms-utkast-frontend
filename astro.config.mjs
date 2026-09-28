@@ -1,6 +1,7 @@
 import node from "@astrojs/node";
 import react from "@astrojs/react";
 import mockServer from "@navikt/astro-mocks";
+import navBrowserTargets from "@navikt/browserslist-config/astro";
 import { defineConfig, envField } from "astro/config";
 import utkast from "./src/mocks/utkast.json" with { type: "json" };
 
@@ -15,7 +16,7 @@ export default defineConfig({
       sourcemap: true,
     },
   },
-  integrations: [react(), mockServer({ mocks: utkast })],
+  integrations: [react(), mockServer({ mocks: utkast }), navBrowserTargets()],
   logger: {
     entrypoint: "@navikt/astro-logger",
   },
