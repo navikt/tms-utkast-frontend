@@ -1,0 +1,5 @@
+allowBuilds:
+  esbuild: true
+  lefthook: true
+minimumReleaseAgeExclude:
+  - '@navikt/browserslist-config@0.2.0'
