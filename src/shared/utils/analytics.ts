@@ -1,10 +1,10 @@
-import type { AmplitudeEvent } from "@navikt/nav-dekoratoren-moduler";
 import { getAnalyticsInstance } from "@navikt/nav-dekoratoren-moduler";
 
-type ExtendedAmpltitudeEvent = AmplitudeEvent<"navigere", { kategori: string }>;
+type NavigereEventData = { kategori: string };
 
-const analyticsLogger = getAnalyticsInstance<ExtendedAmpltitudeEvent>("tms-utkast-frontend");
+const analyticsLogger = getAnalyticsInstance("tms-utkast-frontend");
 
 export const logEvent = async (metric: string) => {
-  await analyticsLogger("navigere", { kategori: metric });
+  const data: NavigereEventData = { kategori: metric };
+  await analyticsLogger.custom("navigere", data);
 };
