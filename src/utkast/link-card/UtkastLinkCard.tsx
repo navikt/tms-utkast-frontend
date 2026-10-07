@@ -15,7 +15,11 @@ export default function UtkastLinkCard({ utkast, language }: UtkastLinkCardProps
   const dateFormatter = (date: string) => dayjs(date).format("DD.MM.YYYY");
 
   return (
-    <LinkCard onClick={() => logEvent("utkast-åpnet")} data-color="accent" className={styles.linkCard}>
+    <LinkCard
+      onClick={() => logEvent("utkast-åpnet", utkast.tittel, utkast.link)}
+      data-color="accent"
+      className={styles.linkCard}
+    >
       <LinkCard.Title>
         <LinkCard.Anchor href={utkast.link}>{utkast.tittel}</LinkCard.Anchor>
       </LinkCard.Title>

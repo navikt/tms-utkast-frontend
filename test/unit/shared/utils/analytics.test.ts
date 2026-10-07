@@ -21,16 +21,20 @@ describe("logEvent", () => {
     expect(getAnalyticsInstance).toHaveBeenCalledWith("tms-utkast-frontend");
   });
 
-  it("should log a navigere event with the metric as kategori through logger.custom", async () => {
-    await logEvent("utkast-åpnet");
+  it("should log a typed navigere event with lenketekst, destinasjon and the metric as lenkegruppe", async () => {
+    await logEvent("utkast-åpnet", "Søknad om dagpenger", "https://nav.no/utkast/1");
 
-    expect(logger.custom).toHaveBeenCalledTimes(1);
-    expect(logger.custom).toHaveBeenCalledWith("navigere", { kategori: "utkast-åpnet" });
+    expect(logger).toHaveBeenCalledTimes(1);
+    expect(logger).toHaveBeenCalledWith("navigere", {
+      lenketekst: "Søknad om dagpenger",
+      destinasjon: "https://nav.no/utkast/1",
+      lenkegruppe: "utkast-åpnet",
+    });
   });
 
-  it("should not log through the typed taxonomy logger", async () => {
-    await logEvent("utkast-åpnet");
+  it("should not log through logger.custom", async () => {
+    await logEvent("utkast-åpnet", "Søknad om dagpenger", "https://nav.no/utkast/1");
 
-    expect(logger).not.toHaveBeenCalled();
+    expect(logger.custom).not.toHaveBeenCalled();
   });
 });

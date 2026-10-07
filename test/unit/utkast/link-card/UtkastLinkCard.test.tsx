@@ -59,6 +59,6 @@ describe("UtkastLinkCard", () => {
 
     fireEvent.click(screen.getByRole("link", { name: "Søknad om dagpenger" }));
 
-    expect(logEvent).toHaveBeenCalledWith("utkast-åpnet");
+    expect(logEvent).toHaveBeenCalledWith("utkast-åpnet", "Søknad om dagpenger", "https://nav.no/utkast/1");
   });
 });
