@@ -16,5 +16,5 @@ jobs:
     uses: navikt/tms-deploy/.github/workflows/digestabot-automerge.yaml@main
     name: Digestabot Auto-merge
     secrets:
-      APP_ID: ${{ vars.APP_ID }}
+      APP_ID: ${{ vars.APP_CLIENT_ID }}
       PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
