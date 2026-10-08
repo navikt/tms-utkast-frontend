@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
-    "@biomejs/biome": "2.5.14",
+    "@biomejs/biome": "2.5.15",
     "@navikt/astro-mocks": "0.1.5",
     "@navikt/browserslist-config": "0.2.0",
     "@playwright/test": "1.63.0",
@@ -45,7 +45,7 @@
     "@types/react-dom": "19.3.0",
     "@vitest/coverage-v8": "4.1.11",
     "jsdom": "30.1.1",
-    "lefthook": "2.1.14",
+    "lefthook": "2.1.15",
     "typescript": "5.9.3",
     "vitest": "4.1.11"
   },
