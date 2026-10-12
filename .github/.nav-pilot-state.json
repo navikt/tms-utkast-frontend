@@ -1,8 +1,8 @@
 {
   "collection": "nav-pilot",
-  "version": "2026.10.02-091742-36b75ce",
+  "version": "2026.10.11-201029-b998fab",
   "scope": "repo",
-  "source_sha": "36b75ce3b89d447b62df927d6c5d7eba02a72224",
+  "source_sha": "89bcf22fc67f78c008c4419770b8e4bddd279198",
   "installed_at": "2026-04-24T09:51:34Z",
   "files": [
     {
@@ -25,7 +25,8 @@
     },
     {
       "path": ".github/agents/code-review.agent.md",
-      "hash": "5a019cbf3eda9ce2"
+      "hash": "811b2a6765ff86de",
+      "revision": "89bcf22fc67f78c008c4419770b8e4bddd279198"
     },
     {
       "path": ".github/agents/forfatter.agent.md",
@@ -47,8 +48,8 @@
     },
     {
       "path": ".github/agents/nav-pilot.agent.md",
-      "hash": "c2ec92805bae041b",
-      "revision": "36b75ce3b89d447b62df927d6c5d7eba02a72224"
+      "hash": "8c6cbe9101b541c5",
+      "revision": "89bcf22fc67f78c008c4419770b8e4bddd279198"
     },
     {
       "path": ".github/agents/nav-pilot.metadata.json",
@@ -60,11 +61,17 @@
     },
     {
       "path": ".github/agents/rust.agent.md",
-      "hash": "f915a28c049a0f64"
+      "hash": "e1cb55806cd87d8c",
+      "revision": "89bcf22fc67f78c008c4419770b8e4bddd279198"
     },
     {
       "path": ".github/agents/security-champion.agent.md",
-      "hash": "09850437ed89c7bb"
+      "hash": "65fed295fcdd5bd1",
+      "revision": "89bcf22fc67f78c008c4419770b8e4bddd279198"
+    },
+    {
+      "path": ".github/agents/worker.agent.md",
+      "hash": "43c860f99cd1337e"
     },
     {
       "path": ".github/hooks/ask-first-aria.py",
@@ -173,7 +180,8 @@
     },
     {
       "path": ".github/skills/deliberate-ai-use/",
-      "hash": "7c195e344bca6924"
+      "hash": "81fe98e25424c81c",
+      "revision": "89bcf22fc67f78c008c4419770b8e4bddd279198"
     },
     {
       "path": ".github/skills/flyway-migration/",
@@ -222,7 +230,8 @@
     },
     {
       "path": ".github/skills/nav-dekoratoren/",
-      "hash": "36a286dece9e2c63"
+      "hash": "4b5d432477529d66",
+      "revision": "89bcf22fc67f78c008c4419770b8e4bddd279198"
     },
     {
       "path": ".github/skills/nav-plan/",
