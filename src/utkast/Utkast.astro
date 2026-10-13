@@ -6,6 +6,7 @@ import ErrorBox from "./fallback/Error.astro";
 import IngenUtkast from "./ingen/IngenUtkast.astro";
 import UtkastLinkCard from "./link-card/UtkastLinkCard";
 import styles from "./Utkast.module.css";
+import { text } from "./utkastText";
 import type { UtkastElement } from "./utkastTypes";
 import { fetchUtkast, isIngen, sortByOpprettet } from "./utkastUtils";
 
@@ -25,6 +26,11 @@ try {
   Astro.logger.error(`Error fetching utkast: ${error}`);
   isError = true;
 }
+
+const maskedUtkastCount = utkast.filter((utkast: UtkastElement) => utkast.masked).length;
+const visibleUtkast = utkast
+    .filter((utkast: UtkastElement) => !utkast.masked)
+    .sort(sortByOpprettet);
 ---
 
 <>
@@ -38,11 +44,16 @@ try {
       }
       return (
         <ul class={styles.utkastList}>
-          {utkast?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
+          {visibleUtkast.map((utkast) =>
             <li class={styles.container}>
               <UtkastLinkCard client:load utkast={utkast} language={language} />
             </li>
-          ))}
+          )}
+          {maskedUtkastCount > 0 && (
+            <li class={styles.container}>
+                {`${maskedUtkastCount} ${text.maskedUtkastTekst[language]}`}
+            </li>
+          )}
         </ul>
       );
     }
