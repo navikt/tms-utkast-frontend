@@ -20,3 +20,8 @@ export const sortByOpprettet = (a: UtkastElement, b: UtkastElement) =>
   dayjs(a.opprettet).isAfter(dayjs(b.opprettet)) ? -1 : 1;
 
 export const isIngen = (utkast: UtkastElement[]) => utkast.length === 0;
+
+export const toMaskedCount = (count: number, utkast: UtkastElement) =>
+    count + (utkast.masked ? 1 : 0)
+
+export const isVisible = (utkast: UtkastElement) => !utkast.masked

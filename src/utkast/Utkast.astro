@@ -8,7 +8,7 @@ import UtkastLinkCard from "./link-card/UtkastLinkCard";
 import styles from "./Utkast.module.css";
 import { text } from "./utkastText";
 import type { UtkastElement } from "./utkastTypes";
-import { fetchUtkast, isIngen, sortByOpprettet } from "./utkastUtils";
+import {fetchUtkast, isIngen, isVisible, sortByOpprettet, toMaskedCount} from "./utkastUtils";
 
 interface Props {
   language: Language;
@@ -27,9 +27,9 @@ try {
   isError = true;
 }
 
-const maskedUtkastCount = utkast.filter((utkast: UtkastElement) => utkast.masked).length;
+const maskedUtkastCount = utkast.reduce(toMaskedCount, 0)
 const visibleUtkast = utkast
-    .filter((utkast: UtkastElement) => !utkast.masked)
+    .filter(isVisible)
     .sort(sortByOpprettet);
 ---
 
