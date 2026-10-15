@@ -16,6 +16,7 @@ const baseUtkast: UtkastElement = {
   opprettet: "2024-03-15T10:00:00.000Z",
   sistEndret: "2024-03-16T10:00:00.000Z",
   slettesEtter: null,
+  masked: false,
 };
 
 describe("UtkastLinkCard", () => {

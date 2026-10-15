@@ -44,7 +44,7 @@ const visibleUtkast = utkast
       }
       return (
         <ul class={styles.utkastList}>
-          {visibleUtkast.map((utkast) =>
+          {visibleUtkast.map((utkast: UtkastElement) =>
             <li class={styles.container}>
               <UtkastLinkCard client:load utkast={utkast} language={language} />
             </li>
