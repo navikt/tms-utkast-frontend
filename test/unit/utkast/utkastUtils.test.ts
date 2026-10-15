@@ -10,6 +10,7 @@ const makeUtkast = (opprettet: string, overrides: Partial<UtkastElement> = {}): 
   sistEndret: opprettet,
   slettesEtter: null,
   ...overrides,
+  masked: false,
 });
 
 describe("sortByOpprettet", () => {
