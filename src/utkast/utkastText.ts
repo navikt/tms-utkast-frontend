@@ -29,4 +29,9 @@ export const text = {
     en: "Go to applications and forms",
     nn: "Gå til søknad og skjema",
   },
+  maskedUtkastTekst: {
+    nb: "utkast er ikke tilgjengelig, for å se disse utkast må du logge inn med BankID eller Buypass",
+    en: "drafts are not available, to see these drafts you must log in with BankID or Buypass",
+    nn: "utkast er ikkje tilgjengelig, for å sjå disse utkast må du logge inn med BankID eller Buypass",
+  }
 };
