@@ -33,5 +33,30 @@ export const text = {
     nb: "utkast er ikke tilgjengelig, for å se disse utkast må du logge inn med BankID eller Buypass",
     en: "drafts are not available, to see these drafts you must log in with BankID or Buypass",
     nn: "utkast er ikkje tilgjengelig, for å sjå disse utkast må du logge inn med BankID eller Buypass",
-  }
+  },
+  maskedUtkastTittel: {
+    nb: "Du har et utkast",
+    en: "You have a draft",
+    nn: "Du har eit utkast",
+  },
+  maskedUtkastBeskrivelse: {
+    nb: "Logg inn med BankID, Buypass eller Commfides for å se utkastet",
+    en: "Log in with BankID, Buypass, or Commfides to see the draft",
+    nn: "Logg inn med BankID, Buypass eller Commfides for å sjå utkastet",
+  },
+  maskedUtkastStatus: {
+    nb: "Kan ikke vises",
+    en: "Cannot be displayed",
+    nn: "Kan ikkje visast",
+  },
+  infoTittel: {
+    nb: "Du har logget inn med MinID",
+    en: "You are logged in with MinID",
+    nn: "Du har logga inn med MinID",
+  },
+  infoTekst: {
+    nb: "Hvis du logger inn med et høyere sikkerhetsnivå, får du se alle utkastene dine. Logg inn med BankID, Buypass, eller Commfides",
+    en: "If you log in with a higher security level, you can see all your drafts. Log in with BankID, Buypass, or Commfides",
+    nn: "Viss du loggar inn med eit høgare tryggleiksnivå, får du sjå alle utkasta dine. Logg inn med BankID, Buypass eller Commfides",
+  },
 };
