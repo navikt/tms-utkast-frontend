@@ -8,7 +8,7 @@ import {EyeSlashIcon} from "@navikt/aksel-icons";
 interface LanguageProps {
     language: Language;
 }
-const link = "/minside/oauth2/login?level=idporten-loa-high"
+const link = "/minside/utkast/oauth2/login?level=idporten-loa-high"
 export default function UtkastLinkCardMasked({ language }: LanguageProps){
 
     return (
