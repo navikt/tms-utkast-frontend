@@ -47,6 +47,6 @@ spec:
       memory: 128Mi
   env:
     - name: UTKAST_API_URL
-      value: "http://tms-utkast/v2/utkast"
+      value: "http://tms-utkast/v3/utkast"
     - name: MIN_SIDE_URL
       value: "https://www.nav.no/minside/"

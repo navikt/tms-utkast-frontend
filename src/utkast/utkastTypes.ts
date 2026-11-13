@@ -6,6 +6,7 @@ export interface UtkastElement {
   sistEndret: string;
   slettesEtter: string | null;
   metrics?: MetricValues | null;
+  masked: boolean
 }
 
 export interface MetricValues {
