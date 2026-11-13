@@ -1,17 +1,34 @@
 ---
-import { MIN_SIDE_URL } from "astro:env/server";
-import { Loader } from "@navikt/ds-react";
+import { MIN_SIDE_URL, UTKAST_API_URL } from "astro:env/server";
 import Layout from "@src/layouts/Layout.astro";
 import type { Language } from "@src/shared/language/language";
 import { text } from "@src/shared/language/text";
+import { getOboToken } from "@src/shared/utils/token";
 import PageHeader from "@src/shared/page-header/PageHeader.astro";
 import Utkast from "@src/utkast/Utkast.astro";
+import UtkastInfoCard from "@src/utkast/UtkastInfoCard";
+import type { UtkastElement } from "@src/utkast/utkastTypes";
+import { fetchUtkast } from "@src/utkast/utkastUtils";
 import styles from "./_index.module.css";
 
 const language = Astro.currentLocale as Language;
+const oboToken = await getOboToken(Astro.locals.token, Astro.logger);
+
+let utkast: UtkastElement[] = [];
+let isError = false;
+
+try {
+  utkast = await fetchUtkast(oboToken, UTKAST_API_URL);
+} catch (error) {
+  Astro.logger.error(`Error fetching utkast: ${error}`);
+  isError = true;
+}
+
+const hasMaskedUtkast = utkast.some((utkast) => utkast.masked);
 ---
 
 <Layout title="Utkast">
+  {hasMaskedUtkast && <UtkastInfoCard language={language} />}
   <div class={styles.headingWrapper}>
     <PageHeader
       breadcrumbItems={[{ href: MIN_SIDE_URL, label: text.minSide[language] }]}
@@ -20,8 +37,6 @@ const language = Astro.currentLocale as Language;
     />
   </div>
   <div class={styles.utkastWrapper}>
-    <Utkast language={language} server:defer>
-      <Loader slot="fallback" />
-    </Utkast>
+    <Utkast language={language} utkast={utkast} isError={isError} />
   </div>
 </Layout>

@@ -29,7 +29,8 @@
         "link": "https://www.intern.dev.nav.no/minside/",
         "opprettet": "2020-10-13T08:53:24.636Z",
         "sistEndret": null,
-        "slettesEtter": "2020-11-13T08:53:24.636Z"
+        "slettesEtter": "2020-11-13T08:53:24.636Z",
+        "masked": false
       },
       {
         "utkastId": "124610",
@@ -37,7 +38,26 @@
         "link": "https://www.intern.dev.nav.no/minside/",
         "opprettet": "2023-03-13T08:53:24.636Z",
         "sistEndret": "2023-03-14T08:53:24.636Z",
-        "slettesEtter": null
+        "slettesEtter": null,
+        "masked": false
+      },
+      {
+        "utkastId": "124611",
+        "tittel": "",
+        "link": "",
+        "opprettet": "2023-03-13T08:53:24.636Z",
+        "sistEndret": "2023-03-14T08:53:24.636Z",
+        "slettesEtter": null,
+        "masked": true
+      },
+      {
+        "utkastId": "124612",
+        "tittel": "",
+        "link": "",
+        "opprettet": "2023-03-13T08:53:24.636Z",
+        "sistEndret": "2023-03-14T08:53:24.636Z",
+        "slettesEtter": null,
+        "masked": true
       }
     ]
   },
