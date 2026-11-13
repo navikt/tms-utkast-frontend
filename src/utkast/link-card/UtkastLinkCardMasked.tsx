@@ -12,7 +12,11 @@ interface LanguageProps {
 export default function UtkastLinkCardMasked({ language }: LanguageProps){
 
     return (
-        <LinkCard onClick={() => logEvent("utkast-masked-åpnet")} data-color="accent" className={styles.linkCard}>
+        <LinkCard
+            onClick={() => logEvent("utkast-masked-åpnet", text.maskedUtkastTittel[language], "mockLink")}
+            data-color="accent"
+            className={styles.linkCard}
+        >
             <LinkCard.Title>
                 <LinkCard.Anchor href={"mockLink"}>{text.maskedUtkastTittel[language]}</LinkCard.Anchor>
             </LinkCard.Title>
