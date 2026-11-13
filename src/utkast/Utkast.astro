@@ -1,30 +1,25 @@
 ---
-import { UTKAST_API_URL } from "astro:env/server";
 import type { Language } from "@src/shared/language/language";
-import { getOboToken } from "@src/shared/utils/token";
 import ErrorBox from "./fallback/Error.astro";
 import IngenUtkast from "./ingen/IngenUtkast.astro";
 import UtkastLinkCard from "./link-card/UtkastLinkCard";
+import UtkastLinkCardMasked from "./link-card/UtkastLinkCardMasked";
 import styles from "./Utkast.module.css";
 import type { UtkastElement } from "./utkastTypes";
-import { fetchUtkast, isIngen, sortByOpprettet } from "./utkastUtils";
+import { isIngen, isVisible, sortByOpprettet } from "./utkastUtils";
 
 interface Props {
   language: Language;
+  utkast: UtkastElement[];
+  isError: boolean;
 }
 
-const oboToken = await getOboToken(Astro.locals.token, Astro.logger);
-const { language } = Astro.props;
+const { language, utkast, isError } = Astro.props;
 
-let utkast = [];
-let isError = false;
-
-try {
-  utkast = await fetchUtkast(oboToken, UTKAST_API_URL);
-} catch (error) {
-  Astro.logger.error(`Error fetching utkast: ${error}`);
-  isError = true;
-}
+const maskedUtkast = utkast.filter((utkast) => utkast.masked);
+const visibleUtkast = utkast
+    .filter(isVisible)
+    .sort(sortByOpprettet);
 ---
 
 <>
@@ -38,9 +33,14 @@ try {
       }
       return (
         <ul class={styles.utkastList}>
-          {utkast?.sort(sortByOpprettet).map((utkast: UtkastElement) => (
+          {visibleUtkast.map((utkast: UtkastElement) =>
             <li class={styles.container}>
               <UtkastLinkCard client:load utkast={utkast} language={language} />
+            </li>
+          )}
+          {maskedUtkast.map(() => (
+            <li class={styles.container}>
+              <UtkastLinkCardMasked client:load language={language} />
             </li>
           ))}
         </ul>
