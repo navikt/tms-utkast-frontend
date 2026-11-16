@@ -5,9 +5,9 @@ export const text = {
     nn: "Utkast",
   },
   description: {
-    nb: "Her kan du fortsette på skjemaer du ikke har sendt til oss ennå",
+    nb: "Her kan du fortsette på det du har begynt på men ikke sendt til oss ennå",
     en: "Here you can continue with the forms you have not yet submitted to us",
-    nn: "Her kan du halde fram med skjema du ikkje har sendt inn til oss enno",
+    nn: "Her kan du halde fram med det du har byrja på, men ikkje sendt til oss enno",
   },
   minSide: {
     nb: "Min side",
