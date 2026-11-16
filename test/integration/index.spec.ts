@@ -20,7 +20,7 @@ test.describe("Utkast-forsiden", () => {
     const utkast = new UtkastPage(page);
     await utkast.goto();
 
-    await expect(page.getByText("Her kan du fortsette på skjemaer du ikke har sendt til oss ennå")).toBeVisible();
+    await expect(page.getByText("Her kan du fortsette på det du har begynt på men ikke sendt til oss ennå")).toBeVisible();
   });
 
   test("viser utkast fra api-et", async ({ page }) => {
