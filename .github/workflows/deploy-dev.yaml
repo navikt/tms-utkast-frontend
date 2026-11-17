@@ -14,6 +14,7 @@ permissions:
 
 jobs:
   build-and-deploy:
+    name: CI
     uses: navikt/tms-deploy/.github/workflows/astro-deploy-v1.yaml@main
     with:
       app-name: "tms-utkast-frontend"
