@@ -44,3 +44,5 @@ spec:
       value: "http://tms-utkast/v3/utkast"
     - name: MIN_SIDE_URL
       value: "https://www.ansatt.dev.nav.no/minside/"
+    - name: PREVIEW_MAX_WARM
+      value: "1"

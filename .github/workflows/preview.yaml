@@ -49,6 +49,17 @@ jobs:
           ASTRO_KEY: ${{ secrets.ASTRO_KEY }}
         run: pnpm run build
 
+      - name: Build extra versions
+        run: |
+          mkdir -p versions/b
+          cp -R dist versions/b/dist
+          pnpm exec astro build --config preview/astro.bundled.config.mjs
+          test "$(ls dist/client/_astro)" = "$(ls versions/c/dist/client/_astro)"
+          for version in b c; do
+            grep -rlF '<title>Utkast</title>' "versions/$version/dist/server" | xargs sed -i "s|<title>Utkast</title>|<title>Utkast (bygg $version)</title>|"
+            grep -rqF "<title>Utkast (bygg $version)</title>" "versions/$version/dist/server"
+          done
+
       - name: Upload assets to CDN
         uses: nais/deploy/actions/cdn-upload/v2@6a9dcd6df697ec2d38edc78cadb0b9acd1232f50 # ratchet:nais/deploy/actions/cdn-upload/v2@v3
         with:
@@ -63,6 +74,7 @@ jobs:
         uses: nais/docker-build-push@ceabe305c64640175f133b7e59af6666b0a3c46c # ratchet:nais/docker-build-push@v0
         with:
           team: min-side
+          dockerfile: preview/Dockerfile
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
 
