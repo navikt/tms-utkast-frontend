@@ -11,6 +11,6 @@ COPY ./preview/launcher.mjs ./preview/launcher.mjs
 ENV HOST=0.0.0.0
 ENV PORT=3000
 
-CMD ["./preview/launcher.mjs"]
+CMD ["./dist/server/entry.mjs"]
 
 EXPOSE $PORT

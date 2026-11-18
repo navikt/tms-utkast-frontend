@@ -15,6 +15,9 @@ spec:
   tokenx:
     enabled: true
   image: {{ image }}
+  command:
+    - /usr/bin/node
+    - ./preview/launcher.mjs
   port: 3000
   liveness:
     path: /minside/utkast/api/internal/isAlive
@@ -45,4 +48,4 @@ spec:
     - name: MIN_SIDE_URL
       value: "https://www.ansatt.dev.nav.no/minside/"
     - name: PREVIEW_MAX_WARM
-      value: "1"
+      value: "2"
