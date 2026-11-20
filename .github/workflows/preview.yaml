@@ -1,0 +1,94 @@
+name: "Preview"
+on:
+  pull_request:
+    types: [opened, reopened, labeled, synchronize]
+
+concurrency:
+  group: preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: "read"
+  id-token: "write"
+  packages: "write"
+  pull-requests: "write"
+
+jobs:
+  preview:
+    name: "Deploy preview"
+    if: >-
+      contains(github.event.pull_request.labels.*.name, 'preview') &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    env:
+      APP_NAME: tms-utkast-frontend-pr-${{ github.event.pull_request.number }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # ratchet:actions/checkout@v7
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # ratchet:pnpm/action-setup@v6
+        with:
+          version: "10"
+          run_install: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # ratchet:actions/setup-node@v7
+        with:
+          node-version: "24"
+          registry-url: https://npm.pkg.github.com
+          cache: pnpm
+
+      - name: Install dependencies
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
+        run: pnpm install --frozen-lockfile --config.minimum-release-age=10080
+
+      - name: Build application
+        env:
+          ASTRO_KEY: ${{ secrets.ASTRO_KEY }}
+        run: pnpm run build
+
+      - name: Build extra versions
+        run: |
+          mkdir -p versions/b
+          cp -R dist versions/b/dist
+          pnpm exec astro build --config preview/astro.bundled.config.mjs
+          test "$(ls dist/client/_astro)" = "$(ls versions/c/dist/client/_astro)"
+          for version in b c; do
+            grep -rlF '<title>Utkast</title>' "versions/$version/dist/server" | xargs sed -i "s|<title>Utkast</title>|<title>Utkast (bygg $version)</title>|"
+            grep -rqF "<title>Utkast (bygg $version)</title>" "versions/$version/dist/server"
+          done
+
+      - name: Upload assets to CDN
+        uses: nais/deploy/actions/cdn-upload/v2@6a9dcd6df697ec2d38edc78cadb0b9acd1232f50 # ratchet:nais/deploy/actions/cdn-upload/v2@v3
+        with:
+          team: min-side
+          source: ./dist/client/_astro
+          destination: tms-utkast-frontend
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+
+      - name: Build and push Docker image
+        id: docker-build-push
+        uses: nais/docker-build-push@ceabe305c64640175f133b7e59af6666b0a3c46c # ratchet:nais/docker-build-push@v0
+        with:
+          team: min-side
+          dockerfile: preview/Dockerfile
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+
+      - name: Deploy preview to dev-gcp
+        uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: dev-gcp
+          RESOURCE: nais/dev-gcp/preview.yaml
+          VAR: image=${{ steps.docker-build-push.outputs.image }},pr=${{ github.event.pull_request.number }}
+
+      - name: Comment preview URL
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --edit-last --create-if-none \
+            --body "Preview: https://${APP_NAME}.ansatt.dev.nav.no/minside/utkast (slettes automatisk etter 3 dager)"
