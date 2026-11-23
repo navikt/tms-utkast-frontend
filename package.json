@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
-    "@biomejs/biome": "2.6.6",
+    "@biomejs/biome": "2.6.7",
     "@navikt/astro-mocks": "0.1.5",
     "@navikt/browserslist-config": "0.2.0",
     "@playwright/test": "1.65.0",
